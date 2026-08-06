@@ -25,9 +25,9 @@ Default output is `TASTE.md` plus its history. A portable personal skill, so any
 3. A second session resumes from `TASTE.md` without re-asking anything already answered.
 4. A prediction run produces a scored hit or miss, and every miss opens a tension.
 5. Two fixture personas seeded with opposed rejections produce core principle sets that do not overlap. Verified by running the skill against both fixtures and diffing the resulting principle ids.
-6. A recorded contradiction demotes an existing core principle, preserving its prior wording, without the person having to ask for the demotion.
+6. A recorded contradiction is detected and surfaced without the person having to ask, and on their confirmation demotes the principle while preserving its prior wording. No demotion is written without that confirmation.
 
-Condition 6 is the self-evolution condition. A profile that only ever accumulates is a profile that cannot be wrong.
+Condition 6 is the self-evolution condition. A profile that only ever accumulates is a profile that cannot be wrong. Detection is unprompted; mutation never is.
 
 **Post-MVP gate.** An agent using an emitted profile makes judgments the person endorses more than the same agent without it. Not evaluable until the emitted skill exists. Recorded because skill-augmented agents frequently fail to outperform the base agent, and a profile that changes nothing is a failed profile.
 
@@ -121,6 +121,7 @@ Inline in `SKILL.md`, not buried in a reference. Content neutrality is the produ
 3. Never rank their principles. Priority between principles is theirs alone.
 4. Ask for the choice before the reason. Never the reverse.
 5. If your own preference shapes a question, record it in the history as a `leak` entry.
+6. Change nothing without being asked or without consent. Detecting a contradiction, noticing a gap, or seeing a better wording earns you the right to surface it, never to write it. Volunteering an unrequested opinion about their taste is itself a violation, not only editing the file.
 
 ## Question bank
 
@@ -205,7 +206,9 @@ Lives in `references/promotion.md`.
 
 Tier is read from the recorded decision, never stored a second time on the principle. A denormalized copy drifts.
 
-**Demotion** is the same gate run backwards, and it is the heart of self-evolution. A recorded choice that contradicts a core principle at real cost demotes it without waiting to be asked, and the prior wording moves to the Revision Record intact. Growth is never rewritten as though the earlier understanding never existed.
+**Demotion** is the same gate run backwards, and it is the heart of self-evolution. A recorded choice that contradicts a core principle at real cost is detected without waiting to be asked and surfaced to the person: here is the principle, here is the choice that contradicts it, here is what it cost. They decide.
+
+On confirmation the principle is demoted and the prior wording moves to the Revision Record intact. Without confirmation nothing is written, and the contradiction is recorded as an open tension so it resurfaces rather than being lost. Growth is never rewritten as though the earlier understanding never existed.
 
 **Prediction.** A miss is not the person's failure; it is the highest-quality evidence the system can obtain about itself. Every miss opens a tension and re-enters the loop. Hits are recorded but confer no promotion — a prediction the profile got right only shows the profile is self-consistent.
 
