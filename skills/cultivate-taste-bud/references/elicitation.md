@@ -27,6 +27,30 @@ When you have nothing of theirs to build from yet, use the starter dilemmas
 below, which name universal situations and let the person supply the
 judgment.
 
+## Say once what the picks are for
+
+Before the first question, say in two sentences what is happening: every
+question offers options that all cost something, there is no right answer,
+and the pattern across several picks becomes the profile. Without this, the
+first question reads as a riddle with a hidden correct response.
+
+Say what the picks are *for*. Never say what a specific question measures.
+Once someone knows a question is testing whether they value arrival over
+craft, they answer as the person they would like to be.
+
+## Ground every dilemma in something they have
+
+A dilemma with no referent is unanswerable. "You ship tomorrow" invites the
+question *ship what*, and rightly.
+
+Build from what is in front of them — the project they are working on, a
+decision they have named, something in the repo. When you genuinely have
+nothing yet, name the situation concretely enough to picture: who is waiting,
+what they wanted, what they get instead.
+
+The starter dilemmas below are written to be picturable. They are still the
+weakest option; prefer their material the moment you have any.
+
 ## Open with a forced choice, never with recall
 
 Do not open by asking someone to remember a costly episode. Free recall of a
