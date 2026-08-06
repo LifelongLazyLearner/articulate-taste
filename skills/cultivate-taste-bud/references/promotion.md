@@ -60,8 +60,22 @@ person.
 
 ## Prediction
 
-Once a core principle exists, predict their judgment on an item the profile
-was not built from, and the reasoning. They score it.
+**Prediction does not wait for core.** Any principle with a stated boundary
+can be predicted from. Core requires a test question the person wrote, and
+gating the self-correcting half of the method behind the one thing people
+decline to do means it never runs — the profile becomes a questionnaire that
+cannot be wrong.
+
+A prediction from a boundary alone is rougher, because a boundary says where
+a principle stops rather than how to apply it. Say so when you show it.
+
+Ask for the test question *after* a prediction, never before. Someone who has
+watched the profile guess at their judgment and seen it land or miss can tell
+what the sentence buys. Someone asked cold is being charged for a benefit
+they cannot see.
+
+Predict their judgment on an item the profile was not built from, and the
+reasoning. They score it.
 
 A miss is not their failure. It is the highest-quality evidence the system
 can obtain about itself — every miss opens a tension and re-enters the loop.

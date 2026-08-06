@@ -127,6 +127,17 @@ def validate(profile_text: str, log_text: str) -> list[str]:
     return errors
 
 
+def predictable_ids(profile_text: str) -> set[str]:
+    """Principles a prediction may draw on.
+
+    A stated boundary is enough. Prediction deliberately does not wait for a
+    principle to reach core, because core requires a test question the person
+    wrote, and gating the self-correcting half of the method behind the one
+    thing people decline to do means it never runs at all.
+    """
+    return {p.id for p in parse_profile(profile_text) if p.boundary}
+
+
 def core_ids(profile_text: str, log_text: str) -> set[str]:
     """Ids of principles the evidence actually supports as core."""
     decisions = parse_log(log_text)

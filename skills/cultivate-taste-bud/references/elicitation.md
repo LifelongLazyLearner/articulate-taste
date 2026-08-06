@@ -166,9 +166,14 @@ they would ask themselves to check the principle. It cannot be generated and
 confirmed, because agreeing to a generated question costs nothing, and this
 question is what the Decision Test is built from.
 
-Offer it, do not demand it. A principle with everything else in place waits
-at provisional until they write one. That is an honest status, not a failure
-— and it means a whole session can run without typing a word.
+Offer it, do not demand it, and offer it **after a prediction, never before**.
+Someone who has watched the profile guess at their judgment and seen it land
+or miss can tell what the sentence buys. Asked cold, they are being charged
+for a benefit they cannot see, and they will decline — correctly.
+
+A principle with everything else in place waits at provisional until they
+write one. That is an honest status, not a failure, and it no longer blocks
+anything: prediction runs on boundaries alone.
 
 ## Tier 1 — artifact mining
 

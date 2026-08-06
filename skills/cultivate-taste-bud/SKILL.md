@@ -70,8 +70,11 @@ where to resume.
 5. **gate** — Apply [references/promotion.md](references/promotion.md).
 6. **record** — Update the principle and append the history entry in one
    pass. Formats in [references/format.md](references/format.md).
-7. **predict** — Once a core principle exists, predict their judgment on a
-   held-out item. A miss opens a tension and re-enters the loop.
+7. **predict** — As soon as any principle has a boundary, predict their
+   judgment on a held-out item. Do not wait for core: core needs a sentence
+   they wrote, and gating self-correction behind it means it never runs. A
+   miss opens a tension and re-enters the loop. Ask for the test question
+   after a prediction, once they can see what it buys.
 
 ## Verify before finishing
 
