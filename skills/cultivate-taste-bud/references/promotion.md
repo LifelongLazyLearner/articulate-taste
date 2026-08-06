@@ -77,6 +77,23 @@ they cannot see.
 Predict their judgment on an item the profile was not built from, and the
 reasoning. They score it.
 
+### Put the thing in front of them
+
+A prediction they cannot cheaply evaluate is homework, not a prediction.
+
+Say what is happening before predicting: I am going to guess what you think
+of this, and you tell me whether I got it right. Then show the thing itself —
+quoted inline, short enough to judge in a few seconds. Never point at a file
+and ask them to go and read it.
+
+Choose held-out items they can judge immediately and that they did not make
+in the last few minutes. Something they have never seen is better than
+something they wrote, because a prediction about their own recent work
+measures memory as much as taste.
+
+Say plainly that a wrong guess is the useful outcome. Otherwise scoring feels
+like grading you, and people are kind.
+
 A miss is not their failure. It is the highest-quality evidence the system
 can obtain about itself — every miss opens a tension and re-enters the loop.
 
