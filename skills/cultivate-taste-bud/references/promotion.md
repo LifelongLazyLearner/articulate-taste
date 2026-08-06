@@ -53,6 +53,16 @@ The status rule run backwards, and the heart of self-evolution. A contradiction
 they still defend is detected without waiting to be asked, and surfaced: here
 is the principle, here is what contradicts it. They decide.
 
+**Applying a demotion means removing the confirmation**, so the status
+recomputes to provisional on its own. Log the event with `defended: yes` and
+the prior wording, and move that wording to the Revision Record intact.
+
+A demotion logged while the confirmation still stands is the profile keeping a
+promotion the person took back. The validator reports it.
+
+A principle can be confirmed again later by a fresh prediction. Nothing is
+permanently spent.
+
 On confirmation, demote and move the prior wording to the Revision Record
 intact. Without confirmation, write nothing and record the contradiction as
 an open tension so it resurfaces later rather than being lost.

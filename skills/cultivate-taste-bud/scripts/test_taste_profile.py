@@ -189,6 +189,53 @@ class TestValidate(unittest.TestCase):
         self.assertTrue(any("did not hit" in error for error in errors))
 
 
+class TestDemotion(unittest.TestCase):
+    """Demotion is applied by removing the confirmation, so status recomputes.
+
+    The validator's job is catching a demotion that was recorded and then not
+    applied — the profile quietly keeping a promotion the person took back.
+    """
+
+    DEMOTE_LOG = LOG + """
+## [2026-08-08] demote | kindness-over-authenticity
+defended: yes
+prior: Kindness outranks being unvarnished.
+"""
+
+    def test_applied_demotion_leaves_the_principle_provisional(self):
+        profile = PROFILE.replace(
+            "**Confirmed by.** [2026-08-06-blunt-feedback] — guessed how you'd read it, correctly.\n",
+            "",
+        ).replace("### kindness-over-authenticity — core", "### kindness-over-authenticity — provisional")
+        self.assertEqual(validate(profile, self.DEMOTE_LOG), [])
+        self.assertEqual(core_ids(profile, self.DEMOTE_LOG), set())
+
+    def test_recorded_but_unapplied_demotion_is_reported(self):
+        errors = validate(PROFILE, self.DEMOTE_LOG)
+        self.assertTrue(
+            any("demoted on 2026-08-08" in error and "still cites" in error for error in errors),
+            errors,
+        )
+
+    def test_a_lapse_does_not_demote(self):
+        """A contradiction the person does not defend leaves the principle alone."""
+        log = LOG + """
+## [2026-08-08] demote | kindness-over-authenticity
+defended: no
+"""
+        self.assertEqual(validate(PROFILE, log), [])
+
+    def test_a_principle_can_be_reconfirmed_after_demotion(self):
+        log = self.DEMOTE_LOG + """
+## [2026-08-09] predict | second-look
+about: kindness-over-authenticity
+result: hit
+"""
+        profile = PROFILE.replace("2026-08-06-blunt-feedback", "2026-08-09-second-look")
+        self.assertEqual(validate(profile, log), [])
+        self.assertIn("kindness-over-authenticity", core_ids(profile, log))
+
+
 class TestNeutrality(unittest.TestCase):
     def test_each_fixture_is_internally_valid(self):
         for name in ("ship-fast", "hold-the-line"):

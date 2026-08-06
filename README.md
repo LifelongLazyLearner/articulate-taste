@@ -76,11 +76,17 @@ change your profile.
 
 ## Honest limits
 
-- It needs you to have made costly choices. Early in a career, thin.
-- People invent reasons for their own judgments. Asking for the choice before
-  the reason helps; it doesn't cure it.
-- It checks what you *say*, not what you *do*.
-- It's only as honest as your willingness to record choices you regret.
+- **Scoring a guess is itself something you tell it.** The profile can't see
+  whether it really understood you — it asks. What keeps that from being
+  worthless is that you're the only one who reads your profile, so scoring
+  generously just produces a document that lies to you. Nothing to win.
+- **It's weakest exactly when it's newest.** Confidence comes from guessing
+  you right, so a fresh profile has earned nothing yet.
+- **People invent reasons for their own judgments.** Asking for the choice
+  before the reason helps. It doesn't cure it.
+- **It records what you say, not what you do.** That's deliberate — it's a
+  record of your standards, and you can hold a standard you've fallen short
+  of. But don't mistake it for a description of your behaviour.
 
 ## Also here
 

@@ -113,10 +113,34 @@ def computed_status(principle: Principle, entries: dict[str, Entry]) -> str:
     return "provisional"
 
 
+def _unapplied_demotions(principle: Principle, entries: dict[str, Entry]) -> list[str]:
+    """Demotions recorded in the history but never applied to the profile.
+
+    Applying a demotion means removing the confirmation it invalidates, which
+    lets status recompute on its own. A demotion logged while the confirmation
+    still stands is the profile quietly keeping a promotion the person took
+    back.
+    """
+    errors: list[str] = []
+    for entry in entries.values():
+        if entry.action != "demote" or entry.fields.get("defended") != "yes":
+            continue
+        if not entry.id.endswith(f"-{principle.id}"):
+            continue
+        demoted_on = entry.id[:10]
+        for ref in principle.confirmed_by:
+            if ref[:10] <= demoted_on:
+                errors.append(
+                    f"{principle.id}: demoted on {demoted_on} but still cites {ref} as confirmation"
+                )
+    return errors
+
+
 def validate(profile_text: str, log_text: str) -> list[str]:
     entries = parse_log(log_text)
     errors: list[str] = []
     for principle in parse_profile(profile_text):
+        errors.extend(_unapplied_demotions(principle, entries))
         for ref in principle.confirmed_by:
             entry = entries.get(ref)
             if entry is None:
