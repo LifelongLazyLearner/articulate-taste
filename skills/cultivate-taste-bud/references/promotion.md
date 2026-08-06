@@ -63,9 +63,8 @@ promotion the person took back. The validator reports it.
 A principle can be confirmed again later by a fresh prediction. Nothing is
 permanently spent.
 
-On confirmation, demote and move the prior wording to the Revision Record
-intact. Without confirmation, write nothing and record the contradiction as
-an open tension so it resurfaces later rather than being lost.
+Without their confirmation, write nothing and record the contradiction as an
+open tension so it resurfaces rather than being lost.
 
 Detection is unprompted. Mutation never is.
 
@@ -75,22 +74,21 @@ person.
 
 ## Prediction
 
-**Prediction does not wait for core.** Any principle with a stated boundary
-can be predicted from. Core requires a test question the person wrote, and
-gating the self-correcting half of the method behind the one thing people
-decline to do means it never runs — the profile becomes a questionnaire that
-cannot be wrong.
+Prediction is where the profile earns everything it claims.
 
-A prediction from a boundary alone is rougher, because a boundary says where
-a principle stops rather than how to apply it. Say so when you show it.
+Any principle with a stated boundary can be predicted from — prediction never
+waits for core, because core is what prediction produces.
 
-Ask for the test question *after* a prediction, never before. Someone who has
-watched the profile guess at their judgment and seen it land or miss can tell
-what the sentence buys. Someone asked cold is being charged for a benefit
-they cannot see.
+Predict their judgment on an item the profile was not built from, and show
+the reasoning. They score it. A hit promotes the principle: the profile has
+demonstrated it understood them. A miss opens a tension.
 
-Predict their judgment on an item the profile was not built from, and the
-reasoning. They score it.
+A prediction from a boundary alone is rough, because a boundary says where a
+principle stops rather than how to apply it. Say so when you show it.
+
+Ask for the optional test question *after* a prediction, never before. Someone
+who has watched the profile guess at their judgment can tell what the sentence
+would buy. Asked cold, they are being charged for a benefit they cannot see.
 
 ### Put the thing in front of them
 
@@ -109,8 +107,11 @@ measures memory as much as taste.
 Say plainly that a wrong guess is the useful outcome. Otherwise scoring feels
 like grading you, and people are kind.
 
-A miss is not their failure. It is the highest-quality evidence the system
-can obtain about itself — every miss opens a tension and re-enters the loop.
+A miss is not their failure. It is the best evidence the method can obtain
+about itself, and the only kind that arrives without being asked for — every
+miss opens a tension and re-enters the loop.
 
-Hits are recorded but confer no promotion. A prediction the profile got right
-shows only that the profile is self-consistent.
+Scoring is itself something they tell you, so it is not proof in any strong
+sense. What makes it trustworthy enough is that the person is the only reader
+of their own profile: a generous score buys them a document that lies to them.
+There is nothing to win.
