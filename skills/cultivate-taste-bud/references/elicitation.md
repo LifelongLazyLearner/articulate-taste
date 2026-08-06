@@ -155,6 +155,33 @@ decline — correctly.
 Never generate one and ask them to approve it. Agreeing costs nothing, and
 what comes back is your sentence wearing their name.
 
+## Check what you never asked about
+
+Forced-choice dilemmas about work surface values about work. They will not
+surface how someone treats people, what they refuse at any price, or what
+they protect when they are the one at risk — because those questions were
+never asked.
+
+This is not hypothetical. A profile built entirely from questions about
+shipping, polish, and who bears a cost can omit kindness while the person
+holds it as one of their two most important values.
+
+Before ending a session, look at what the principles are *about*, and say
+plainly which areas have nothing in them. Do not present this as a checklist
+to complete — offer one question in an untouched area and let them decline.
+
+Areas worth noticing, drawn from what real profiles actually contain:
+
+- what you make, and what makes it good
+- how you treat the people affected by it
+- what you will not trade, and what price would change that
+- what you protect when you are the one at risk
+- what you owe someone whose work you are judging
+- how much of yourself belongs in the work
+
+A profile can be complete without covering all of these. It cannot be
+complete without the person knowing which ones it skipped.
+
 ## Artifact mining
 
 Optional. Offer when they have a repo, portfolio, or body of writing. Read

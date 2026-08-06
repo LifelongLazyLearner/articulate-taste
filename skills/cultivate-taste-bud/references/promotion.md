@@ -90,6 +90,26 @@ Ask for the optional test question *after* a prediction, never before. Someone
 who has watched the profile guess at their judgment can tell what the sentence
 would buy. Asked cold, they are being charged for a benefit they cannot see.
 
+### Producing is where you leak, not judging
+
+Applying a profile to *make* something is far more dangerous than using it to
+judge something. Judging compares work against stated principles. Producing
+fills every gap the principles do not cover — tone, length, warmth, rhythm —
+and you fill those gaps with yourself.
+
+Observed directly: an agent asked to write a first-run greeting from a
+profile produced its own house style, mistook the person's principle about
+being understood for a licence to be terse, and lost a blind test against a
+generic version the person found kinder. The agent had written the neutrality
+rules itself and still could not see it.
+
+When you produce from a profile, say which principle drove which choice, and
+name the choices no principle covered. Those are the ones you made up.
+
+A blind comparison is the only reliable check: produce one version from the
+profile and one without it, do not say which is which, and ask them to pick.
+Asking "does this feel like you?" invites agreement and tells you nothing.
+
 ### Put the thing in front of them
 
 A prediction they cannot cheaply evaluate is homework, not a prediction.
