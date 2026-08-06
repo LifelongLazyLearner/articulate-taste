@@ -24,12 +24,29 @@ There is no threshold and no count anywhere in this gate. A principle is not
 confirmed by surviving some number of questions; it is confirmed by having a
 stated edge and by having cost something at least once.
 
+## A lapse is not a counterexample
+
+Before treating a contradicting choice as grounds for demotion, ask whether
+they still defend it.
+
+A choice they would defend is a real boundary: it names a condition under
+which the principle genuinely yields, and the principle was stated at the
+wrong altitude. A choice they call a lapse is the opposite — judging your own
+behaviour against a standard is evidence the standard holds. Someone who
+regrets the deviation has confirmed the principle, not weakened it.
+
+Record the lapse as a named trade in their own words. Never redescribe it as
+a boundary, and never let it quietly demote anything. What a person is
+willing to do, what they admire, and what they judge right are related but
+not identical, and the profile records judgment.
+
 ## Demotion
 
 The same gate run backwards, and the heart of self-evolution. A recorded
-choice that contradicts a core principle at real cost is detected without
-waiting to be asked, and surfaced: here is the principle, here is the choice
-that contradicts it, here is what it cost. They decide.
+choice that contradicts a core principle at real cost — and that they still
+defend — is detected without waiting to be asked, and surfaced: here is the
+principle, here is the choice that contradicts it, here is what it cost. They
+decide.
 
 On confirmation, demote and move the prior wording to the Revision Record
 intact. Without confirmation, write nothing and record the contradiction as
