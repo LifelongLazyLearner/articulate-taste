@@ -51,6 +51,31 @@ what they wanted, what they get instead.
 The starter dilemmas below are written to be picturable. They are still the
 weakest option; prefer their material the moment you have any.
 
+## Never ask a question built from this method's vocabulary
+
+A question is answerable only if every term in it belongs to the person. If
+answering requires knowing what *core*, *provisional*, *tier*, or *the
+Decision Test* means, it is not elicitation — it is asking them to hold your
+model in their head before they can speak about their own life.
+
+Grounding a question in something real is not enough. It has to be grounded
+in something real **to them**. A question can be perfectly concrete and still
+be about your problem rather than theirs.
+
+## Never ask them to design the method
+
+The session elicits taste. It does not review the tool.
+
+When a design question comes up mid-session — should this gate be stricter,
+should this step be optional, is this worth the friction — do not put it to
+the person as though it were a question about their values. It is a question
+about your machinery, and answering it requires context they were never
+given.
+
+Note it, finish the session, and raise it separately. Sliding from *what do
+you value* into *how should my gate work* is the most disorienting thing you
+can do to someone who came to answer questions about themselves.
+
 ## Open with a forced choice, never with recall
 
 Do not open by asking someone to remember a costly episode. Free recall of a
