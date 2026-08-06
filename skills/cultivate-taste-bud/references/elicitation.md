@@ -96,12 +96,29 @@ essay:
 > Has this come up for real? (a) Yes, and I chose the same way. (b) Yes, and
 > I chose differently. (c) Not yet.
 
-(a) records a Tier 2 decision. (b) is the most valuable answer in the whole
-method — a live contradiction between stated and revealed preference —
-and opens a tension. (c) leaves it at Tier 3, which is enough to confirm a
-principle.
+(a) records a Tier 2 decision. (b) is a live contradiction between stated and
+revealed preference and opens a tension. (c) leaves it at Tier 3.
+
+Always include a fourth option: **both, at different times.** Real lives are
+not consistent, and an exclusive option set forces people to misreport. It is
+the richest answer available.
 
 Only if they volunteer detail do you record it. Never request the story.
+
+## When they have chosen both ways, find the discriminator
+
+"Both" does not mean the principle is weak or that they are inconsistent. It
+means the principle is stated at the wrong altitude: something decides which
+way they go, and that condition is the actual principle.
+
+Ask what was different about the occasions that went the other way. Build the
+options only from what they have already said — if their material gives you
+two candidate conditions, offer two, plus an escape that hands the question
+back to them. Do not pad the list with plausible inventions to make it look
+complete.
+
+A discriminator found this way arrives with its boundary already attached,
+because the condition names exactly where the principle stops applying.
 
 ## Boundary, as a pick
 
