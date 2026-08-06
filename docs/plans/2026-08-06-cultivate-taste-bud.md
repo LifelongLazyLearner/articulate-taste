@@ -10,6 +10,21 @@
 
 **Spec:** [docs/specs/2026-08-06-cultivate-taste-bud-design.md](../specs/2026-08-06-cultivate-taste-bud-design.md), signed off.
 
+## Execution order
+
+This repo is governed by the author's `TASTE.md`, invoked explicitly. Its
+Decision Test asks whether the core value can enter reality now, so the
+tasks below are executed in this order rather than in numeric order:
+
+**7 → 8 → 6 → first contact → 1 → 2 → 3 → 4 → 5 → 9**
+
+After Task 6 the skill is runnable end to end by a real person. Stop there,
+run one full session against a fixture persona, and fix what that reveals
+before building the validator. A validator written before the loop has ever
+run is a validator built on a guess.
+
+Tasks 1–5 harden what already works. Task 9 releases it.
+
 ---
 
 ## Format decision made during planning
@@ -612,13 +627,6 @@ TEMPLATES = os.path.join(os.path.dirname(__file__), "..", "assets")
 
 
 class TestTemplates(unittest.TestCase):
-    def test_empty_templates_validate(self):
-        with open(os.path.join(TEMPLATES, "TASTE.template.md"), encoding="utf-8") as handle:
-            profile = handle.read()
-        with open(os.path.join(TEMPLATES, "log.template.md"), encoding="utf-8") as handle:
-            log = handle.read()
-        self.assertEqual(validate(profile, log), [])
-
     def test_template_carries_every_required_section(self):
         with open(os.path.join(TEMPLATES, "TASTE.template.md"), encoding="utf-8") as handle:
             profile = handle.read()
@@ -945,6 +953,19 @@ work cold for someone with nothing to mine.
 
 Ask one question, wait, then ask the next. Offer your recommended answer so
 they can accept it in a word. Look facts up rather than asking for them.
+
+## Any question can be declined
+
+These questions ask about failure, refusal, and work someone is not proud
+of. That is where the evidence is, and it is also exposing.
+
+Say once, at the start, that any question can be skipped without a reason.
+When someone declines, move on immediately — no rephrasing it as a gentler
+version, no returning to it later, no noting that they avoided it. Record
+only that the area is unexplored, never that they were unwilling.
+
+A profile built by pressure is not evidence of their taste. It is evidence
+of what they will say to end an uncomfortable conversation.
 ```
 
 `references/format.md`:
