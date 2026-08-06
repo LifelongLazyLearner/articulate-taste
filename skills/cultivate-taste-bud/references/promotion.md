@@ -1,28 +1,35 @@
-# Promotion, demotion, prediction
+# Status, demotion, prediction
 
-## Gate
+## Who has to prove something
 
-- boundary present → provisional
-- boundary present, test present, and at least one paid decision at tier 1–3
-  → core
-- otherwise → candidate
+Not the person. Take what they say they value as what they value.
 
-Tier is read from the recorded decision, never copied onto the principle. A
-denormalised copy drifts.
+Grading someone's answers by how much the answer cost them treats a profile as
+a claim about their behaviour. It is not. It records what they hold as a
+standard, and those are different questions — a person can hold a standard
+they have failed to meet, and the standard is still theirs.
 
-The test question is authored by the person at promotion time, in answer to
-"what question would you ask yourself to check this?" Do not derive it
-mechanically from the boundary prose, and do not generate one for them to
-approve — agreeing to a generated question costs nothing, and the Decision
-Test is built from these.
+There is also less to the grading than it looks. "Has this come up for real?"
+is a report, exactly like a stated belief is a report. Neither is observed.
+Ranking one above the other dresses a self-report as evidence.
 
-This is the only place the method asks anyone to type. Offer it, never
-demand it. A principle with a boundary and paid evidence but no test question
-waits at provisional, which is an honest status rather than a failure.
+**The tool proves itself instead.** A principle firms up when the profile has
+correctly predicted one of the person's judgments using it. That is the only
+moment anything is genuinely demonstrated, and what it demonstrates is that
+the profile understood them.
 
-There is no threshold and no count anywhere in this gate. A principle is not
-confirmed by surviving some number of questions; it is confirmed by having a
-stated edge and by having cost something at least once.
+## Status
+
+- no boundary → candidate
+- statement and boundary → provisional, immediately
+- a prediction using it turned out right → core
+
+No thresholds and no counts. Nothing the person asserts about themselves
+promotes a principle, and nothing they decline to assert holds one back.
+
+The test question — the question they would ask themselves to check the
+principle — is optional and always has been optional to write. It shapes the
+Decision Test when it exists. It gates nothing.
 
 ## A lapse is not a counterexample
 
@@ -42,11 +49,9 @@ not identical, and the profile records judgment.
 
 ## Demotion
 
-The same gate run backwards, and the heart of self-evolution. A recorded
-choice that contradicts a core principle at real cost — and that they still
-defend — is detected without waiting to be asked, and surfaced: here is the
-principle, here is the choice that contradicts it, here is what it cost. They
-decide.
+The status rule run backwards, and the heart of self-evolution. A contradiction
+they still defend is detected without waiting to be asked, and surfaced: here
+is the principle, here is what contradicts it. They decide.
 
 On confirmation, demote and move the prior wording to the Revision Record
 intact. Without confirmation, write nothing and record the contradiction as

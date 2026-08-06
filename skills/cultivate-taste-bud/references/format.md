@@ -20,7 +20,7 @@ composed id.
 
 **Test.** Am I using honesty as an excuse for avoidable harm?
 
-**Paid by.** [2026-08-06-declined-rewrite] — turned the work down, lost the client.
+**Confirmed by.** [2026-08-06-blunt-feedback] — the profile predicted this judgment correctly.
 ```
 
 The heading id is a stable slug. It never changes, so a later split into
@@ -36,7 +36,12 @@ written", and the gate will read it as present. What is missing belongs in
 Open Tensions, which is where the next session looks.
 
 `**Named trade.**` is optional: a deviation the person calls a lapse rather
-than a boundary, in their own words. It never affects status.
+than a boundary, in their own words. `**Test.**` is optional too. Neither
+affects status.
+
+`**Confirmed by.**` cites predictions that used the principle and turned out
+right. It is the only field that promotes anything, and only the profile can
+earn it — nothing the person says about themselves goes here.
 
 ## Priority between principles
 
@@ -49,21 +54,27 @@ assert priority, and a resolved tension is where they assert it.
 
 ```markdown
 ## [2026-08-06] choice | declined-rewrite
-won: kindness-over-authenticity · lost: inner-honesty · tier: 2
+won: kindness-over-authenticity · lost: inner-honesty
 price: lost the client
 
-## [2026-08-06] promote | kindness-over-authenticity
-boundary + paid evidence from declined-rewrite
+## [2026-08-06] predict | blunt-feedback
+about: kindness-over-authenticity
+result: hit
 
-## [2026-08-07] predict | miss — expected reject, they accepted
-opened tension: speed-vs-craft
+## [2026-08-07] predict | album-artwork
+about: enter-reality
+result: miss
+opened: speed-vs-craft
 
 ## [2026-08-07] demote | inner-honesty → provisional
-contradicted by accepted-ghostwrite at real cost; prior wording preserved in
+contradicted by a choice they still defend; prior wording preserved in the
 Revision Record
 ```
 
-Actions: `seed`, `choice`, `promote`, `demote`, `predict`, `tension`, `leak`.
+Actions: `seed`, `choice`, `demote`, `predict`, `tension`, `leak`.
+
+A `predict` entry needs `about:` and `result:`, because those are what a
+principle's **Confirmed by** field resolves against.
 
 Append only. Newest last. Never edit or delete an entry — a history that can
 be rewritten cannot serve as evidence.

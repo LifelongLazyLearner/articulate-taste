@@ -1,7 +1,7 @@
 # cultivate-taste-bud — design
 
 **Date:** 2026-08-06
-**Status:** Proposed, awaiting sign-off
+**Status:** Signed off 2026-08-06. Amended after first-contact testing; see Amendments.
 **Distribution:** Open source
 
 ## Purpose
@@ -20,8 +20,8 @@ Default output is `TASTE.md` plus its history. A portable personal skill, so any
 
 **Pass conditions.**
 
-1. A stranger, with no configuration beyond installing the skill, completes one session and obtains a `TASTE.md` containing at least one core principle carrying a boundary, a test question, and paid evidence.
-2. No core principle rests on Tier 4 evidence alone. Every one traces to a recorded decision that carried a price.
+1. A stranger, with no configuration beyond installing the skill, completes one session and obtains a `TASTE.md` containing at least one principle carrying a statement and a boundary.
+2. Nothing a person asserts about themselves promotes a principle to core. Only a prediction the profile got right does.
 3. A second session resumes from `TASTE.md` without re-asking anything already answered.
 4. A prediction run produces a scored hit or miss, and every miss opens a tension.
 5. Two fixture personas seeded with opposed rejections produce core principle sets that do not overlap. Verified by running the skill against both fixtures and diffing the resulting principle ids.
@@ -68,18 +68,17 @@ Direct evidence that flat suffices: this repo's `TASTE.md` v0.5 carries ten prin
 
 Principle ids are stable slugs so that a later split into per-principle files stays mechanical.
 
-## Evidence model
+## Who carries the burden of proof
 
-Every recorded claim carries the tier of evidence behind it.
+Not the person.
 
-| Tier | Source | Contamination |
-|---|---|---|
-| 1 | Artifacts they made, kept, shipped, killed | None — no self-report involved |
-| 2 | Real past decisions that carried a price | Low — recalled, but the cost anchors it |
-| 3 | Forced choice between two concrete options, made now | Low — choosing beats describing |
-| 4 | Stated admiration, stated belief | High — prestige bias, confabulation, cheap assent |
+A profile records what someone holds as a standard, not a claim about their conduct. Asking them to demonstrate a value in past behaviour answers a different question, and a person can hold a standard they have failed to meet — the standard is still theirs.
 
-**Rule:** Tier 4 may *propose* a principle. It may never *confirm* one. Confirmation requires Tier 1–3. A mechanism, not a threshold.
+The grading also promised more than it delivered. "Has this come up for real?" is a report, exactly as a stated belief is a report; neither is observed. Ranking one above the other dressed a self-report as evidence.
+
+**The tool carries the burden instead.** A principle firms up when the profile has correctly predicted one of the person's judgments using it. That is the only point in the method where anything is genuinely demonstrated, and what it demonstrates is that the profile understood them. A wrong guess is the profile's problem.
+
+What survives from the discarded model is question *construction*: options that each cost something make a person weigh a tradeoff while answering. "Do you value kindness?" does not. Both are things they tell you; only one costs anything to say.
 
 ### Why not a plain interview
 
@@ -95,22 +94,22 @@ Interview is retained for exactly one job: **naming the boundary after a choice 
 ## The loop
 
 ```
-seed ──▶ tension ──▶ choice ──▶ boundary ──▶ gate ──▶ record ──┐
-  ▲                                                            │
-  └──────────── predict ◀── (profile has ≥1 core) ◀────────────┘
+seed ──▶ tension ──▶ choice ──▶ boundary ──▶ record ──┐
+  ▲                                                    │
+  └────────── predict ◀── (any principle bounded) ◀────┘
 ```
 
 States, not a script. Enter anywhere, stop anywhere.
 
 1. **seed** — Collect rejections, costly past decisions, and optionally a corpus of their own artifacts. Distilled straight into the profile; verbatim material is discarded unless retention was opted into.
 2. **tension** — Construct a concrete dilemma where two of *their own* candidate values collide, with a stated price. Built from their material, never generic.
-3. **choice** — They choose. Record the choice, the price paid, which value won, which lost, and the evidence tier.
+3. **choice** — They choose. Record the choice, the price it carried, which value won and which lost. Never follow it by asking them to prove it happened.
 4. **boundary** — Only now ask for reasoning: where does this stop, and what would make you abandon it?
 5. **gate** — Apply the promotion rule, update status.
 6. **record** — Write the principle change and append the history entry in one pass.
 7. **predict** — Once at least one core principle exists, predict their judgment on a held-out item. Misses open tensions and re-enter the loop.
 
-**Resume.** Every run reads `TASTE.md` first. Resume points in order: open tensions, principles missing a boundary, principles missing paid evidence, then new seeding. No transcript replay. The profile is usable at any point; unconfirmed material is marked as such.
+**Resume.** Every run reads `TASTE.md` first. Resume points in order: open tensions, principles missing a boundary, principles the profile has not yet predicted correctly, then new seeding. No transcript replay. The profile is usable at any point; unconfirmed material is marked as such.
 
 ## Neutrality rules
 
@@ -127,7 +126,7 @@ Inline in `SKILL.md`, not buried in a reference. Content neutrality is the produ
 
 By tier. Lives in `references/elicitation.md`, loaded when the seed or tension state runs.
 
-**Tier 2 — rejection-first opening.** People perform their likes; they perform their dislikes far less.
+**Rejection-first opening.** People perform their likes; they perform their dislikes far less.
 
 - What did you kill after investing real work in it? What made it not worth finishing?
 - What do you admire but would never make? Why not?
@@ -137,9 +136,9 @@ By tier. Lives in `references/elicitation.md`, loaded when the seed or tension s
 - Show me something you made that you are not proud of. What is wrong with it?
 - What would you replace immediately if it broke, and what would you simply let go?
 
-**Tier 3 — forced choice.** Constructed per person from their own material. Each must name a concrete price. A dilemma without a stated cost is a Tier 4 question in disguise.
+**Forced choice.** Constructed per person from their own material. Each must name a concrete price. A dilemma without a stated cost is a question about beliefs in disguise.
 
-**Tier 1 — artifact mining.** Optional. Offered when they have a repo, portfolio, or body of writing. Skipped without penalty; the method must work cold.
+**Artifact mining.** Optional. Offered when they have a repo, portfolio, or body of writing. Skipped without penalty; the method must work cold.
 
 ## Output
 
@@ -167,7 +166,7 @@ Each principle carries a stable slug id and a status:
 **Paid by.** [2026-08-06-declined-rewrite] — turned the work down, lost the client.
 ```
 
-`Open Tensions` is what makes the file its own resume router: unresolved dilemmas, and principles still missing a boundary, a test, or paid evidence.
+`Open Tensions` is what makes the file its own resume router: unresolved dilemmas, principles still missing a boundary, and principles the profile has not yet predicted correctly.
 
 **Priority between principles is carried in prose, inside the principle that yields.** v0.5 demonstrates the form — "survival is the leading one," "outside genuine survival constraints, kindness normally has priority." Order within Core Principles reflects it too. There is no separate ranking field: only the person may assert priority, and a resolved tension is where they assert it.
 
@@ -183,7 +182,8 @@ won: kindness-over-authenticity · lost: inner-honesty · tier: 2
 price: lost the client
 
 ## [2026-08-06] promote | kindness-over-authenticity
-boundary + paid evidence from declined-rewrite
+about: kindness-over-authenticity
+result: hit
 
 ## [2026-08-07] predict | miss — expected reject, they accepted
 opened tension: speed-vs-craft
@@ -204,7 +204,7 @@ Lives in `references/promotion.md`.
 - boundary present, test present, and at least one paid decision at tier 1–3 → `core`
 - otherwise → `candidate`
 
-Tier is read from the recorded decision, never stored a second time on the principle. A denormalized copy drifts.
+No thresholds and no counts. Nothing the person asserts promotes a principle, and nothing they decline to assert holds one back. The test question is optional and gates nothing.
 
 **Demotion** is the same gate run backwards, and it is the heart of self-evolution. A recorded choice that contradicts a core principle at real cost is detected without waiting to be asked and surfaced to the person: here is the principle, here is the choice that contradicts it, here is what it cost. They decide.
 
@@ -267,7 +267,8 @@ Raw transcripts are discarded by default. Opt-in retention writes them outside t
 
 ## Known limitations
 
-- The method depends on the person having had costly choices to recall. Someone early in their career produces a thinner Tier 2 layer and leans on Tier 3.
+- Confidence comes from predicting someone correctly, so a profile is weakest exactly when it is newest and has predicted nothing.
+- Scoring a prediction is itself self-report. The asymmetry that makes it safe is that the person is the only consumer of their own profile, so a generous score produces a document that lies to them.
 - Forced-choice dilemmas are only as good as the seed. A shallow seed produces generic tensions.
 - The prediction gate measures agreement between the profile and the person's stated judgment, not their behavior. It catches drift, not self-deception.
 - The profile is only as honest as the person choosing to record choices that embarrass them.
@@ -278,3 +279,15 @@ Raw transcripts are discarded by default. Opt-in retention writes them outside t
 - Migrating this repo's `TASTE.md` v0.5 into the format. Method ships first.
 - Team or shared profiles, where conflicting choices from different people must be reconciled.
 - A manual install path for anyone without the `skills` CLI. Only worth writing if it blocks real users.
+
+## Amendments after first contact
+
+Running the method against a real person changed two things it was signed off with.
+
+**The evidence tier ladder is gone.** It graded a person's self-reports — recalled costly decisions above stated beliefs — and required a "paid" instance before a principle could firm up. Two objections, both correct. It asked people to prove their own values to a tool they own, which is rude and treats a record of standards as a claim about conduct. And it overstated its own rigour: a recalled decision is a report exactly as a belief is a report, so ranking them dressed self-report as evidence.
+
+Replaced by: a stated principle with a boundary is provisional immediately, and firms up only when the profile predicts one of the person's judgments correctly. The burden moved from the person to the tool.
+
+**Nothing requires typing.** The test question was the one free-text requirement and gated promotion to core. It now gates nothing and is offered only after a prediction, when its value is visible.
+
+Seven questioning defects were found and fixed during the same run, all surfaced by the person rather than by the author. They are recorded in the commit history.

@@ -23,18 +23,26 @@ Content neutrality is the product. These bind every state below.
    it, never to write it. Volunteering an unrequested opinion about their
    taste is itself a violation, not only editing the file.
 
-## Evidence tiers
+## Who carries the burden
 
-Every recorded claim carries the tier of evidence behind it.
+**They never have to prove anything about themselves.** Take what a person
+says they value as what they value. Do not ask them to demonstrate it in past
+behaviour, and do not rank their answers by how costly the answer was.
 
-| Tier | Source |
-|---|---|
-| 1 | Artifacts they made, kept, shipped, killed |
-| 2 | Real past decisions that carried a price |
-| 3 | Forced choice between two concrete options, made now |
-| 4 | Stated admiration, stated belief |
+Asking someone to prove their values to a tool they own is both rude and
+confused. Proof of past behaviour answers a different question — what they
+predict about themselves — while a profile records what they hold as a
+standard. The two are related and not the same.
 
-Tier 4 may propose a principle. It may never confirm one.
+**The tool carries the burden instead.** A principle firms up when the profile
+has correctly predicted one of their judgments using it. That is the profile
+demonstrating it understood them. A wrong guess is the profile's problem, not
+theirs.
+
+What still matters is how a question is *built*: options that each cost
+something make someone weigh a tradeoff while answering. "Do you value
+kindness?" does not. Both are things they tell you; only one costs them
+anything to say.
 
 ## Ask in picks, not prose
 
@@ -59,22 +67,21 @@ where to resume.
    episode: that reads as an exam and returns reconstructed evidence.
 2. **tension** — Build a concrete dilemma where two of their own values
    collide, with a stated price. Never generic.
-3. **choice** — They choose. Then anchor it with a pick: has this come up for
-   real, and did they choose the same way? Choosing differently is the most
-   valuable answer available — a live gap between stated and revealed
-   preference — and opens a tension. Record the choice, the price, what won,
-   what lost, and the tier.
+3. **choice** — They choose. Record the choice, the price it carried, what
+   won and what lost. Do not follow it by asking them to prove it happened.
+   If they volunteer that it has come up for real, record that; never request
+   it.
 4. **boundary** — Offer concrete costs that would break the principle, drawn
    from the losing side of tensions they already answered. Picking which cost
    breaks you is still a choice under price, not assent.
-5. **gate** — Apply [references/promotion.md](references/promotion.md).
+5. **record status** — Statement plus boundary is provisional straight away.
+   See [references/promotion.md](references/promotion.md).
 6. **record** — Update the principle and append the history entry in one
    pass. Formats in [references/format.md](references/format.md).
 7. **predict** — As soon as any principle has a boundary, predict their
-   judgment on a held-out item. Do not wait for core: core needs a sentence
-   they wrote, and gating self-correction behind it means it never runs. A
-   miss opens a tension and re-enters the loop. Ask for the test question
-   after a prediction, once they can see what it buys.
+   judgment on a held-out item and show them the item. A hit promotes the
+   principle to core: the profile has shown it understood them. A miss opens
+   a tension and re-enters the loop, and is the more useful outcome.
 
 ## Verify before finishing
 

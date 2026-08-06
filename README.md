@@ -55,19 +55,19 @@ would.
 
 ## The one rule worth knowing
 
-**Saying you value something doesn't count. Choosing it when it cost you
-does.**
+**You never have to prove anything. The tool does.**
 
-Everything else follows from that. A belief you've stated gets written down as
-a maybe. It only firms up once you've actually paid for it.
+What you say you value is taken as what you value. You're not asked to show
+you've lived up to it, and your answers aren't ranked by how much they cost
+you.
 
-## It can be wrong
+Instead, the profile guesses how you'd judge something it has never seen, and
+you tell it whether it got you right. Guess right, and that principle firms
+up — the profile has shown it understood you. Guess wrong, and that's the
+profile's problem to fix.
 
-The profile guesses how you'd judge something it has never seen. You tell it
-whether it got you right.
-
-A wrong guess is the useful outcome — it means something is off, and that's
-how it gets found. The principle above was discovered by a bad guess.
+A wrong guess is the useful outcome. The principle shown above was found by
+one.
 
 ## It never edits without asking
 

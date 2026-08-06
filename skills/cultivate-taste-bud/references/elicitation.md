@@ -2,10 +2,8 @@
 
 ## Default interaction: pick, don't type
 
-Every question is multiple choice unless typing is itself the evidence.
-Exactly one question in this method meets that bar (see *The one free-text
-moment*). Everywhere else, asking someone to compose prose is friction that
-buys nothing.
+Every question is multiple choice. Nothing in this method requires anyone to
+type an answer; the one place prose is invited is optional and gates nothing.
 
 This is not a concession to convenience. Recognition is cheaper than recall
 *and* less contaminated: a person choosing between two priced options is
@@ -20,8 +18,7 @@ This is the line between recognition and contamination.
 
 Options must be assembled from what the person has already chosen, rejected,
 or named in this session. Offering a plausible principle you invented and
-asking them to agree is cheap assent — the Tier 4 failure mode wearing a
-multiple-choice costume.
+asking them to agree is cheap assent wearing a multiple-choice costume.
 
 When you have nothing of theirs to build from yet, use the starter dilemmas
 below, which name universal situations and let the person supply the
@@ -54,8 +51,8 @@ weakest option; prefer their material the moment you have any.
 ## Never ask a question built from this method's vocabulary
 
 A question is answerable only if every term in it belongs to the person. If
-answering requires knowing what *core*, *provisional*, *tier*, or *the
-Decision Test* means, it is not elicitation — it is asking them to hold your
+answering requires knowing what *core*, *provisional*, or *the Decision
+Test* means, it is not elicitation — it is asking them to hold your
 model in their head before they can speak about their own life.
 
 Grounding a question in something real is not enough. It has to be grounded
@@ -97,44 +94,30 @@ Open in the present tense, with the price stated inside the question:
 Each is answerable in one click. Each names what it costs. None can be
 answered by performing a preference, because both sides cost something.
 
-## Then anchor it
+## Never ask them to prove it
 
-The anchor question reads as doubting the person unless you say what it buys.
-Say it plainly: what they just told you is what they believe, and nothing was
-at stake when they said it, so on its own the principle stays provisional.
-One real instance where holding it cost something makes it core, and only
-core principles reach the Decision Test.
+Do not follow a choice by asking whether they have really done it. Their
+answer is honoured as given.
 
-Lead with the fact that "I chose differently" is the most valuable answer
-available, not a failure. Said first, it removes any reason to claim the
-flattering option — and knowing the mechanism is safe here, because the
-person is the only consumer of their own profile. Gaming it produces a
-document that lies to them. There is nothing to win.
+Asking someone to demonstrate a value in past behaviour treats the profile as
+a claim about their conduct. It records a standard, and a person can hold a
+standard they have failed to meet. It is also weaker evidence than it looks:
+"has this come up for real" is a report, exactly as a stated belief is a
+report. Neither is observed.
 
-This is the one place where explaining the mechanism helps rather than
-contaminates. It remains true that you never say what a specific question
-measures.
+If they volunteer that it has come up — either way — record it. Volunteering
+that they went the other way is genuinely valuable and always their own to
+offer. Never request it, and never treat its absence as a gap.
 
-After a choice, ask whether it has happened for real — as a pick, not an
-essay:
+The profile earns its confidence by predicting them correctly, not by
+auditing them.
 
-> Has this come up for real? (a) Yes, and I chose the same way. (b) Yes, and
-> I chose differently. (c) Not yet.
+## When they say they have gone both ways
 
-(a) records a Tier 2 decision. (b) is a live contradiction between stated and
-revealed preference and opens a tension. (c) leaves it at Tier 3.
-
-Always include a fourth option: **both, at different times.** Real lives are
-not consistent, and an exclusive option set forces people to misreport. It is
-the richest answer available.
-
-Only if they volunteer detail do you record it. Never request the story.
-
-## When they have chosen both ways, find the discriminator
-
-"Both" does not mean the principle is weak or that they are inconsistent. It
-means the principle is stated at the wrong altitude: something decides which
-way they go, and that condition is the actual principle.
+Offered unprompted, this is the richest thing you can hear. It does not mean
+the principle is weak or that they are inconsistent. It means the principle
+is stated at the wrong altitude: something decides which way they go, and
+that condition is the actual principle.
 
 Ask what was different about the occasions that went the other way. Build the
 options only from what they have already said — if their material gives you
@@ -159,23 +142,20 @@ concrete price:
 Picking which cost breaks you is still a choice under price, not assent to a
 proposition. That is what keeps it evidence.
 
-## The one free-text moment
+## The optional sentence
 
-Promotion to core requires a test question the person wrote: the question
-they would ask themselves to check the principle. It cannot be generated and
-confirmed, because agreeing to a generated question costs nothing, and this
-question is what the Decision Test is built from.
+A principle can carry a test question — the question the person would ask
+themselves to check it. It sharpens the Decision Test, and it gates nothing.
 
-Offer it, do not demand it, and offer it **after a prediction, never before**.
-Someone who has watched the profile guess at their judgment and seen it land
-or miss can tell what the sentence buys. Asked cold, they are being charged
-for a benefit they cannot see, and they will decline — correctly.
+Offer it **after a prediction, never before**. Someone who has watched the
+profile guess at their judgment can tell what the sentence would buy. Asked
+cold, they are being charged for a benefit they cannot see, and they will
+decline — correctly.
 
-A principle with everything else in place waits at provisional until they
-write one. That is an honest status, not a failure, and it no longer blocks
-anything: prediction runs on boundaries alone.
+Never generate one and ask them to approve it. Agreeing costs nothing, and
+what comes back is your sentence wearing their name.
 
-## Tier 1 — artifact mining
+## Artifact mining
 
 Optional. Offer when they have a repo, portfolio, or body of writing. Read
 what they shipped, kept, and deleted. Skip without penalty — the method must

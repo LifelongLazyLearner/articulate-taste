@@ -1,8 +1,8 @@
-"""Tests for the skill package and the promotion gate.
+"""Tests for the skill package and the promotion rule.
 
-Structural tests cover what a stranger's install depends on. Gate tests cover
-the rule the whole method turns on: stated belief may propose a principle,
-never confirm one.
+The rule under test: a person's stated value is honoured as given, and a
+principle firms up only once the profile has predicted one of their judgments
+correctly. Nobody is asked to prove anything about themselves.
 """
 
 import os
@@ -48,9 +48,7 @@ PROFILE = """# Taste Profile
 
 **Boundary.** Does not require silence or dishonesty.
 
-**Test.** Am I using honesty as an excuse for avoidable harm?
-
-**Paid by.** [2026-08-06-declined-rewrite] — turned the work down, lost the client.
+**Confirmed by.** [2026-08-06-blunt-feedback] — guessed how you'd read it, correctly.
 
 ## Provisional Preferences
 
@@ -63,16 +61,13 @@ PROFILE = """# Taste Profile
 
 LOG = """# History
 
-## [2026-08-06] choice | declined-rewrite
-won: kindness-over-authenticity · lost: inner-honesty · tier: 2
-price: lost the client
+## [2026-08-06] predict | blunt-feedback
+about: kindness-over-authenticity
+result: hit
 
-## [2026-08-06] promote | kindness-over-authenticity
-boundary + paid evidence from declined-rewrite
-
-## [2026-08-07] choice | named-favourite-album
-won: enter-reality · lost: none · tier: 4
-price: none
+## [2026-08-07] predict | album-artwork
+about: enter-reality
+result: miss
 """
 
 
@@ -84,17 +79,16 @@ class TestParseProfile(unittest.TestCase):
             [("kindness-over-authenticity", "core"), ("enter-reality", "provisional")],
         )
 
-    def test_parses_boundary_test_and_paid_refs(self):
+    def test_parses_boundary_and_confirmations(self):
         first = parse_profile(PROFILE)[0]
         self.assertTrue(first.boundary)
-        self.assertTrue(first.test)
-        self.assertEqual(first.paid_by, ["2026-08-06-declined-rewrite"])
+        self.assertEqual(first.confirmed_by, ["2026-08-06-blunt-feedback"])
 
     def test_omitted_fields_are_empty(self):
         second = parse_profile(PROFILE)[1]
         self.assertTrue(second.boundary)
         self.assertEqual(second.test, "")
-        self.assertEqual(second.paid_by, [])
+        self.assertEqual(second.confirmed_by, [])
 
     def test_unknown_fields_are_ignored(self):
         profile = PROFILE + "\n**Named trade.** Shipped pretty once and regretted it.\n"
@@ -102,58 +96,63 @@ class TestParseProfile(unittest.TestCase):
 
 
 class TestParseLog(unittest.TestCase):
-    def test_composes_decision_id_from_date_and_slug(self):
+    def test_composes_event_id_from_date_and_slug(self):
         entries = parse_log(LOG)
-        self.assertIn("2026-08-06-declined-rewrite", entries)
-        self.assertIn("2026-08-07-named-favourite-album", entries)
+        self.assertIn("2026-08-06-blunt-feedback", entries)
+        self.assertIn("2026-08-07-album-artwork", entries)
 
-    def test_reads_action_and_tier(self):
-        entry = parse_log(LOG)["2026-08-06-declined-rewrite"]
-        self.assertEqual(entry.action, "choice")
-        self.assertEqual(entry.tier, 2)
+    def test_reads_action_and_result(self):
+        entry = parse_log(LOG)["2026-08-06-blunt-feedback"]
+        self.assertEqual(entry.action, "predict")
+        self.assertEqual(entry.result, "hit")
 
-    def test_entry_without_tier_has_none(self):
-        entry = parse_log(LOG)["2026-08-06-kindness-over-authenticity"]
-        self.assertEqual(entry.action, "promote")
-        self.assertIsNone(entry.tier)
+    def test_reads_arbitrary_fields(self):
+        entry = parse_log(LOG)["2026-08-06-blunt-feedback"]
+        self.assertEqual(entry.fields["about"], "kindness-over-authenticity")
 
 
-class TestPromotionGate(unittest.TestCase):
-    def decisions(self, **tiers):
-        return {ref: Entry(id=ref, action="choice", tier=tier) for ref, tier in tiers.items()}
+class TestPromotionRule(unittest.TestCase):
+    def hit(self, ref):
+        return {ref: Entry(id=ref, action="predict", fields={"result": "hit"})}
+
+    def miss(self, ref):
+        return {ref: Entry(id=ref, action="predict", fields={"result": "miss"})}
 
     def test_no_boundary_is_candidate(self):
-        p = Principle(id="x", declared="core", test="q?", paid_by=["a"])
-        self.assertEqual(computed_status(p, self.decisions(a=2)), "candidate")
+        p = Principle(id="x", declared="core", statement="s", confirmed_by=["a"])
+        self.assertEqual(computed_status(p, self.hit("a")), "candidate")
 
-    def test_boundary_without_test_is_provisional(self):
-        p = Principle(id="x", declared="core", boundary="stops here", paid_by=["a"])
-        self.assertEqual(computed_status(p, self.decisions(a=2)), "provisional")
+    def test_stated_with_a_boundary_is_provisional_immediately(self):
+        p = Principle(id="x", declared="provisional", statement="s", boundary="stops here")
+        self.assertEqual(computed_status(p, {}), "provisional")
 
-    def test_boundary_and_test_and_paid_evidence_is_core(self):
-        p = Principle(id="x", declared="core", boundary="stops here", test="q?", paid_by=["a"])
-        self.assertEqual(computed_status(p, self.decisions(a=2)), "core")
+    def test_a_correct_prediction_promotes_to_core(self):
+        p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["a"])
+        self.assertEqual(computed_status(p, self.hit("a")), "core")
 
-    def test_tier_four_evidence_alone_cannot_reach_core(self):
-        p = Principle(id="x", declared="core", boundary="stops here", test="q?", paid_by=["a"])
-        self.assertEqual(computed_status(p, self.decisions(a=4)), "provisional")
+    def test_a_missed_prediction_does_not_promote(self):
+        p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["a"])
+        self.assertEqual(computed_status(p, self.miss("a")), "provisional")
 
-    def test_one_strong_decision_among_weak_ones_is_enough(self):
-        p = Principle(
-            id="x", declared="core", boundary="stops here", test="q?", paid_by=["a", "b"]
-        )
-        self.assertEqual(computed_status(p, self.decisions(a=4, b=3)), "core")
+    def test_nothing_the_person_asserts_promotes_on_its_own(self):
+        """The person is never the one who has to prove something."""
+        p = Principle(id="x", declared="core", statement="s", boundary="b", test="q?")
+        self.assertEqual(computed_status(p, {}), "provisional")
 
-    def test_unresolved_reference_does_not_confer_core(self):
-        p = Principle(id="x", declared="core", boundary="stops here", test="q?", paid_by=["gone"])
+    def test_a_non_prediction_entry_does_not_promote(self):
+        entries = {"a": Entry(id="a", action="choice", fields={"result": "hit"})}
+        p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["a"])
+        self.assertEqual(computed_status(p, entries), "provisional")
+
+    def test_unresolved_reference_does_not_promote(self):
+        p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["gone"])
         self.assertEqual(computed_status(p, {}), "provisional")
 
 
 class TestPredictable(unittest.TestCase):
     def test_a_boundary_is_enough_to_predict_from(self):
         self.assertEqual(
-            predictable_ids(PROFILE),
-            {"kindness-over-authenticity", "enter-reality"},
+            predictable_ids(PROFILE), {"kindness-over-authenticity", "enter-reality"}
         )
 
     def test_provisional_principles_are_predictable(self):
@@ -177,12 +176,17 @@ class TestValidate(unittest.TestCase):
         self.assertEqual(len(errors), 1)
         self.assertIn("enter-reality", errors[0])
         self.assertIn("declared core", errors[0])
-        self.assertIn("evidence supports provisional", errors[0])
+        self.assertIn("history supports provisional", errors[0])
 
     def test_dangling_reference_is_reported(self):
-        profile = PROFILE.replace("2026-08-06-declined-rewrite", "2026-08-06-nonexistent")
+        profile = PROFILE.replace("2026-08-06-blunt-feedback", "2026-08-06-nonexistent")
         errors = validate(profile, LOG)
         self.assertTrue(any("2026-08-06-nonexistent" in error for error in errors))
+
+    def test_citing_a_missed_prediction_is_reported(self):
+        profile = PROFILE.replace("2026-08-06-blunt-feedback", "2026-08-07-album-artwork")
+        errors = validate(profile, LOG)
+        self.assertTrue(any("did not hit" in error for error in errors))
 
 
 class TestNeutrality(unittest.TestCase):

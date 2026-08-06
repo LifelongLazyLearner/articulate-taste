@@ -1,12 +1,11 @@
-"""Check a taste profile against the evidence recorded in its history.
+"""Check a taste profile against its own history.
 
-The promotion gate is deterministic, so it lives in code rather than in
-prose an agent can drift from. Run it after a session:
+A principle firms up when the profile has correctly predicted one of the
+person's judgments — not when the person has proved anything. Saying what you
+value is honoured as given. The tool carries the burden of showing it
+understood you, and a wrong guess is the tool's problem.
 
     python3 taste_profile.py <profile>/TASTE.md <profile>/log.md
-
-It reports principles claiming a status their evidence does not support, and
-references that resolve to nothing. It has no opinion about anyone's taste.
 """
 
 from __future__ import annotations
@@ -15,14 +14,10 @@ import re
 from dataclasses import dataclass, field
 
 HEADING = re.compile(r"^### (?P<id>[a-z0-9-]+) — (?P<status>core|provisional|candidate)\s*$")
-FIELD = re.compile(r"^\*\*(?P<name>Statement|Boundary|Test|Paid by)\.\*\*\s*(?P<value>.*)$")
+FIELD = re.compile(r"^\*\*(?P<name>Statement|Boundary|Test|Confirmed by)\.\*\*\s*(?P<value>.*)$")
 REF = re.compile(r"\[(?P<ref>[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9-]+)\]")
 LOG_HEAD = re.compile(r"^## \[(?P<date>\d{4}-\d{2}-\d{2})\] (?P<action>[a-z]+) \| (?P<slug>[a-z0-9-]+)\s*$")
-TIER = re.compile(r"tier:\s*(?P<tier>\d)")
-
-#: Tiers that can confirm a principle. Tier 4 — stated admiration, stated
-#: belief — may propose one, never confirm it.
-CONFIRMING_TIERS = (1, 2, 3)
+LOG_KV = re.compile(r"^(?P<key>[a-z]+):\s*(?P<value>.+)$")
 
 
 @dataclass
@@ -32,14 +27,18 @@ class Principle:
     statement: str = ""
     boundary: str = ""
     test: str = ""
-    paid_by: list[str] = field(default_factory=list)
+    confirmed_by: list[str] = field(default_factory=list)
 
 
 @dataclass
 class Entry:
     id: str
     action: str
-    tier: int | None = None
+    fields: dict[str, str] = field(default_factory=dict)
+
+    @property
+    def result(self) -> str:
+        return self.fields.get("result", "")
 
 
 def parse_profile(text: str) -> list[Principle]:
@@ -69,15 +68,15 @@ def parse_profile(text: str) -> list[Principle]:
             current.boundary = value
         elif name == "Test":
             current.test = value
-        elif name == "Paid by":
-            current.paid_by = REF.findall(value)
+        elif name == "Confirmed by":
+            current.confirmed_by = REF.findall(value)
     return principles
 
 
 def parse_log(text: str) -> dict[str, Entry]:
-    """Read the history, keyed by decision id.
+    """Read the history, keyed by event id.
 
-    A decision's id is `<date>-<slug>`, composed here so the log itself stays
+    An event's id is `<date>-<slug>`, composed here so the log itself stays
     readable without repeating the date on every line.
     """
     entries: dict[str, Entry] = {}
@@ -91,60 +90,59 @@ def parse_log(text: str) -> dict[str, Entry]:
             continue
         if current is None:
             continue
-        tier = TIER.search(line)
-        if tier:
-            current.tier = int(tier.group("tier"))
+        pair = LOG_KV.match(line)
+        if pair:
+            current.fields.setdefault(pair.group("key"), pair.group("value").strip())
     return entries
 
 
-def computed_status(principle: Principle, decisions: dict[str, Entry]) -> str:
-    """The status the evidence supports, ignoring what the profile declares.
+def computed_status(principle: Principle, entries: dict[str, Entry]) -> str:
+    """The status the history supports, ignoring what the profile declares.
 
-    Tier is read from the decision, never stored on the principle: a
-    denormalised copy drifts away from what it was copied from.
+    Nobody is asked to prove a value. A principle stated with a boundary is
+    honoured as provisional immediately. It reaches core only once the profile
+    has predicted one of the person's judgments correctly using it, which is
+    the tool demonstrating it understood them rather than the reverse.
     """
     if not principle.boundary:
         return "candidate"
-    if not principle.test:
-        return "provisional"
-    for ref in principle.paid_by:
-        decision = decisions.get(ref)
-        if decision and decision.tier in CONFIRMING_TIERS:
+    for ref in principle.confirmed_by:
+        entry = entries.get(ref)
+        if entry and entry.action == "predict" and entry.result == "hit":
             return "core"
     return "provisional"
 
 
 def validate(profile_text: str, log_text: str) -> list[str]:
-    decisions = parse_log(log_text)
+    entries = parse_log(log_text)
     errors: list[str] = []
     for principle in parse_profile(profile_text):
-        for ref in principle.paid_by:
-            if ref not in decisions:
-                errors.append(f"{principle.id}: paid-by reference {ref} resolves to no history entry")
-        implied = computed_status(principle, decisions)
+        for ref in principle.confirmed_by:
+            entry = entries.get(ref)
+            if entry is None:
+                errors.append(f"{principle.id}: confirmed-by reference {ref} resolves to no history entry")
+            elif entry.action != "predict":
+                errors.append(f"{principle.id}: {ref} is a {entry.action} entry, not a prediction")
+            elif entry.result != "hit":
+                errors.append(f"{principle.id}: {ref} is a prediction that did not hit")
+        implied = computed_status(principle, entries)
         if implied != principle.declared:
-            errors.append(f"{principle.id}: declared {principle.declared}, evidence supports {implied}")
+            errors.append(f"{principle.id}: declared {principle.declared}, history supports {implied}")
     return errors
 
 
 def predictable_ids(profile_text: str) -> set[str]:
-    """Principles a prediction may draw on.
-
-    A stated boundary is enough. Prediction deliberately does not wait for a
-    principle to reach core, because core requires a test question the person
-    wrote, and gating the self-correcting half of the method behind the one
-    thing people decline to do means it never runs at all.
-    """
+    """Principles a prediction may draw on: anything with a stated boundary."""
     return {p.id for p in parse_profile(profile_text) if p.boundary}
 
 
 def core_ids(profile_text: str, log_text: str) -> set[str]:
-    """Ids of principles the evidence actually supports as core."""
-    decisions = parse_log(log_text)
+    """Ids of principles the history actually supports as core."""
+    entries = parse_log(log_text)
     return {
         principle.id
         for principle in parse_profile(profile_text)
-        if computed_status(principle, decisions) == "core"
+        if computed_status(principle, entries) == "core"
     }
 
 
@@ -166,7 +164,7 @@ def main(argv: list[str]) -> int:
         print(error)
     if errors:
         return 1
-    print("profile consistent with its evidence")
+    print("profile consistent with its history")
     return 0
 
 
