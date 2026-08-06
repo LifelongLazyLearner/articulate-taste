@@ -74,6 +74,22 @@ answered by performing a preference, because both sides cost something.
 
 ## Then anchor it
 
+The anchor question reads as doubting the person unless you say what it buys.
+Say it plainly: what they just told you is what they believe, and nothing was
+at stake when they said it, so on its own the principle stays provisional.
+One real instance where holding it cost something makes it core, and only
+core principles reach the Decision Test.
+
+Lead with the fact that "I chose differently" is the most valuable answer
+available, not a failure. Said first, it removes any reason to claim the
+flattering option — and knowing the mechanism is safe here, because the
+person is the only consumer of their own profile. Gaming it produces a
+document that lies to them. There is nothing to win.
+
+This is the one place where explaining the mechanism helps rather than
+contaminates. It remains true that you never say what a specific question
+measures.
+
 After a choice, ask whether it has happened for real — as a pick, not an
 essay:
 
