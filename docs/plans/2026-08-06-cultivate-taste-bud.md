@@ -903,6 +903,12 @@ Expected: FAIL, `elicitation.md` does not exist
 
 - [ ] **Step 3: Write the references**
 
+> **Superseded by what shipped.** Tasks 7, 8, and 6 are complete, and the
+> reference files on disk are canonical. The content quoted below was the
+> plan's draft and has since changed under first-contact testing — the
+> question bank now opens with forced choice rather than recall, and every
+> question is a pick. Read the shipped files, not these excerpts.
+
 `references/elicitation.md`:
 
 ```markdown

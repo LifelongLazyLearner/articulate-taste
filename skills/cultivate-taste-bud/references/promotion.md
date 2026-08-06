@@ -12,7 +12,13 @@ denormalised copy drifts.
 
 The test question is authored by the person at promotion time, in answer to
 "what question would you ask yourself to check this?" Do not derive it
-mechanically from the boundary prose.
+mechanically from the boundary prose, and do not generate one for them to
+approve — agreeing to a generated question costs nothing, and the Decision
+Test is built from these.
+
+This is the only place the method asks anyone to type. Offer it, never
+demand it. A principle with a boundary and paid evidence but no test question
+waits at provisional, which is an honest status rather than a failure.
 
 There is no threshold and no count anywhere in this gate. A principle is not
 confirmed by surviving some number of questions; it is confirmed by having a
