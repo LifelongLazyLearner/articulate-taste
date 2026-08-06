@@ -30,6 +30,14 @@ Status is one of `core`, `provisional`, `candidate`, and it belongs in the
 heading — never in a directory name. Moving a file to promote it breaks
 every inbound reference and severs its history.
 
+**Omit a field that does not exist yet. Never narrate its absence.** Writing
+`**Test.** Not yet written` creates a test question whose text is "Not yet
+written", and the gate will read it as present. What is missing belongs in
+Open Tensions, which is where the next session looks.
+
+`**Named trade.**` is optional: a deviation the person calls a lapse rather
+than a boundary, in their own words. It never affects status.
+
 ## Priority between principles
 
 Carried in prose, inside the principle that yields — "outside genuine
