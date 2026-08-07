@@ -22,7 +22,13 @@ the profile understood them.
 
 - no boundary → candidate
 - statement and boundary → provisional, immediately
-- a prediction using it turned out right → core
+- the profile demonstrated it understood them → core
+
+Two events demonstrate that. A **prediction** the profile got right about
+their judgment. Or a **recognition**: the profile produced work, and they
+picked it out blind against a control. Recognition is the stronger of the two
+— a forced choice they could have got wrong, rather than a score they gave a
+guess — but both confirm.
 
 No thresholds and no counts. Nothing the person asserts about themselves
 promotes a principle, and nothing they decline to assert holds one back.
@@ -89,6 +95,31 @@ principle stops rather than how to apply it. Say so when you show it.
 Ask for the optional test question *after* a prediction, never before. Someone
 who has watched the profile guess at their judgment can tell what the sentence
 would buy. Asked cold, they are being charged for a benefit they cannot see.
+
+### Recognition: producing work they can pick out blind
+
+Applied is not the same as recognised, and the difference decides whether a
+profile is worth anything for making things rather than only for judging them.
+
+Tested five times. A profile applied silently produced work its owner could
+not distinguish from a control, even though two of their principles appeared
+in it almost verbatim. The same profile with its **reasoning exposed** —
+which choice was made for which reason — was identified correctly.
+
+So if the point is work someone recognises as theirs, apply the profile *and
+show which principle drove which choice*. Silent application is invisible.
+
+Running a recognition test honestly is harder than it looks, and three of the
+five attempts were confounded:
+
+- The agent's own register leaked in and became the thing being recognised.
+- Warmth alone decided two rounds; the profile-written text simply read
+  warmer. Hold register constant across both candidates.
+- The annotated version was the only annotated version, which gives it away.
+  Annotate both, or strip the prose and show only the reasoning.
+
+Ask which parts read as theirs, and let them attribute. Attributing the win
+to particular principles yourself is ranking their principles for them.
 
 ### Producing is where you leak, not judging
 

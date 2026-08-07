@@ -139,10 +139,28 @@ class TestPromotionRule(unittest.TestCase):
         p = Principle(id="x", declared="core", statement="s", boundary="b", test="q?")
         self.assertEqual(computed_status(p, {}), "provisional")
 
-    def test_a_non_prediction_entry_does_not_promote(self):
+    def test_a_non_confirming_entry_does_not_promote(self):
         entries = {"a": Entry(id="a", action="choice", fields={"result": "hit"})}
         p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["a"])
         self.assertEqual(computed_status(p, entries), "provisional")
+
+    def test_recognition_promotes_like_a_prediction(self):
+        """Picking profile-written work out blind is a forced choice they could
+        have got wrong, so it confirms as strongly as a correct prediction."""
+        entries = {"a": Entry(id="a", action="recognise", fields={"result": "hit"})}
+        p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["a"])
+        self.assertEqual(computed_status(p, entries), "core")
+
+    def test_a_failed_recognition_does_not_promote(self):
+        entries = {"a": Entry(id="a", action="recognise", fields={"result": "miss"})}
+        p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["a"])
+        self.assertEqual(computed_status(p, entries), "provisional")
+
+    def test_recognition_still_needs_a_boundary(self):
+        """No boundary, no promotion, however the profile demonstrated itself."""
+        entries = {"a": Entry(id="a", action="recognise", fields={"result": "hit"})}
+        p = Principle(id="x", declared="core", statement="s", confirmed_by=["a"])
+        self.assertEqual(computed_status(p, entries), "candidate")
 
     def test_unresolved_reference_does_not_promote(self):
         p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["gone"])

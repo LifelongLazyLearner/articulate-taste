@@ -20,6 +20,13 @@ LOG_HEAD = re.compile(r"^## \[(?P<date>\d{4}-\d{2}-\d{2})\] (?P<action>[a-z]+) \
 LOG_KV = re.compile(r"^(?P<key>[a-z]+):\s*(?P<value>.+)$")
 
 
+#: Events that can confirm a principle. `predict` is the profile guessing a
+#: judgment and being right. `recognise` is the profile producing work the
+#: person picks out blind against a control — stronger, because it is a forced
+#: choice they could have got wrong rather than a score they gave a guess.
+CONFIRMING_ACTIONS = ("predict", "recognise")
+
+
 @dataclass
 class Principle:
     id: str
@@ -101,14 +108,14 @@ def computed_status(principle: Principle, entries: dict[str, Entry]) -> str:
 
     Nobody is asked to prove a value. A principle stated with a boundary is
     honoured as provisional immediately. It reaches core only once the profile
-    has predicted one of the person's judgments correctly using it, which is
-    the tool demonstrating it understood them rather than the reverse.
+    has demonstrated it understood them — by predicting a judgment correctly,
+    or by producing work they picked out blind against a control.
     """
     if not principle.boundary:
         return "candidate"
     for ref in principle.confirmed_by:
         entry = entries.get(ref)
-        if entry and entry.action == "predict" and entry.result == "hit":
+        if entry and entry.action in CONFIRMING_ACTIONS and entry.result == "hit":
             return "core"
     return "provisional"
 
@@ -145,10 +152,12 @@ def validate(profile_text: str, log_text: str) -> list[str]:
             entry = entries.get(ref)
             if entry is None:
                 errors.append(f"{principle.id}: confirmed-by reference {ref} resolves to no history entry")
-            elif entry.action != "predict":
-                errors.append(f"{principle.id}: {ref} is a {entry.action} entry, not a prediction")
+            elif entry.action not in CONFIRMING_ACTIONS:
+                errors.append(
+                    f"{principle.id}: {ref} is a {entry.action} entry, which cannot confirm anything"
+                )
             elif entry.result != "hit":
-                errors.append(f"{principle.id}: {ref} is a prediction that did not hit")
+                errors.append(f"{principle.id}: {ref} did not hit")
         implied = computed_status(principle, entries)
         if implied != principle.declared:
             errors.append(f"{principle.id}: declared {principle.declared}, history supports {implied}")
