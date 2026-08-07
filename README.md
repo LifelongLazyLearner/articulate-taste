@@ -8,9 +8,12 @@ It asks you to pick between options. You never have to type an answer.
 ## Install
 
 ```bash
-claude plugins install taste-bud          # Claude Code
-npx skills@latest add <owner>/taste-bud   # every other agent
+npx skills@latest add <owner>/taste-bud
 ```
+
+Replace `<owner>` with wherever this repo lives. Not yet verified against a
+real install — if it fails, clone the repo and point your agent at
+`skills/cultivate-taste-bud/SKILL.md` directly.
 
 ## What a session looks like
 
@@ -50,8 +53,9 @@ agreement. Treat the agreement as negotiable, not a rubber stamp.
 acting first is acceptable.
 ```
 
-Point any agent at it, in any project, and it judges your work the way you
-would.
+Hand that file to an agent in another project and it has something concrete
+to work from. There is no packaged skill that does this for you yet — you
+copy the file across, and you do it yourself.
 
 ## The one rule worth knowing
 
@@ -68,6 +72,17 @@ profile's problem to fix.
 
 A wrong guess is the useful outcome. The principle shown above was found by
 one.
+
+## What it doesn't do yet
+
+It doesn't apply your profile for you. It builds the document; using it in
+another project is manual.
+
+And a finding from testing that's worth knowing before you rely on it: a
+profile applied *silently* produces work you can't tell apart from anything
+else — even when your principles are in it almost word for word. What made
+work recognisable was the agent showing which principle drove which choice.
+Applying taste invisibly doesn't read as yours.
 
 ## It never edits without asking
 
