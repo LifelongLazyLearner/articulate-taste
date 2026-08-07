@@ -17,7 +17,7 @@ stable slug id, a statement, and a boundary.
 
 Stated and bounded, but the profile has not yet predicted a judgment
 correctly using them. This is where a principle sits from the moment you name
-it — an honest status, not a lesser one.
+it. An honest status, not a lesser one.
 
 ## Open Tensions
 

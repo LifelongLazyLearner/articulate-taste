@@ -20,14 +20,14 @@ composed id.
 
 **Test.** Am I using honesty as an excuse for avoidable harm?
 
-**Confirmed by.** [2026-08-06-blunt-feedback] — the profile predicted this judgment correctly.
+**Confirmed by.** [2026-08-06-blunt-feedback]. The profile predicted this judgment correctly.
 ```
 
 The heading id is a stable slug. It never changes, so a later split into
 per-principle files stays mechanical.
 
 Status is one of `core`, `provisional`, `candidate`, and it belongs in the
-heading — never in a directory name. Moving a file to promote it breaks
+heading, never in a directory name. Moving a file to promote it breaks
 every inbound reference and severs its history.
 
 **Omit a field that does not exist yet. Never narrate its absence.** Writing
@@ -41,11 +41,11 @@ affects status.
 
 `**Confirmed by.**` cites predictions that used the principle and turned out
 right. It is the only field that promotes anything, and only the profile can
-earn it — nothing the person says about themselves goes here.
+earn it. Nothing the person says about themselves goes here.
 
 ## Priority between principles
 
-Carried in prose, inside the principle that yields — "when this and
+Carried in prose, inside the principle that yields: "when this and
 *ship-on-time* collide, correctness wins and I take the delay as a cost."
 Order within Core Principles reflects it too. There is no ranking field: only the person may
 assert priority, and a resolved tension is where they assert it.
@@ -76,5 +76,5 @@ Actions: `seed`, `choice`, `demote`, `predict`, `tension`, `leak`.
 A `predict` entry needs `about:` and `result:`, because those are what a
 principle's **Confirmed by** field resolves against.
 
-Append only. Newest last. Never edit or delete an entry — a history that can
+Append only. Newest last. Never edit or delete an entry. A history that can
 be rewritten cannot serve as evidence.

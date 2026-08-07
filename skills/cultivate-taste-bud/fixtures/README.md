@@ -9,8 +9,8 @@ profile. Nothing here was hand-written to make a point.
 
 `verify-first` is a structural safety engineer. `take-the-wall` is a muralist
 who works illegally and never signs anything. They oppose each other on
-releasing, on attribution, and on whether being understood matters — which is
-what makes them useful: the neutrality test asserts their core principles do
+releasing, on attribution, and on whether being understood matters. That is
+what makes them useful, because the neutrality test asserts their core principles do
 not overlap, and it would fail if the method pushed different people toward
 the same conclusions.
 

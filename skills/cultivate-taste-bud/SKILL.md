@@ -1,6 +1,6 @@
 ---
 name: cultivate-taste-bud
-description: Interview a person into their own taste profile — the standards behind how they judge creative work, products, code, and decisions — and keep it evolving as new evidence arrives. Produces a TASTE.md plus an append-only history. Use when someone wants to cultivate or articulate their taste, build a taste profile, work out what they actually value, or make their standards legible to an agent. Not for applying an existing profile, and not a visual style guide.
+description: Interview a person into their own taste profile, meaning the standards behind how they judge creative work, products, code, and decisions, then keep it evolving as new evidence arrives. Produces a TASTE.md plus an append-only history. Use when someone wants to cultivate or articulate their taste, build a taste profile, work out what they actually value, or make their standards legible to an agent. Not for applying an existing profile, and not a visual style guide.
 ---
 
 # Cultivate a taste bud
@@ -30,8 +30,8 @@ says they value as what they value. Do not ask them to demonstrate it in past
 behaviour, and do not rank their answers by how costly the answer was.
 
 Asking someone to prove their values to a tool they own is both rude and
-confused. Proof of past behaviour answers a different question — what they
-predict about themselves — while a profile records what they hold as a
+confused. Proof of past behaviour answers a different question, namely what
+they predict about themselves, while a profile records what they hold as a
 standard. The two are related and not the same.
 
 **The tool carries the burden instead.** A principle firms up when the profile
@@ -47,8 +47,8 @@ anything to say.
 ## Ask in picks, not prose
 
 Every question is multiple choice with a skip option. Exactly one question in
-this method requires typing — the test question at core promotion, which is
-deferrable, so a whole session can run without composing a sentence.
+this method requires typing. That is the test question at core promotion,
+which is deferrable, so a whole session can run without composing a sentence.
 
 Options are assembled only from what the person has already chosen, rejected,
 or named. Offering a principle you invented and asking them to agree is cheap
@@ -62,23 +62,23 @@ Ask nothing you can look up, and configure nothing you can default.
 Enter anywhere, stop anywhere. Read `TASTE.md` first; `Open Tensions` says
 where to resume.
 
-1. **seed** — Open with a forced choice in the present tense, price stated
+1. **seed.** Open with a forced choice in the present tense, price stated
    inside the question. Never open by asking someone to recall a costly
    episode: that reads as an exam and returns reconstructed evidence.
-2. **tension** — Build a concrete dilemma where two of their own values
+2. **tension.** Build a concrete dilemma where two of their own values
    collide, with a stated price. Never generic.
-3. **choice** — They choose. Record the choice, the price it carried, what
+3. **choice.** They choose. Record the choice, the price it carried, what
    won and what lost. Do not follow it by asking them to prove it happened.
    If they volunteer that it has come up for real, record that; never request
    it.
-4. **boundary** — Offer concrete costs that would break the principle, drawn
+4. **boundary.** Offer concrete costs that would break the principle, drawn
    from the losing side of tensions they already answered. Picking which cost
    breaks you is still a choice under price, not assent.
-5. **record status** — Statement plus boundary is provisional straight away.
+5. **record status.** Statement plus boundary is provisional straight away.
    See [references/promotion.md](references/promotion.md).
-6. **record** — Update the principle and append the history entry in one
+6. **record.** Update the principle and append the history entry in one
    pass. Formats in [references/format.md](references/format.md).
-7. **predict** — As soon as any principle has a boundary, predict their
+7. **predict.** As soon as any principle has a boundary, predict their
    judgment on a held-out item and show them the item. A hit promotes the
    principle to core: the profile has shown it understood them. A miss opens
    a tension and re-enters the loop, and is the more useful outcome.

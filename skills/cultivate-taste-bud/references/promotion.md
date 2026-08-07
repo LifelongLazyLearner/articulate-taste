@@ -6,7 +6,7 @@ Not the person. Take what they say they value as what they value.
 
 Grading someone's answers by how much the answer cost them treats a profile as
 a claim about their behaviour. It is not. It records what they hold as a
-standard, and those are different questions — a person can hold a standard
+standard, and those are different questions. A person can hold a standard
 they have failed to meet, and the standard is still theirs.
 
 There is also less to the grading than it looks. "Has this come up for real?"
@@ -27,14 +27,14 @@ the profile understood them.
 Two events demonstrate that. A **prediction** the profile got right about
 their judgment. Or a **recognition**: the profile produced work, and they
 picked it out blind against a control. Recognition is the stronger of the two
-— a forced choice they could have got wrong, rather than a score they gave a
-guess — but both confirm.
+because it is a forced choice they could have got wrong, rather than a score
+they gave a guess. Both confirm.
 
 No thresholds and no counts. Nothing the person asserts about themselves
 promotes a principle, and nothing they decline to assert holds one back.
 
-The test question — the question they would ask themselves to check the
-principle — is optional and always has been optional to write. It shapes the
+The test question, the one they would ask themselves to check the principle,
+is optional and always has been optional to write. It shapes the
 Decision Test when it exists. It gates nothing.
 
 ## A lapse is not a counterexample
@@ -44,8 +44,8 @@ they still defend it.
 
 A choice they would defend is a real boundary: it names a condition under
 which the principle genuinely yields, and the principle was stated at the
-wrong altitude. A choice they call a lapse is the opposite — judging your own
-behaviour against a standard is evidence the standard holds. Someone who
+wrong altitude. A choice they call a lapse is the opposite, because judging
+your own behaviour against a standard is evidence the standard holds. Someone who
 regrets the deviation has confirmed the principle, not weakened it.
 
 Record the lapse as a named trade in their own words. Never redescribe it as
@@ -82,7 +82,7 @@ person.
 
 Prediction is where the profile earns everything it claims.
 
-Any principle with a stated boundary can be predicted from — prediction never
+Any principle with a stated boundary can be predicted from. Prediction never
 waits for core, because core is what prediction produces.
 
 Predict their judgment on an item the profile was not built from, and show
@@ -103,8 +103,8 @@ profile is worth anything for making things rather than only for judging them.
 
 Tested five times. A profile applied silently produced work its owner could
 not distinguish from a control, even though two of their principles appeared
-in it almost verbatim. The same profile with its **reasoning exposed** —
-which choice was made for which reason — was identified correctly.
+in it almost verbatim. The same profile with its reasoning exposed, showing which choice was made
+for which reason, was identified correctly.
 
 So if the point is work someone recognises as theirs, apply the profile *and
 show which principle drove which choice*. Silent application is invisible.
@@ -125,8 +125,8 @@ to particular principles yourself is ranking their principles for them.
 
 Applying a profile to *make* something is far more dangerous than using it to
 judge something. Judging compares work against stated principles. Producing
-fills every gap the principles do not cover — tone, length, warmth, rhythm —
-and you fill those gaps with yourself.
+fills every gap the principles do not cover, including tone, length, warmth
+and rhythm, and you fill those gaps with yourself.
 
 Observed directly: an agent asked to write a first-run greeting from a
 profile produced its own house style, mistook the person's principle about
@@ -146,7 +146,7 @@ Asking "does this feel like you?" invites agreement and tells you nothing.
 A prediction they cannot cheaply evaluate is homework, not a prediction.
 
 Say what is happening before predicting: I am going to guess what you think
-of this, and you tell me whether I got it right. Then show the thing itself —
+of this, and you tell me whether I got it right. Then show the thing itself,
 quoted inline, short enough to judge in a few seconds. Never point at a file
 and ask them to go and read it.
 
@@ -159,7 +159,7 @@ Say plainly that a wrong guess is the useful outcome. Otherwise scoring feels
 like grading you, and people are kind.
 
 A miss is not their failure. It is the best evidence the method can obtain
-about itself, and the only kind that arrives without being asked for — every
+about itself, and the only kind that arrives without being asked for. Every
 miss opens a tension and re-enters the loop.
 
 Scoring is itself something they tell you, so it is not proof in any strong

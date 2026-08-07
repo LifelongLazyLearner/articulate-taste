@@ -40,7 +40,7 @@ craft, they answer as the person they would like to be.
 A dilemma with no referent is unanswerable. "You ship tomorrow" invites the
 question *ship what*, and rightly.
 
-Build from what is in front of them — the project they are working on, a
+Build from what is in front of them: the project they are working on, a
 decision they have named, something in the repo. When you genuinely have
 nothing yet, name the situation concretely enough to picture: who is waiting,
 what they wanted, what they get instead.
@@ -52,8 +52,8 @@ weakest option; prefer their material the moment you have any.
 
 A question is answerable only if every term in it belongs to the person. If
 answering requires knowing what *core*, *provisional*, or *the Decision
-Test* means, it is not elicitation — it is asking them to hold your
-model in their head before they can speak about their own life.
+Test* means, it is not elicitation. It is asking them to hold your model in
+their head before they can speak about their own life.
 
 Grounding a question in something real is not enough. It has to be grounded
 in something real **to them**. A question can be perfectly concrete and still
@@ -63,9 +63,8 @@ be about your problem rather than theirs.
 
 The session elicits taste. It does not review the tool.
 
-When a design question comes up mid-session — should this gate be stricter,
-should this step be optional, is this worth the friction — do not put it to
-the person as though it were a question about their values. It is a question
+When a design question comes up mid-session, such as whether this gate should
+be stricter or that step optional, do not put it to the person as though it were a question about their values. It is a question
 about your machinery, and answering it requires context they were never
 given.
 
@@ -105,7 +104,7 @@ standard they have failed to meet. It is also weaker evidence than it looks:
 "has this come up for real" is a report, exactly as a stated belief is a
 report. Neither is observed.
 
-If they volunteer that it has come up — either way — record it. Volunteering
+If they volunteer that it has come up, either way, record it. Volunteering
 that they went the other way is genuinely valuable and always their own to
 offer. Never request it, and never treat its absence as a gap.
 
@@ -120,7 +119,7 @@ is stated at the wrong altitude: something decides which way they go, and
 that condition is the actual principle.
 
 Ask what was different about the occasions that went the other way. Build the
-options only from what they have already said — if their material gives you
+options only from what they have already said. If their material gives you
 two candidate conditions, offer two, plus an escape that hands the question
 back to them. Do not pad the list with plausible inventions to make it look
 complete.
@@ -137,27 +136,27 @@ concrete price:
 > You hold *ship over polish*. Which of these would actually stop you?
 > (a) The flaw is one a user could get hurt by. (b) It would embarrass
 > someone who trusted me. (c) I would not be able to fix it later.
-> (d) None of these — nothing stops me. (e) Skip.
+> (d) None of these, nothing stops me. (e) Skip.
 
 Picking which cost breaks you is still a choice under price, not assent to a
 proposition. That is what keeps it evidence.
 
 ## The optional sentence
 
-A principle can carry a test question — the question the person would ask
-themselves to check it. It sharpens the Decision Test, and it gates nothing.
+A principle can carry a test question, the one they would ask themselves to
+check it. It sharpens the Decision Test, and it gates nothing.
 
 Offer it **after a prediction, never before**. Someone who has watched the
 profile guess at their judgment can tell what the sentence would buy. Asked
 cold, they are being charged for a benefit they cannot see, and they will
-decline — correctly.
+decline, and they are right to.
 
 Never generate one and ask them to approve it. Agreeing costs nothing, and
 what comes back is your sentence wearing their name.
 
 ## Your own instructions can bleed into their profile
 
-These documents argue hard for particular things — that being understood is a
+These documents argue hard for particular things: that being understood is a
 floor, that consent should be informed, that nothing is absolute. Those are
 rules for you, the interviewer. They are not the person's values, and they
 must not become their values by proximity.
@@ -176,7 +175,7 @@ that quietly agrees with the tool that made it is worth nothing.
 
 Forced-choice dilemmas about work surface values about work. They will not
 surface how someone treats people, what they refuse at any price, or what
-they protect when they are the one at risk — because those questions were
+they protect when they are the one at risk, because those questions were
 never asked.
 
 This is not hypothetical. A profile built entirely from questions about
@@ -185,7 +184,7 @@ holds it as one of their two most important values.
 
 Before ending a session, look at what the principles are *about*, and say
 plainly which areas have nothing in them. Do not present this as a checklist
-to complete — offer one question in an untouched area and let them decline.
+to complete. Offer one question in an untouched area and let them decline.
 
 Areas worth noticing, drawn from what real profiles actually contain:
 
@@ -202,8 +201,7 @@ complete without the person knowing which ones it skipped.
 ## Artifact mining
 
 Optional. Offer when they have a repo, portfolio, or body of writing. Read
-what they shipped, kept, and deleted. Skip without penalty — the method must
-work cold for someone with nothing to mine.
+what they shipped, kept, and deleted. Skip without penalty, because the method must work cold for someone with nothing to mine.
 
 ## One question at a time
 
@@ -211,15 +209,15 @@ Ask one, wait, ask the next. Asking several at once is bewildering, and
 answers to later questions get contaminated by earlier ones on the screen.
 
 Never suggest which option you would pick. In a decision that belongs to the
-user, a recommendation is a leak — record it as one if you catch yourself.
+user, a recommendation is a leak. Record it as one if you catch yourself.
 
 ## Anything can be declined
 
 Some of these questions touch failure, refusal, and work someone is not proud
 of. Say once, at the start, that any question can be skipped without a reason.
 
-When someone declines, move on immediately — no gentler rephrasing, no
-returning to it later, no noting that they avoided it. Record only that the
+When someone declines, move on immediately. Do not rephrase it more gently,
+do not return to it later, and do not note that they avoided it. Record only that the
 area is unexplored, never that they were unwilling.
 
 A profile built by pressure is not evidence of their taste. It is evidence of
