@@ -97,4 +97,11 @@ when a paid-by reference resolves to nothing. Fix what it reports.
 ## Offer, do not assume
 
 At the end, offer to package the profile as a portable skill so any agent
-applies it. Do not install anything without being asked.
+applies it. How to do that is in [references/emitting.md](references/emitting.md),
+which you read only if they accept.
+
+The packaged skill differs from the profile in one way that matters: it states
+which principle drove which choice instead of applying them silently. A profile
+applied invisibly produces work its owner cannot pick out from anything else.
+
+Do not install anything without being asked.

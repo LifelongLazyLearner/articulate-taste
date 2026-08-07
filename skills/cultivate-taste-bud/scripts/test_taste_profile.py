@@ -282,9 +282,64 @@ class TestSkillFrontmatter(unittest.TestCase):
 class TestReferences(unittest.TestCase):
     def test_every_reference_linked_from_skill_exists(self):
         linked = set(re.findall(r"\(references/([a-z-]+\.md)\)", read(SKILL)))
-        self.assertEqual(linked, {"elicitation.md", "format.md", "promotion.md"})
+        self.assertEqual(
+            linked, {"elicitation.md", "emitting.md", "format.md", "promotion.md"}
+        )
         for name in linked:
             self.assertTrue(os.path.exists(os.path.join(REFERENCES, name)), name)
+
+
+class TestEmittedSkillTemplate(unittest.TestCase):
+    """The template a person's own skill is built from.
+
+    Its frontmatter has to satisfy the same rules as any other skill once the
+    placeholders are filled, or every emitted skill is born invalid.
+    """
+
+    PATH = os.path.join(TEMPLATES, "emitted-skill", "SKILL.md")
+
+    def filled(self):
+        return (
+            read(self.PATH)
+            .replace("{{SKILL_NAME}}", "someones-taste")
+            .replace("{{PROFILE_SUMMARY}}", "how they judge writing and code")
+        )
+
+    def frontmatter(self):
+        _, block, _ = self.filled().split("---", 2)
+        fields = {}
+        for line in block.strip().splitlines():
+            key, _, value = line.partition(":")
+            fields[key.strip()] = value.strip()
+        return fields
+
+    def test_filled_name_obeys_the_spec(self):
+        name = self.frontmatter()["name"]
+        self.assertRegex(name, r"^[a-z0-9-]+$")
+        self.assertLessEqual(len(name), 64)
+        self.assertNotIn("claude", name)
+        self.assertNotIn("anthropic", name)
+
+    def test_filled_description_states_what_and_when_within_limit(self):
+        description = self.frontmatter()["description"]
+        self.assertLessEqual(len(description), 1024)
+        self.assertIn("Use when", description)
+
+    def test_no_placeholder_survives_substitution(self):
+        self.assertNotIn("{{", self.filled())
+
+    def test_it_requires_narrating_which_principle_drove_which_choice(self):
+        """Silent application produced work its owner could not recognise."""
+        body = read(self.PATH).lower()
+        self.assertIn("never apply a principle silently", body)
+        self.assertIn("which principle", body)
+
+    def test_it_checks_the_opt_in_before_reading_the_profile(self):
+        body = read(self.PATH)
+        self.assertIn(".taste-opt-in.md", body)
+        opt_in = body.index(".taste-opt-in.md")
+        loads = body.index("Status means something")
+        self.assertLess(opt_in, loads, "opt-in check must come first")
 
 
 class TestTemplates(unittest.TestCase):

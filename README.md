@@ -52,9 +52,9 @@ agreement. Treat the agreement as negotiable, not a rubber stamp.
 acting first is acceptable.
 ```
 
-Hand that file to an agent in another project and it has something concrete to
-work from. There is no packaged skill that does this for you yet, so you copy
-the file across yourself.
+At the end of a session it offers to package that profile as its own skill, so
+any agent in any project can apply it. It never installs anything unless you
+ask.
 
 ## The one rule worth knowing
 
@@ -70,16 +70,21 @@ because the profile has shown it understood you. Guess wrong, and fixing that
 is the profile's job rather than yours. The principle shown above came out of a
 wrong guess.
 
-## What it doesn't do yet
+## The packaged skill explains itself
 
-It doesn't apply your profile for you. It builds the document, and using that
-document in another project is manual.
+If you take the offer, the skill you get does one thing differently from a
+plain profile: it says which principle drove which choice instead of applying
+them quietly.
 
-One finding from testing is worth knowing before you rely on it. A profile
-applied silently produces work you can't tell apart from anything else, even
-when your principles appear in it almost word for word. What made work
-recognisable was the agent showing which principle drove which choice. Taste
-applied invisibly doesn't read as yours.
+That came out of testing rather than preference. A profile applied silently
+produced work its owner couldn't tell apart from anything else, even with their
+own principles in it almost word for word. The same profile with its reasoning
+shown was picked out correctly. Taste applied invisibly doesn't read as
+anyone's.
+
+It also stays out of projects that haven't asked for it. The first time you use
+it somewhere, it writes a small opt-in file, and without that file it says
+nothing about your work.
 
 ## It never edits without asking
 

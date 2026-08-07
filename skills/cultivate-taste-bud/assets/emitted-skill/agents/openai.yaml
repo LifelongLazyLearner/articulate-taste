@@ -1,0 +1,5 @@
+interface:
+  display_name: "{{SKILL_NAME}}"
+  short_description: "Judge work against a recorded taste profile"
+policy:
+  allow_implicit_invocation: true
