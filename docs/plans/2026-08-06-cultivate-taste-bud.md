@@ -10,6 +10,21 @@
 
 **Spec:** [docs/specs/2026-08-06-cultivate-taste-bud-design.md](../specs/2026-08-06-cultivate-taste-bud-design.md), signed off.
 
+> **Superseded — historical record only.** This plan was written before the
+> method was tested on a person. The code in
+> `skills/cultivate-taste-bud/scripts/` is canonical and no longer matches
+> what is described below.
+>
+> What changed: the evidence-tier ladder and the paid-evidence requirement
+> were removed entirely, because asking people to prove their own values is
+> both rude and weaker evidence than it looks. A principle now firms up when
+> the profile demonstrates it understood the person — by predicting a
+> judgment correctly, or by producing work they pick out blind. Every code
+> sample below that mentions tiers or `paid_by` is obsolete.
+>
+> Kept for the record of how it was built, including the parts that were
+> wrong. Do not implement from it.
+
 ## Execution order
 
 This repo is governed by the author's `TASTE.md`, invoked explicitly. Its

@@ -17,7 +17,6 @@ from taste_profile import (
     overlapping_cores,
     parse_log,
     parse_profile,
-    predictable_ids,
     validate,
 )
 
@@ -165,23 +164,6 @@ class TestPromotionRule(unittest.TestCase):
     def test_unresolved_reference_does_not_promote(self):
         p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["gone"])
         self.assertEqual(computed_status(p, {}), "provisional")
-
-
-class TestPredictable(unittest.TestCase):
-    def test_a_boundary_is_enough_to_predict_from(self):
-        self.assertEqual(
-            predictable_ids(PROFILE), {"kindness-over-authenticity", "enter-reality"}
-        )
-
-    def test_provisional_principles_are_predictable(self):
-        self.assertIn("enter-reality", predictable_ids(PROFILE))
-
-    def test_a_principle_without_a_boundary_is_not_predictable(self):
-        profile = PROFILE.replace(
-            "**Boundary.** Does not excuse shipping work that fails its quality conditions.\n",
-            "",
-        )
-        self.assertNotIn("enter-reality", predictable_ids(profile))
 
 
 class TestValidate(unittest.TestCase):

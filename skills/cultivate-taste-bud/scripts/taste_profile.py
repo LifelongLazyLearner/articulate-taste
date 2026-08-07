@@ -164,11 +164,6 @@ def validate(profile_text: str, log_text: str) -> list[str]:
     return errors
 
 
-def predictable_ids(profile_text: str) -> set[str]:
-    """Principles a prediction may draw on: anything with a stated boundary."""
-    return {p.id for p in parse_profile(profile_text) if p.boundary}
-
-
 def core_ids(profile_text: str, log_text: str) -> set[str]:
     """Ids of principles the history actually supports as core."""
     entries = parse_log(log_text)
