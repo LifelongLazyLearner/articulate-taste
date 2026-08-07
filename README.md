@@ -8,11 +8,10 @@ It asks you to pick between options. You never have to type an answer.
 ## Install
 
 ```bash
-npx skills@latest add <owner>/taste-bud
+npx skills@latest add LifelongLazyLearner/cultivate-taste-bud
 ```
 
-Replace `<owner>` with wherever this repo lives. Not yet verified against a
-real install — if it fails, clone the repo and point your agent at
+If that fails, clone the repo and point your agent at
 `skills/cultivate-taste-bud/SKILL.md` directly.
 
 ## What a session looks like

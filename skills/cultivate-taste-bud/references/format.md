@@ -45,9 +45,9 @@ earn it — nothing the person says about themselves goes here.
 
 ## Priority between principles
 
-Carried in prose, inside the principle that yields — "outside genuine
-survival constraints, kindness normally has priority." Order within Core
-Principles reflects it too. There is no ranking field: only the person may
+Carried in prose, inside the principle that yields — "when this and
+*ship-on-time* collide, correctness wins and I take the delay as a cost."
+Order within Core Principles reflects it too. There is no ranking field: only the person may
 assert priority, and a resolved tension is where they assert it.
 
 ## History entries

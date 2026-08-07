@@ -37,7 +37,7 @@ Condition 6 is the self-evolution condition. A profile that only ever accumulate
 
 ## Non-goals
 
-- Converging anyone on the author's taste. This repo's `TASTE.md` v0.5 is a worked example of output shape, nothing more.
+- Converging anyone on the author's taste, or on anyone else's.
 - Producing a style guide, visual language, or tone specification. Taste here means standards of judgment, not surface expression.
 - Replacing the person's authority. The method proposes; the person decides.
 
@@ -64,7 +64,7 @@ Self-evolution requires four things: principles addressable by stable id, an app
 
 A graph does not enable one verdict to update several principles — an agent editing a flat document does that in the same pass. A graph makes the links explicit, and its real payoff is retrieval once a profile holds far more principles than a single file should carry. That is a scale problem no first profile has.
 
-Direct evidence that flat suffices: this repo's `TASTE.md` v0.5 carries ten principles with boundaries, evidence, and a decision test, through three recorded revisions including two demotions — a complete lifecycle, one file, no graph.
+Direct evidence that flat suffices: a real hand-maintained profile of ten principles, each with a boundary, plus evidence and a decision test, survived three recorded revisions including two demotions — a complete lifecycle in one file, with no graph.
 
 Principle ids are stable slugs so that a later split into per-principle files stays mechanical.
 
@@ -168,7 +168,7 @@ Each principle carries a stable slug id and a status:
 
 `Open Tensions` is what makes the file its own resume router: unresolved dilemmas, principles still missing a boundary, and principles the profile has not yet predicted correctly.
 
-**Priority between principles is carried in prose, inside the principle that yields.** v0.5 demonstrates the form — "survival is the leading one," "outside genuine survival constraints, kindness normally has priority." Order within Core Principles reflects it too. There is no separate ranking field: only the person may assert priority, and a resolved tension is where they assert it.
+**Priority between principles is carried in prose, inside the principle that yields.** Order within Core Principles reflects it too. There is no separate ranking field: only the person may assert priority, and a resolved tension is where they assert it.
 
 `Decision Test` is the ordered list of each core principle's `Test` line, authored by the person at promotion time in answer to "what question would you ask yourself to check this?" — not mechanically derived from the boundary prose.
 
@@ -276,7 +276,7 @@ Raw transcripts are discarded by default. Opt-in retention writes them outside t
 ## Deferred
 
 - Splitting `TASTE.md` into per-principle files, if a profile ever outgrows one document. Stable slug ids keep this mechanical.
-- Migrating this repo's `TASTE.md` v0.5 into the format. Method ships first.
+
 - Team or shared profiles, where conflicting choices from different people must be reconciled.
 - A manual install path for anyone without the `skills` CLI. Only worth writing if it blocks real users.
 

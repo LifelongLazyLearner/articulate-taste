@@ -27,9 +27,8 @@
 
 ## Execution order
 
-This repo is governed by the author's `TASTE.md`, invoked explicitly. Its
-Decision Test asks whether the core value can enter reality now, so the
-tasks below are executed in this order rather than in numeric order:
+Reordered so the core value can enter reality sooner, rather than running in
+numeric order:
 
 **7 → 8 → 6 → first contact → 1 → 2 → 3 → 4 → 5 → 9**
 
@@ -1022,9 +1021,9 @@ per-principle files stays mechanical.
 
 ## Priority between principles
 
-Carried in prose, inside the principle that yields — "outside genuine
-survival constraints, kindness normally has priority." Order within Core
-Principles reflects it too. There is no ranking field: only the person may
+Carried in prose, inside the principle that yields — "when this and
+*ship-on-time* collide, correctness wins and I take the delay as a cost."
+Order within Core Principles reflects it too. There is no ranking field: only the person may
 assert priority, and a resolved tension is where they assert it.
 
 ## History entries
@@ -1235,4 +1234,4 @@ Conditions 1, 4, and 6 are prompt-driven and cannot be unit-tested. They are ver
 - The emitted personal skill and `references/emitting.md` — out of MVP per spec.
 - Publishing anywhere. Not authorized.
 - Running the skill against real personal answers. Not authorized.
-- Migrating this repo's `TASTE.md` v0.5.
+

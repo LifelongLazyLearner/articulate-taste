@@ -1,5 +1,5 @@
 {
-  "name": "taste-bud",
+  "name": "cultivate-taste-bud",
   "description": "Cultivate your own taste profile, and keep it evolving.",
   "version": "0.1.0",
   "skills": ["./skills/cultivate-taste-bud"]
