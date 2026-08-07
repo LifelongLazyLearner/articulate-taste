@@ -238,18 +238,18 @@ result: hit
 
 class TestNeutrality(unittest.TestCase):
     def test_each_fixture_is_internally_valid(self):
-        for name in ("ship-fast", "hold-the-line"):
+        for name in ("verify-first", "take-the-wall"):
             profile, log = read_fixture(name)
             self.assertEqual(validate(profile, log), [], f"{name} is inconsistent")
 
     def test_each_fixture_has_at_least_one_core_principle(self):
-        for name in ("ship-fast", "hold-the-line"):
+        for name in ("verify-first", "take-the-wall"):
             profile, log = read_fixture(name)
             self.assertTrue(core_ids(profile, log), f"{name} produced no core principle")
 
     def test_opposed_personas_share_no_core_principle(self):
-        a_profile, a_log = read_fixture("ship-fast")
-        b_profile, b_log = read_fixture("hold-the-line")
+        a_profile, a_log = read_fixture("verify-first")
+        b_profile, b_log = read_fixture("take-the-wall")
         self.assertEqual(overlapping_cores(a_profile, a_log, b_profile, b_log), set())
 
 

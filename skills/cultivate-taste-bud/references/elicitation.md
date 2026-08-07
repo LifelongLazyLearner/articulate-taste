@@ -155,6 +155,23 @@ decline — correctly.
 Never generate one and ask them to approve it. Agreeing costs nothing, and
 what comes back is your sentence wearing their name.
 
+## Your own instructions can bleed into their profile
+
+These documents argue hard for particular things — that being understood is a
+floor, that consent should be informed, that nothing is absolute. Those are
+rules for you, the interviewer. They are not the person's values, and they
+must not become their values by proximity.
+
+Observed once, in two cold sessions run from these files: both people came out
+holding a principle about legibility, including one whose stated position was
+that being understood by everyone means you said something safe. Native to one
+of them, suspicious in the other.
+
+Two sessions is not enough to call it. Watch for it anyway. When a principle
+appears that resembles something these instructions advocate, and the person's
+own material did not point at it, say so and let them throw it out. A profile
+that quietly agrees with the tool that made it is worth nothing.
+
 ## Check what you never asked about
 
 Forced-choice dilemmas about work surface values about work. They will not
