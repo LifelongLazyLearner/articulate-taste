@@ -69,6 +69,23 @@ first action is to look for that file. If it is absent, the skill says what it
 is and offers to create it, then stops. It does not load the profile and it
 does not comment on the work.
 
+## Check it parses before you install it
+
+```bash
+npx skills@latest add <directory> --list
+```
+
+It must print the skill's name. Anything else, including `No skills found`,
+means the frontmatter did not parse and installing would put a file on disk
+that no agent ever loads.
+
+The failure that costs the most is a colon followed by a space anywhere in
+`description`. YAML reads the rest of the line as a nested mapping and the
+whole skill is skipped, with an error that names the line rather than the
+colon. `{{PROFILE_SUMMARY}}` is drawn from a person's own principles, so it
+is the likeliest place for one to arrive. Use a dash or a comma instead.
+Substituting for a colon is safe; leaving one in is not.
+
 ## Installing
 
 Shell out to the `skills` CLI rather than writing symlinks by hand:

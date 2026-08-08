@@ -15,7 +15,7 @@ npx skills@latest add LifelongLazyLearner/articulate-taste
 ```
 
 If that fails, clone the repo and point your agent at
-`skills/articulate-taste/SKILL.md` directly.
+`SKILL.md` directly.
 
 ## What a session looks like
 
@@ -140,12 +140,13 @@ mistake it for a description of your behaviour.
 
 ## Also here
 
-- [`skills/articulate-taste/`](skills/articulate-taste/) is the skill
-  itself.
+- [`SKILL.md`](SKILL.md) is the skill itself, with the rest of it in
+  [`references/`](references/).
 - [`docs/`](docs/) covers how it was designed and built, including the parts
-  that were wrong first.
-- [`skills/articulate-taste/fixtures/`](skills/articulate-taste/fixtures/)
-  holds two profiles produced by running the method cold, used to check that
-  different people don't get pushed toward the same conclusions.
+  that were wrong first. It predates the rename and the move to comparison,
+  and is kept as a record rather than corrected.
+- [`fixtures/`](fixtures/) holds two profiles produced by running the method
+  cold, used to check that different people don't get pushed toward the same
+  conclusions.
 - To check a profile:
-  `python3 skills/articulate-taste/scripts/taste_profile.py TASTE.md log.md`
+  `python3 scripts/taste_profile.py TASTE.md log.md`
