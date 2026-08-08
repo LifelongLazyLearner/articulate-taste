@@ -253,6 +253,23 @@ class TestNeutrality(unittest.TestCase):
         self.assertEqual(overlapping_cores(a_profile, a_log, b_profile, b_log), set())
 
 
+def plain_scalar_problems(value: str) -> list[str]:
+    """YAML breakages an unquoted frontmatter value can hide.
+
+    A colon followed by a space makes YAML read the rest of the line as a
+    nested mapping, the frontmatter fails to parse, and the loader skips the
+    skill entirely — reporting the line rather than the colon. Every other
+    check in this file passes while the skill will not install at all, which
+    is how one shipped.
+    """
+    problems = []
+    if ": " in value:
+        problems.append("colon followed by a space")
+    if value[:1] in "-?:,[]{}#&*!|>'\"%@`":
+        problems.append(f"leading {value[:1]!r}")
+    return problems
+
+
 class TestSkillFrontmatter(unittest.TestCase):
     def frontmatter(self):
         _, block, _ = read(SKILL).split("---", 2)
@@ -272,6 +289,12 @@ class TestSkillFrontmatter(unittest.TestCase):
         name = self.frontmatter()["name"]
         self.assertNotIn("claude", name)
         self.assertNotIn("anthropic", name)
+
+    def test_frontmatter_stays_loadable(self):
+        for key, value in self.frontmatter().items():
+            self.assertEqual(
+                plain_scalar_problems(value), [], f"{key}: {value[:70]}"
+            )
 
     def test_description_states_what_and_when_within_limit(self):
         description = self.frontmatter()["description"]
@@ -324,6 +347,12 @@ class TestEmittedSkillTemplate(unittest.TestCase):
         description = self.frontmatter()["description"]
         self.assertLessEqual(len(description), 1024)
         self.assertIn("Use when", description)
+
+    def test_frontmatter_stays_loadable(self):
+        for key, value in self.frontmatter().items():
+            self.assertEqual(
+                plain_scalar_problems(value), [], f"{key}: {value[:70]}"
+            )
 
     def test_no_placeholder_survives_substitution(self):
         self.assertNotIn("{{", self.filled())
