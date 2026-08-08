@@ -174,11 +174,6 @@ def core_ids(profile_text: str, log_text: str) -> set[str]:
     }
 
 
-def overlapping_cores(a_profile: str, a_log: str, b_profile: str, b_log: str) -> set[str]:
-    """Core principles two profiles share. Opposed people should share none."""
-    return core_ids(a_profile, a_log) & core_ids(b_profile, b_log)
-
-
 def main(argv: list[str]) -> int:
     if len(argv) != 3:
         print("usage: taste_profile.py <TASTE.md> <log.md>")

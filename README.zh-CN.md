@@ -97,7 +97,5 @@ is worse than none. Where you cannot say why, lay out the options and stop.
 ## 其他
 
 - [`SKILL.md`](SKILL.md) 是技能本身，剩下的部分在 [`references/`](references/)。
-- [`docs/`](docs/) 讲它怎么设计出来的，包括一开始想错的地方。这些文档写在改名和转向对比法之前，留着当记录，没有回头改。
-- [`fixtures/`](fixtures/) 是两份冷启动跑出来的画像，用来验证这套方法不会把不同的人推到同一个结论上。
 - 检查一份画像：
   `python3 scripts/taste_profile.py TASTE.md log.md`
