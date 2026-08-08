@@ -1,21 +1,36 @@
 # articulate-taste
 
-Work out what you actually value in the work you make, and write it down in a
-form an AI agent can use.
+[![Version](https://img.shields.io/github/v/release/LifelongLazyLearner/articulate-taste?label=version)](https://github.com/LifelongLazyLearner/articulate-taste/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
+[![Language](https://img.shields.io/badge/lang-English-blue.svg)](#)
+[![GitHub stars](https://img.shields.io/github/stars/LifelongLazyLearner/articulate-taste?style=social)](https://github.com/LifelongLazyLearner/articulate-taste/stargazers)
 
-It works like an eye exam. Nobody can state their own prescription, and
-everybody can say which of two lenses is clearer. You are shown two versions
-of something that differ on one thing, you say which is better, and the
-standards get read off your answers. You never have to type one.
+Language: English | [简体中文](./README.zh-CN.md)
+
+Everyone has taste. Not everyone can say what theirs is.
+
+articulate-taste draws out the taste you already have and writes it down in a
+form an AI agent can use. It works like an eye exam. Nobody can state their own
+prescription, but everybody can say which of two lenses is clearer. It shows
+you two versions of something that differ on one thing, you say which is
+better, and it reads your standards off your answers. You never have to type
+one.
 
 ## Install
 
 ```bash
-npx skills@latest add LifelongLazyLearner/articulate-taste
+npx skills@latest add LifelongLazyLearner/articulate-taste -g
 ```
 
-If that fails, clone the repo and point your agent at
-`SKILL.md` directly.
+The `-g` flag makes the skill available to your chosen agent across projects.
+The installer asks which agent to connect it to; for Claude Code, the user-level
+link is `~/.claude/skills/articulate-taste/`. It does not create your profile.
+That happens later, in whatever project you run the skill from.
+
+The installer sends anonymous usage data by default. Set
+`DISABLE_TELEMETRY=1` if you want to turn that off.
+
+If it fails, clone the repo and point your agent at `SKILL.md` directly.
 
 ## What a session looks like
 
@@ -38,25 +53,26 @@ which is better. 1, 2, or the same:
 > editable but breaks the single-scroll view. Flattening the finished
 > sections to images restores speed and makes those sections uneditable.
 
-Every sentence is aligned except one thing, and you are not told what it is
-until you have answered. Here it is whether the writer recommends or lays the
-options out flat. You will usually know which you prefer immediately, and be
-able to say why straight afterwards, which is the part that is hard to produce
-cold.
+Every sentence is aligned except one thing, and it does not tell you what that
+thing is until you have answered. Here it is whether the writer recommends or
+lays the options out flat. You will usually know which you prefer immediately,
+and be able to say why straight afterwards, which is the part that is hard to
+produce cold.
 
 Answering "the same" is a real answer. It means that difference does nothing
-for you, and that lens gets put away.
+for you, and it puts that lens away.
 
-When the picks add up to something, you are shown the readings they support
-and you choose the wording, or throw all of them out. Nothing enters your
-profile that you did not confirm.
+When the picks add up to something, it writes them up as a principle, in a few
+sentences saying what you seem to value and where that stops. You choose the
+wording, or throw the whole thing out. Nothing enters your profile, the file
+called `TASTE.md`, that you did not confirm.
 
 You can stop whenever you like. Nothing is lost, and the next session picks up
 where you left off.
 
 ## What you end up with
 
-A `TASTE.md` that looks like this:
+A `TASTE.md` of principles that look like this:
 
 ```markdown
 ### recommendation-lowers-entropy — provisional
@@ -83,22 +99,16 @@ ask.
 
 You never have to prove anything. The tool does.
 
-What you say you value is taken as what you value. Nobody asks you to show
+It takes what you say you value as what you value. Nobody asks you to show
 you've lived up to it, and your answers aren't ranked by how much they cost
 you.
 
 Instead, the profile has to earn what it claims, one of two ways. It guesses
 how you'd judge something it has never seen and you tell it whether it got you
-right. Or it writes something, a version with no profile behind it is written
-too, and you pick between them without being told which is which. Get it
-right, and that principle firms up, because the profile has shown it
-understood you. Get it wrong, and fixing that is the profile's job rather than
-yours.
-
-The one-difference pairs you spend most of a session on are a separate thing.
-They work out *what* you value; they never count as the profile proving it
-understood you, because what you picked out was the difference and not the
-profile.
+right. Or it writes something, writes a second version with no profile behind
+it, and you pick between them without knowing which is which. Get it right,
+and that principle firms up, because the profile has shown it understood you.
+Get it wrong, and fixing that is the profile's job rather than yours.
 
 ## The packaged skill explains itself
 
@@ -108,8 +118,8 @@ them quietly.
 
 That came out of testing rather than preference. A profile applied silently
 produced work its owner couldn't tell apart from anything else, even with their
-own principles in it almost word for word. The same profile with its reasoning
-shown was picked out correctly. Taste applied invisibly doesn't read as
+own principles in it almost word for word. Show the reasoning and the same
+owner picked the work out correctly. Taste applied invisibly doesn't read as
 anyone's.
 
 It also stays out of projects that haven't asked for it. The first time you use
@@ -124,9 +134,9 @@ earn the right to change your profile.
 ## Honest limits
 
 Scoring a guess is itself something you tell it. The profile can't see whether
-it really understood you, so it asks. What keeps that from being worthless is
-that you are the only person who reads your profile, and scoring generously
-just produces a document that lies to you.
+it really understood you, so it asks. That holds up because you are the only
+person who reads your profile: score generously and you end up with a document
+that lies to you.
 
 The profile is weakest exactly when it is newest, because its confidence comes
 from guessing you right and a fresh one has done none of that yet.
@@ -144,9 +154,9 @@ mistake it for a description of your behaviour.
   [`references/`](references/).
 - [`docs/`](docs/) covers how it was designed and built, including the parts
   that were wrong first. It predates the rename and the move to comparison,
-  and is kept as a record rather than corrected.
+  and stays as a record rather than getting corrected.
 - [`fixtures/`](fixtures/) holds two profiles produced by running the method
-  cold, used to check that different people don't get pushed toward the same
-  conclusions.
+  cold, there to check that the method doesn't push different people toward
+  the same conclusions.
 - To check a profile:
   `python3 scripts/taste_profile.py TASTE.md log.md`
