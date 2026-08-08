@@ -19,12 +19,16 @@ one.
 ## Install
 
 ```bash
-npx skills@latest add LifelongLazyLearner/articulate-taste
+npx skills@latest add LifelongLazyLearner/articulate-taste -g
 ```
 
-That writes the skill into your agent's skills directory, which for Claude Code
-is `~/.claude/skills/articulate-taste/`, and touches nothing else. Your profile
-is written later, in whatever project you run the skill from.
+The `-g` flag makes the skill available to your chosen agent across projects.
+The installer asks which agent to connect it to; for Claude Code, the user-level
+link is `~/.claude/skills/articulate-taste/`. It does not create your profile.
+That happens later, in whatever project you run the skill from.
+
+The installer sends anonymous usage data by default. Set
+`DISABLE_TELEMETRY=1` if you want to turn that off.
 
 If it fails, clone the repo and point your agent at `SKILL.md` directly.
 

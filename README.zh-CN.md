@@ -7,7 +7,7 @@
 
 语言：简体中文 | [English](./README.md)
 
-本文与英文版讲同一件事，各自成文，不是逐句对译。
+本文与英文版讲同一件事，各自成文，不是逐句对译。两版对功能和行为的描述如有出入，以英文版为准。
 
 每个人都有品味，但很少有人说得出自己的品味是什么。
 
@@ -16,10 +16,12 @@ articulate-taste 不问你「你的标准是什么」。它给你看两版东西
 ## 安装
 
 ```bash
-npx skills@latest add LifelongLazyLearner/articulate-taste
+npx skills@latest add LifelongLazyLearner/articulate-taste -g
 ```
 
-技能会装进 agent 的技能目录，Claude Code 下是 `~/.claude/skills/articulate-taste/`，别处不动。画像另说，等你在某个项目里真跑起来才写。
+`-g` 会让你选的 agent 在所有项目里都能用这个技能。安装时还会问你要接到哪个 agent；选 Claude Code，用户级入口就在 `~/.claude/skills/articulate-taste/`。这一步不写画像，画像要等你在某个项目里真跑起来才写。
+
+安装器默认会发送匿名使用数据。不想发送，设置 `DISABLE_TELEMETRY=1`。
 
 装不上就克隆仓库，让 agent 直接读 `SKILL.md`。
 
@@ -50,11 +52,14 @@ npx skills@latest add LifelongLazyLearner/articulate-taste
 一份 `TASTE.md`，里面的原则长这样：
 
 ```markdown
-### recommendation-lowers-entropy — 暂定
+### recommendation-lowers-entropy — provisional
 
-**主张。** 说出你会选哪一个，并且把这个选择依赖的理由一起带上。把选项摆得同样均匀然后就停在那里，等于把决策成本留给读者；给出建议是把一部分成本收回来。
+**Statement.** Say which one you would pick, and carry the reason it rests on.
+Laying out options evenly and stopping there leaves the decision cost with the
+reader; a recommendation takes some of it back.
 
-**边界。** 到给不出理由的地方就停。光有建议没有理由，比不给建议更糟。说不出为什么的时候，就把选项摆出来，然后停下。
+**Boundary.** It stops where the reason cannot be given. A bare recommendation
+is worse than none. Where you cannot say why, lay out the options and stop.
 ```
 
 这条不是你说出来的，是两组对比撞出来的。第一组只变「给不给建议」，给建议的那版赢。第二组把同一个差别搬进写的人根本不可能知道答案的场景，给建议的那版输了。边界就落在翻转的那一处，没人需要动嘴描述它。
