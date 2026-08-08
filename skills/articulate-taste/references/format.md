@@ -71,10 +71,17 @@ contradicted by a choice they still defend; prior wording preserved in the
 Revision Record
 ```
 
-Actions: `seed`, `choice`, `demote`, `predict`, `tension`, `leak`.
+Actions: `seed`, `choice`, `promote`, `demote`, `predict`, `recognise`,
+`tension`, `leak`.
 
 A `predict` entry needs `about:` and `result:`, because those are what a
-principle's **Confirmed by** field resolves against.
+principle's **Confirmed by** field resolves against. A `recognise` entry needs
+the same, and confirms on the same terms.
+
+A pick from a pair is a `choice`. It records `won:` and `lost:` as any choice
+does, and its prose names the axis that varied and what they said about why. A
+pair they could not tell apart is a `choice` whose `won:` is nothing, and it
+retires the axis rather than failing.
 
 Append only. Newest last. Never edit or delete an entry. A history that can
 be rewritten cannot serve as evidence.

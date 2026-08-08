@@ -1,0 +1,5 @@
+interface:
+  display_name: "Articulate Taste"
+  short_description: "Surface your own taste and keep it evolving"
+policy:
+  allow_implicit_invocation: false

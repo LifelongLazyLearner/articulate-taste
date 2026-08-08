@@ -1,39 +1,55 @@
-# cultivate-taste-bud
+# articulate-taste
 
 Work out what you actually value in the work you make, and write it down in a
 form an AI agent can use.
 
-It asks you to pick between options. You never have to type an answer.
+It works like an eye exam. Nobody can state their own prescription, and
+everybody can say which of two lenses is clearer. You are shown two versions
+of something that differ on one thing, you say which is better, and the
+standards get read off your answers. You never have to type one.
 
 ## Install
 
 ```bash
-npx skills@latest add LifelongLazyLearner/cultivate-taste-bud
+npx skills@latest add LifelongLazyLearner/articulate-taste
 ```
 
 If that fails, clone the repo and point your agent at
-`skills/cultivate-taste-bud/SKILL.md` directly.
+`skills/articulate-taste/SKILL.md` directly.
 
 ## What a session looks like
 
-Run `/cultivate-taste-bud`. It asks one question at a time, like this:
+Run `/articulate-taste`. It shows you two versions of the same thing and asks
+which is better. 1, 2, or the same:
 
-> **You find a change that saves you a full day every week. It also means a
-> teammate has to do a small annoying step, every day, indefinitely. Do you
-> make the change?**
+> **1**
+> Your file has passed the size where editing stays responsive. Saves
+> currently take about eight seconds.
 >
-> **a.** Yes, the time saved is worth more. *A teammate pays a small tax
-> forever so you don't pay a large one, and they didn't choose it.*
+> We suggest splitting it into linked pages. That keeps everything editable,
+> and the cost is the single-scroll view. Flattening the finished sections to
+> images is faster still, but those sections stop being editable.
 >
-> **b.** Only if they agree to it. *They may say no and you keep losing the
-> day. Asking also makes it hard for them to refuse.*
+> **2**
+> Your file has passed the size where editing stays responsive. Saves
+> currently take about eight seconds.
 >
-> **c.** No, find another way. *A real improvement stays unmade.*
->
-> **d.** Skip this one.
+> There are three ways out. Splitting it into linked pages keeps everything
+> editable but breaks the single-scroll view. Flattening the finished
+> sections to images restores speed and makes those sections uneditable.
 
-Every option costs something, so there is no right answer. What you protect
-when something has to give is what gets recorded.
+Every sentence is aligned except one thing, and you are not told what it is
+until you have answered. Here it is whether the writer recommends or lays the
+options out flat. You will usually know which you prefer immediately, and be
+able to say why straight afterwards, which is the part that is hard to produce
+cold.
+
+Answering "the same" is a real answer. It means that difference does nothing
+for you, and that lens gets put away.
+
+When the picks add up to something, you are shown the readings they support
+and you choose the wording, or throw all of them out. Nothing enters your
+profile that you did not confirm.
 
 You can stop whenever you like. Nothing is lost, and the next session picks up
 where you left off.
@@ -43,14 +59,21 @@ where you left off.
 A `TASTE.md` that looks like this:
 
 ```markdown
-### consent-before-shifting-cost — provisional
+### recommendation-lowers-entropy — provisional
 
-**Statement.** Don't move a cost onto someone without their informed
-agreement. Treat the agreement as negotiable, not a rubber stamp.
+**Statement.** Say which one you would pick, and carry the reason it rests on.
+Laying out options evenly and stopping there leaves the decision cost with the
+reader; a recommendation takes some of it back.
 
-**Boundary.** Reversibility. If it can be undone the moment they object,
-acting first is acceptable.
+**Boundary.** It stops where the reason cannot be given. A bare recommendation
+is worse than none. Where you cannot say why, lay out the options and stop.
 ```
+
+That one came out of two pairs. The first varied whether the writer
+recommended anything, and the recommendation won. The second moved the same
+difference into a case where the writer could not know the answer, and the
+recommendation lost. The boundary is where the second pick flipped, and nobody
+had to describe it.
 
 At the end of a session it offers to package that profile as its own skill, so
 any agent in any project can apply it. It never installs anything unless you
@@ -64,11 +87,18 @@ What you say you value is taken as what you value. Nobody asks you to show
 you've lived up to it, and your answers aren't ranked by how much they cost
 you.
 
-Instead, the profile guesses how you'd judge something it has never seen, and
-you tell it whether it got you right. Guess right, and that principle firms up,
-because the profile has shown it understood you. Guess wrong, and fixing that
-is the profile's job rather than yours. The principle shown above came out of a
-wrong guess.
+Instead, the profile has to earn what it claims, one of two ways. It guesses
+how you'd judge something it has never seen and you tell it whether it got you
+right. Or it writes something, a version with no profile behind it is written
+too, and you pick between them without being told which is which. Get it
+right, and that principle firms up, because the profile has shown it
+understood you. Get it wrong, and fixing that is the profile's job rather than
+yours.
+
+The one-difference pairs you spend most of a session on are a separate thing.
+They work out *what* you value; they never count as the profile proving it
+understood you, because what you picked out was the difference and not the
+profile.
 
 ## The packaged skill explains itself
 
@@ -110,12 +140,12 @@ mistake it for a description of your behaviour.
 
 ## Also here
 
-- [`skills/cultivate-taste-bud/`](skills/cultivate-taste-bud/) is the skill
+- [`skills/articulate-taste/`](skills/articulate-taste/) is the skill
   itself.
 - [`docs/`](docs/) covers how it was designed and built, including the parts
   that were wrong first.
-- [`skills/cultivate-taste-bud/fixtures/`](skills/cultivate-taste-bud/fixtures/)
+- [`skills/articulate-taste/fixtures/`](skills/articulate-taste/fixtures/)
   holds two profiles produced by running the method cold, used to check that
   different people don't get pushed toward the same conclusions.
 - To check a profile:
-  `python3 skills/cultivate-taste-bud/scripts/taste_profile.py TASTE.md log.md`
+  `python3 skills/articulate-taste/scripts/taste_profile.py TASTE.md log.md`

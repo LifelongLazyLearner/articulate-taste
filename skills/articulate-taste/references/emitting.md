@@ -34,16 +34,21 @@ number to make it unique.
 
 This is the whole reason the packaged skill differs from the profile.
 
-A profile applied silently produces work its owner cannot distinguish from
-anything else, even when their principles appear in it almost word for word.
-Tested five times: silent application was not recognised; the same profile
-with its reasoning exposed was.
+Silent application has failed a blind test with register held constant, in
+prose containing two of the person's principles almost word for word. That
+much is solid: applied is not the same as recognised.
+
+Exposing the reasoning has won a blind test once, with the prose stripped
+away, and that run carried confounds its own record names. One confounded win
+is not a demonstration. The narration rule rests on the failure, not on the
+win: silent application is known to be invisible, so showing the reasoning is
+the only lever anyone has tried that is not the agent's own register. The
+blind-test conditions and what has confounded them are in
+[promotion.md](promotion.md).
 
 So the emitted skill states which principle drove which choice, every time it
 judges or produces anything. It also names the choices no principle covered,
 because those are the ones it made up.
-
-Without that, the packaged skill is worth less than the file it wraps.
 
 ## Invocation policy
 

@@ -30,6 +30,12 @@ picked it out blind against a control. Recognition is the stronger of the two
 because it is a forced choice they could have got wrong, rather than a score
 they gave a guess. Both confirm.
 
+A recognition needs a control written *without the profile*, not a second
+version of the profile's own work. The single-axis pairs that drive
+elicitation are not recognitions: they differ on one dimension, so what the
+person picked out was that dimension and not the profile. They locate, and
+they confirm nothing, however many of them point the same way.
+
 No thresholds and no counts. Nothing the person asserts about themselves
 promotes a principle, and nothing they decline to assert holds one back.
 
@@ -140,6 +146,25 @@ name the choices no principle covered. Those are the ones you made up.
 A blind comparison is the only reliable check: produce one version from the
 profile and one without it, do not say which is which, and ask them to pick.
 Asking "does this feel like you?" invites agreement and tells you nothing.
+
+### What to run the comparison on
+
+Choose an artifact whose shape is reasoning: decisions with the grounds beside
+them, a triage, a set of tradeoffs weighed. Six blind rounds split cleanly by
+artifact. On reasoning the profile was picked out twice, in unrelated external
+domains it had never seen. On prose it went loss, tie, loss across three
+subjects, with the warmth confound killed two different ways.
+
+The reason is visible in one of the misses. The person named a line as sounding
+like them, and the control had written it — a writer who had never seen the
+profile, pushed there by a brief that stated what the reader stood to lose.
+Where the situation already carries the pressure a principle answers, a
+competent writer arrives without the profile, and the comparison measures
+nothing.
+
+So a recognition test needs a brief that supplies facts and no guidance on
+weighing them. If the right answer is findable from the brief alone, both
+sides will find it.
 
 ### Put the thing in front of them
 

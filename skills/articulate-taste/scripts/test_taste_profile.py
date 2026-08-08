@@ -264,7 +264,7 @@ class TestSkillFrontmatter(unittest.TestCase):
 
     def test_name_obeys_the_spec(self):
         name = self.frontmatter()["name"]
-        self.assertEqual(name, "cultivate-taste-bud")
+        self.assertEqual(name, "articulate-taste")
         self.assertLessEqual(len(name), 64)
         self.assertRegex(name, r"^[a-z0-9-]+$")
 
