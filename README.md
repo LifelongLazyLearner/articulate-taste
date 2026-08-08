@@ -152,11 +152,5 @@ mistake it for a description of your behaviour.
 
 - [`SKILL.md`](SKILL.md) is the skill itself, with the rest of it in
   [`references/`](references/).
-- [`docs/`](docs/) covers how it was designed and built, including the parts
-  that were wrong first. It predates the rename and the move to comparison,
-  and stays as a record rather than getting corrected.
-- [`fixtures/`](fixtures/) holds two profiles produced by running the method
-  cold, there to check that the method doesn't push different people toward
-  the same conclusions.
 - To check a profile:
   `python3 scripts/taste_profile.py TASTE.md log.md`

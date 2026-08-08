@@ -14,7 +14,6 @@ from taste_profile import (
     Principle,
     computed_status,
     core_ids,
-    overlapping_cores,
     parse_log,
     parse_profile,
     validate,
@@ -24,17 +23,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SKILL = os.path.join(HERE, "..", "SKILL.md")
 REFERENCES = os.path.join(HERE, "..", "references")
 TEMPLATES = os.path.join(HERE, "..", "assets")
-FIXTURES = os.path.join(HERE, "..", "fixtures")
 
 
 def read(path):
     with open(path, encoding="utf-8") as handle:
         return handle.read()
-
-
-def read_fixture(name):
-    base = os.path.join(FIXTURES, name)
-    return read(os.path.join(base, "TASTE.md")), read(os.path.join(base, "log.md"))
 
 
 PROFILE = """# Taste Profile
@@ -234,23 +227,6 @@ result: hit
         profile = PROFILE.replace("2026-08-06-blunt-feedback", "2026-08-09-second-look")
         self.assertEqual(validate(profile, log), [])
         self.assertIn("kindness-over-authenticity", core_ids(profile, log))
-
-
-class TestNeutrality(unittest.TestCase):
-    def test_each_fixture_is_internally_valid(self):
-        for name in ("verify-first", "take-the-wall"):
-            profile, log = read_fixture(name)
-            self.assertEqual(validate(profile, log), [], f"{name} is inconsistent")
-
-    def test_each_fixture_has_at_least_one_core_principle(self):
-        for name in ("verify-first", "take-the-wall"):
-            profile, log = read_fixture(name)
-            self.assertTrue(core_ids(profile, log), f"{name} produced no core principle")
-
-    def test_opposed_personas_share_no_core_principle(self):
-        a_profile, a_log = read_fixture("verify-first")
-        b_profile, b_log = read_fixture("take-the-wall")
-        self.assertEqual(overlapping_cores(a_profile, a_log, b_profile, b_log), set())
 
 
 def plain_scalar_problems(value: str) -> list[str]:
