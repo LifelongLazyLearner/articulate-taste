@@ -12,17 +12,71 @@ reconstruction.
 
 Always include a skip option. Never require a reason for skipping.
 
-## Never offer an option their material did not generate
+## Never offer a position their material did not generate
 
-This is the line between recognition and contamination.
+This is the line between recognition and contamination, and it falls between
+two kinds of option rather than around all of them.
 
-Options must be assembled from what the person has already chosen, rejected,
-or named in this session. Offering a plausible principle you invented and
-asking them to agree is cheap assent wearing a multiple-choice costume.
+**A labelled position must come from their material.** Anything that states a
+stance and asks them to agree — a principle, a value, a boundary in words —
+has to be assembled from what they have already chosen, rejected, or named.
+Offering a plausible principle you invented and asking them to agree is cheap
+assent wearing a multiple-choice costume.
+
+**An artifact you build yourself.** In a pair, both candidates are yours, the
+way both lenses in a phoropter belong to the instrument and not to the
+patient. Nothing is contaminated, because they are judging a result and not
+endorsing a description. The patient who says the second lens is clearer has
+not agreed to a proposition about their eyes.
+
+What you must not do is label the axis before they pick. Saying "here is a
+warmer one and a plainer one" hands them the answer to give back.
 
 When you have nothing of theirs to build from yet, use the starter dilemmas
 below, which name universal situations and let the person supply the
 judgment.
+
+## Building a pair
+
+The pair is the instrument. A badly built pair produces a confident reading of
+nothing.
+
+**Vary one axis.** Hold facts, length, register, order and vocabulary
+constant. If two things differ, a pick cannot say which one moved them.
+
+**Prefer absence to substitution.** When one side is the version without the
+feature, delete the feature and accept that the side runs shorter. Padding it
+back to length adds a second variable, because any sentence you invent to fill
+the gap carries a stance of its own. Observed: a control padded with "We are
+not going to suggest one" was rejected as passive aggressive, which reads the
+padding rather than the axis.
+
+**Write both yourself, from one base.** Generating two candidates
+independently — two agents, two drafts — varies rhythm, word choice and
+emphasis alongside the axis. Write one, then edit it on the single dimension.
+
+**Offer sameness every time.** Ask for 1, 2, or the same. Sameness means the
+axis does nothing here, which retires it. Treating it as a non-answer throws
+away the reading that tells you to stop grinding this lens.
+
+**Reveal the axis after the pick, never before.** They should be able to check
+your reading against what they felt, and they cannot do that if the axis was
+in the question.
+
+## Reading a pick
+
+A pick is evidence. The principle drawn from it is a proposal.
+
+Offer the readings the picks actually support, and let them choose the wording
+or reject all of them. Two picks on one axis usually admit more than one
+account: a recommendation preferred and then a recommendation rejected can be
+read as being about the reason, the condition, or the self-contradiction
+between recommending and conceding ignorance. Those are different principles.
+Guessing which one it was, and writing it in, is the tool putting words in
+their mouth by a slower route.
+
+Until they confirm a wording, the picks live in the history and the profile
+says nothing.
 
 ## Say once what the picks are for
 

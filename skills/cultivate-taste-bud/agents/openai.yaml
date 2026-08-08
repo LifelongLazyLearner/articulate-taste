@@ -1,5 +1,0 @@
-interface:
-  display_name: "Cultivate Taste Bud"
-  short_description: "Build your own evolving taste profile"
-policy:
-  allow_implicit_invocation: false
