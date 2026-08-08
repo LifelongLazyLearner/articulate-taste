@@ -30,6 +30,12 @@ picked it out blind against a control. Recognition is the stronger of the two
 because it is a forced choice they could have got wrong, rather than a score
 they gave a guess. Both confirm.
 
+A recognition needs a control written *without the profile*, not a second
+version of the profile's own work. The single-axis pairs that drive
+elicitation are not recognitions: they differ on one dimension, so what the
+person picked out was that dimension and not the profile. They locate, and
+they confirm nothing, however many of them point the same way.
+
 No thresholds and no counts. Nothing the person asserts about themselves
 promotes a principle, and nothing they decline to assert holds one back.
 

@@ -126,6 +126,18 @@ Note it, finish the session, and raise it separately. Sliding from *what do
 you value* into *how should my gate work* is the most disorienting thing you
 can do to someone who came to answer questions about themselves.
 
+## The dilemma bank is the cold start, not the method
+
+Everything from here to *Artifact mining* is the autorefractor: what to do
+before there is anything to compare. A written question can only ask about an
+axis its author thought of, which is exactly the ceiling pairs exist to get
+past. Use these to get the first material on the table, then build pairs from
+that material and stop reaching for the bank.
+
+The rules in this stretch still bind whenever you do ask a question — mid
+session, at a boundary you cannot pair for, or when someone asks you something
+directly.
+
 ## Open with a forced choice, never with recall
 
 Do not open by asking someone to remember a costly episode. Free recall of a
@@ -183,9 +195,13 @@ because the condition names exactly where the principle stops applying.
 
 ## Boundary, as a pick
 
-The boundary is what would make them abandon the principle. Build the options
-from the losing side of tensions they have already answered, each carrying a
-concrete price:
+Pair for it first. Move the axis that produced the principle into a second
+base condition and show another pair; where the pick flips is the boundary,
+and nobody had to describe it. Ask only when no second condition can be built.
+
+When you do ask, the boundary is what would make them abandon the principle.
+Build the options from the losing side of tensions they have already answered,
+each carrying a concrete price:
 
 > You hold *ship over polish*. Which of these would actually stop you?
 > (a) The flaw is one a user could get hurt by. (b) It would embarrass

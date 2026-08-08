@@ -18,6 +18,9 @@ Content neutrality is the product. These bind every state below.
    that names a position and asks them to agree with it. Judging two artifacts
    is judging results; picking a labelled stance is assent.
 3. Never rank their principles. Priority between principles is theirs alone.
+   You do choose which axes get tested, which is a ranking of a different kind
+   and cannot be avoided. Record the axes you chose, say that you chose them,
+   and name what went untested.
 4. Ask for the choice before the reason. Never the reverse.
 5. If your own preference shapes a question, append a `leak` entry to the
    history.
@@ -56,6 +59,21 @@ judgment they make instantly and can usually explain the moment it is made.
 
 So the instrument is a pair, not a question. Show two candidates, ask which is
 better, and read the prescription off the sequence of picks.
+
+This buys reach rather than accuracy. A question bank is finite and someone
+wrote it, so it can only ask about axes that occurred to its author. A pair is
+generated, so it can test an axis nobody thought to write down. That is the
+claim, and it is the only one the evidence supports: one axis absent from five
+sessions of priced dilemmas came out of three pairs. Nothing here shows that
+pairs read a given axis more accurately than a well-built question does.
+
+**Narrow and wide comparisons do different jobs.** A pair differing on one
+axis *locates*: it says where a correction goes and confirms nothing. A pair
+where one side is written from the whole profile and the other from no profile
+*confirms*, because what got picked out was the profile entire. Only the wide
+one promotes. Logging a single-axis pick as a confirmation promotes a
+principle on the strength of one word, which is the easiest way to fill a
+profile with nothing.
 
 **One axis per pair.** Two candidates must be identical except on the single
 dimension being tested. A pair that varies everything at once tells you
@@ -128,10 +146,13 @@ where to resume.
 7. **record.** Update the principle and append the history entry in one
    pass. Read [references/format.md](references/format.md) before writing to
    either file for the first time in a session.
-8. **predict.** As soon as any principle has a boundary, predict their
-   judgment on a held-out item and show them the item. A hit promotes the
-   principle to core: the profile has shown it understood them. A miss opens
-   a tension and re-enters the loop, and is the more useful outcome.
+8. **confirm.** As soon as any principle has a boundary, run one of the two
+   events that promote. Either predict their judgment on a held-out item and
+   show them the item, or run a wide comparison and let them pick the
+   profile's work out blind against a control. A hit promotes to core: the
+   profile has shown it understood them. A miss opens a tension and re-enters
+   the loop, and is the more useful outcome. Single-axis picks from step 3
+   never promote, however many of them agree.
 
 ## Verify before finishing
 
@@ -148,18 +169,25 @@ not report the session finished on any other output.
 
 ## Gotchas
 
-These defy reasonable assumption. Each was observed, and each cost a round.
+These defy reasonable assumption. Each cost a round. Where a fix is stated,
+the text says whether the fix has been shown to work.
 
-- **A candidate principle is withheld, not merely absent.** The status rule
-  says candidates are not applied, so an underdeveloped principle actively
-  cedes its ground to whichever principles do apply. Where a person's stated
-  top value sits at candidate, profile-written work can be *worse* than work
-  written with no profile at all.
+- **Profile-written prose has lost to no profile at all.** Twice, in blind
+  comparison, on warmth. That much is observed. The explanation on offer is
+  that candidate principles are withheld rather than merely absent, so an
+  underdeveloped principle cedes its ground to whichever ones do apply, and
+  both losses happened while the person's own stated top value sat at
+  candidate. That explanation is an inference. The test built for it — give
+  the principle a boundary, rerun the same brief — produced a tie rather than
+  a reversal, so it is neither confirmed nor dead. Treat the losses as fact
+  and the mechanism as open.
 - **Holding a register at zero deletes the channel some principles travel
   on.** Forbidding warmth kills the warmth confound and, in the same stroke,
   removes the only way a principle about how you receive someone can show up.
-  Hold register constant at a non-zero setting instead, identical on both
-  sides, so what varies is where it gets spent.
+  The obvious repair is to hold register constant at a non-zero setting,
+  identical on both sides, so what varies is where it gets spent. Tried once,
+  and the profile still lost. Use it as the better of two bad options, not as
+  a solved problem.
 - **A brief that states the stakes writes the principles by itself.** Give
   both sides a situation whose right answer is findable from the facts alone
   and they converge; the comparison then measures nothing. Supply facts and no

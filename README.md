@@ -59,14 +59,21 @@ where you left off.
 A `TASTE.md` that looks like this:
 
 ```markdown
-### consent-before-shifting-cost — provisional
+### recommendation-lowers-entropy — provisional
 
-**Statement.** Don't move a cost onto someone without their informed
-agreement. Treat the agreement as negotiable, not a rubber stamp.
+**Statement.** Say which one you would pick, and carry the reason it rests on.
+Laying out options evenly and stopping there leaves the decision cost with the
+reader; a recommendation takes some of it back.
 
-**Boundary.** Reversibility. If it can be undone the moment they object,
-acting first is acceptable.
+**Boundary.** It stops where the reason cannot be given. A bare recommendation
+is worse than none. Where you cannot say why, lay out the options and stop.
 ```
+
+That one came out of two pairs. The first varied whether the writer
+recommended anything, and the recommendation won. The second moved the same
+difference into a case where the writer could not know the answer, and the
+recommendation lost. The boundary is where the second pick flipped, and nobody
+had to describe it.
 
 At the end of a session it offers to package that profile as its own skill, so
 any agent in any project can apply it. It never installs anything unless you
@@ -80,11 +87,18 @@ What you say you value is taken as what you value. Nobody asks you to show
 you've lived up to it, and your answers aren't ranked by how much they cost
 you.
 
-Instead, the profile guesses how you'd judge something it has never seen, and
-you tell it whether it got you right. Guess right, and that principle firms up,
-because the profile has shown it understood you. Guess wrong, and fixing that
-is the profile's job rather than yours. The principle shown above came out of a
-wrong guess.
+Instead, the profile has to earn what it claims, one of two ways. It guesses
+how you'd judge something it has never seen and you tell it whether it got you
+right. Or it writes something, a version with no profile behind it is written
+too, and you pick between them without being told which is which. Get it
+right, and that principle firms up, because the profile has shown it
+understood you. Get it wrong, and fixing that is the profile's job rather than
+yours.
+
+The one-difference pairs you spend most of a session on are a separate thing.
+They work out *what* you value; they never count as the profile proving it
+understood you, because what you picked out was the difference and not the
+profile.
 
 ## The packaged skill explains itself
 
