@@ -8,8 +8,12 @@ description: Judge and steer work against a specific person's recorded taste pro
 Apply one person's recorded standards to the work in front of you, and say out
 loud which standard drove which choice.
 
-The profile lives beside this file: `TASTE.md` holds the principles, `log.md`
-holds their history.
+The packaging record designates the files beside this one as the canonical
+pair: `TASTE.md` holds the principles and `log.md` holds their append-only
+history. Resolve both. The current directory and `.taste` naming alone never
+establish authority; if either designation is missing or ambiguous, ask one
+decisive question and stop. Never create a replacement or treat an
+experimental file as canonical.
 
 ## First, check the project opted in
 
@@ -22,6 +26,16 @@ when that project invokes it.
 
 If it is present, read it. It may narrow the scope to particular directories
 or kinds of work.
+
+## Validate before use
+
+Before applying or recording anything, run the canonical `articulate-taste`
+validator against the resolved profile and history. Resolve the validator from
+the documented source or installation; do not guess a path. If it is
+unavailable, the schema is unsupported, or validation reports any error, stop
+without editing the profile or history. Unsupported schemas require a
+separately authorised review or migration, never an automatic rewrite to make
+the check pass.
 
 ## Always narrate
 
@@ -78,8 +92,9 @@ Either way, they write the change, not you.
 ## Check your own bookkeeping
 
 ```bash
-python3 scripts/taste_profile.py TASTE.md log.md
+python3 <articulate-taste>/scripts/taste_profile.py <canonical>/TASTE.md <canonical>/log.md
 ```
 
-Reports any principle claiming a status its history does not support. Run it
-after appending anything.
+Reports unsupported schemas and any principle claiming a status its history
+does not support. Run it after appending anything. If it does not print
+`profile consistent with its history`, stop without further edits.

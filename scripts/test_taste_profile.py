@@ -21,6 +21,8 @@ from taste_profile import (
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SKILL = os.path.join(HERE, "..", "SKILL.md")
+README = os.path.join(HERE, "..", "README.md")
+README_ZH = os.path.join(HERE, "..", "README.zh-CN.md")
 REFERENCES = os.path.join(HERE, "..", "references")
 TEMPLATES = os.path.join(HERE, "..", "assets")
 
@@ -86,6 +88,41 @@ class TestParseProfile(unittest.TestCase):
         profile = PROFILE + "\n**Named trade.** Shipped pretty once and regretted it.\n"
         self.assertEqual(len(parse_profile(profile)), 2)
 
+    def test_standalone_principles_are_supported(self):
+        profile = """# Small profile
+
+### directness — provisional
+**Statement.** Lead with the answer.
+**Boundary.** Not when context changes the answer.
+"""
+        self.assertEqual(validate(profile, "# History\n"), [])
+
+    def test_evidence_headings_after_standalone_principles_are_not_principles(self):
+        profile = """### directness — provisional
+**Statement.** Lead with the answer.
+**Boundary.** Not when context changes the answer.
+
+## Evidence
+### Session one
+**Boundary.** This belongs to evidence, not directness.
+
+## Revision Record
+### Earlier wording
+"""
+        principles = parse_profile(profile)
+        self.assertEqual([p.id for p in principles], ["directness"])
+        self.assertEqual(principles[0].boundary, "Not when context changes the answer.")
+        self.assertEqual(validate(profile, "# History\n"), [])
+
+    def test_schema_shaped_heading_in_sectioned_evidence_is_not_a_principle(self):
+        profile = PROFILE + """
+## Evidence
+### session-note — core
+**Statement.** Ordinary evidence prose.
+"""
+        self.assertEqual([p.id for p in parse_profile(profile)], ["kindness-over-authenticity", "enter-reality"])
+        self.assertEqual(validate(profile, LOG), [])
+
 
 class TestParseLog(unittest.TestCase):
     def test_composes_event_id_from_date_and_slug(self):
@@ -105,7 +142,7 @@ class TestParseLog(unittest.TestCase):
 
 class TestPromotionRule(unittest.TestCase):
     def hit(self, ref):
-        return {ref: Entry(id=ref, action="predict", fields={"result": "hit"})}
+        return {ref: Entry(id=ref, action="predict", fields={"result": "hit", "about": "x"})}
 
     def miss(self, ref):
         return {ref: Entry(id=ref, action="predict", fields={"result": "miss"})}
@@ -139,24 +176,39 @@ class TestPromotionRule(unittest.TestCase):
     def test_recognition_promotes_like_a_prediction(self):
         """Picking profile-written work out blind is a forced choice they could
         have got wrong, so it confirms as strongly as a correct prediction."""
-        entries = {"a": Entry(id="a", action="recognise", fields={"result": "hit"})}
+        entries = {"a": Entry(id="a", action="recognise", fields={"result": "hit", "about": "x"})}
         p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["a"])
         self.assertEqual(computed_status(p, entries), "core")
 
     def test_a_failed_recognition_does_not_promote(self):
-        entries = {"a": Entry(id="a", action="recognise", fields={"result": "miss"})}
+        entries = {"a": Entry(id="a", action="recognise", fields={"result": "miss", "about": "x"})}
         p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["a"])
         self.assertEqual(computed_status(p, entries), "provisional")
 
     def test_recognition_still_needs_a_boundary(self):
         """No boundary, no promotion, however the profile demonstrated itself."""
-        entries = {"a": Entry(id="a", action="recognise", fields={"result": "hit"})}
+        entries = {"a": Entry(id="a", action="recognise", fields={"result": "hit", "about": "x"})}
         p = Principle(id="x", declared="core", statement="s", confirmed_by=["a"])
         self.assertEqual(computed_status(p, entries), "candidate")
 
     def test_unresolved_reference_does_not_promote(self):
         p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["gone"])
         self.assertEqual(computed_status(p, {}), "provisional")
+
+    def test_hit_without_attribution_does_not_promote(self):
+        entries = {"a": Entry(id="a", action="predict", fields={"result": "hit"})}
+        p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["a"])
+        self.assertEqual(computed_status(p, entries), "provisional")
+
+    def test_hit_about_another_principle_does_not_promote(self):
+        entries = {"a": Entry(id="a", action="predict", fields={"result": "hit", "about": "y"})}
+        p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["a"])
+        self.assertEqual(computed_status(p, entries), "provisional")
+
+    def test_substring_attribution_does_not_promote(self):
+        entries = {"a": Entry(id="a", action="predict", fields={"result": "hit", "about": "x-extra"})}
+        p = Principle(id="x", declared="core", boundary="stops here", confirmed_by=["a"])
+        self.assertEqual(computed_status(p, entries), "provisional")
 
 
 class TestValidate(unittest.TestCase):
@@ -180,6 +232,121 @@ class TestValidate(unittest.TestCase):
         profile = PROFILE.replace("2026-08-06-blunt-feedback", "2026-08-07-album-artwork")
         errors = validate(profile, LOG)
         self.assertTrue(any("did not hit" in error for error in errors))
+
+    def test_empty_profile_is_not_ready(self):
+        self.assertTrue(any("not ready" in error for error in validate("", LOG)))
+
+    def test_empty_template_is_not_ready(self):
+        template = read(os.path.join(TEMPLATES, "TASTE.template.md"))
+        self.assertTrue(any("not ready" in error for error in validate(template, LOG)))
+
+    def test_unsupported_profile_schema_is_reported(self):
+        errors = validate("# Taste\n\nPrinciple: Be direct.\n", LOG)
+        self.assertTrue(any("unsupported profile schema" in error for error in errors), errors)
+
+    def test_unsupported_heading_in_principle_region_has_context(self):
+        profile = """## Core Principles
+### directness - core
+**Statement.** Be direct.
+**Boundary.** Not when unsafe.
+"""
+        errors = validate(profile, LOG)
+        self.assertTrue(any("unsupported principle heading" in error and "Core Principles" in error for error in errors), errors)
+
+    def test_unsupported_standalone_heading_is_reported(self):
+        profile = """### directness - candidate
+**Statement.** Be direct.
+"""
+        errors = validate(profile, LOG)
+        self.assertTrue(any("unsupported principle heading" in error for error in errors), errors)
+
+    def test_partially_recognized_profile_rejects_unknown_section(self):
+        profile = PROFILE + "\n## Secret Principles\n### novelty — candidate\n**Statement.** Surprise me.\n"
+        errors = validate(profile, LOG)
+        self.assertTrue(any("unsupported profile section" in error for error in errors), errors)
+
+    def test_principle_without_statement_is_rejected(self):
+        profile = """### directness — provisional
+**Boundary.** Not when context changes the answer.
+"""
+        errors = validate(profile, "# History\n")
+        self.assertTrue(any("missing or empty Statement" in error for error in errors), errors)
+
+    def test_empty_field_is_rejected(self):
+        profile = """### directness — candidate
+**Statement.**
+"""
+        errors = validate(profile, "# History\n")
+        self.assertTrue(any("empty principle field" in error for error in errors), errors)
+
+    def test_malformed_heading_stops_fields_leaking_into_previous_principle(self):
+        profile = """### first — provisional
+**Statement.** First.
+**Boundary.** First boundary.
+### second - candidate
+**Statement.** Second.
+**Boundary.** Leaked boundary.
+"""
+        principles = parse_profile(profile)
+        self.assertEqual(len(principles), 1)
+        self.assertEqual(principles[0].statement, "First.")
+        self.assertEqual(principles[0].boundary, "First boundary.")
+        self.assertTrue(any("unsupported principle heading" in error for error in validate(profile, LOG)))
+
+    def test_valid_heading_also_stops_fields_leaking(self):
+        profile = """### first — candidate
+**Statement.** First.
+### second — provisional
+**Statement.** Second.
+**Boundary.** Second boundary.
+"""
+        first, second = parse_profile(profile)
+        self.assertEqual(first.boundary, "")
+        self.assertEqual(second.boundary, "Second boundary.")
+
+    def test_deeper_malformed_heading_stops_field_leakage(self):
+        profile = """### first — candidate
+**Statement.** First.
+#### Evidence note
+**Boundary.** Must not leak.
+"""
+        principle = parse_profile(profile)[0]
+        self.assertEqual(principle.boundary, "")
+        self.assertTrue(any("unsupported principle heading" in error for error in validate(profile, LOG)))
+
+    def test_mixed_standalone_and_sectioned_schema_is_rejected(self):
+        profile = """### first — candidate
+**Statement.** First.
+## Core Principles
+### second — candidate
+**Statement.** Second.
+"""
+        self.assertTrue(any("unsupported mixed" in error for error in validate(profile, LOG)))
+
+    def test_duplicate_principle_id_is_rejected(self):
+        profile = """### directness — candidate
+**Statement.** First.
+### directness — candidate
+**Statement.** Second.
+"""
+        self.assertTrue(any("duplicate principle id" in error for error in validate(profile, LOG)))
+
+    def test_unsupported_field_is_reported_with_principle_context(self):
+        profile = PROFILE.replace("**Boundary.** Does not require silence", "**Boundry.** Does not require silence")
+        errors = validate(profile, LOG)
+        self.assertTrue(any("kindness-over-authenticity" in error and "unsupported principle field" in error for error in errors), errors)
+
+    def test_missing_confirmation_attribution_is_reported_and_not_core(self):
+        log = LOG.replace("about: kindness-over-authenticity\n", "")
+        errors = validate(PROFILE, log)
+        self.assertTrue(any("has no about field" in error for error in errors), errors)
+        self.assertNotIn("kindness-over-authenticity", core_ids(PROFILE, log))
+
+    def test_mismatched_confirmation_attribution_is_reported_and_not_core(self):
+        log = LOG.replace("about: kindness-over-authenticity", "about: enter-reality")
+        errors = validate(PROFILE, log)
+        self.assertTrue(any("not exact principle id" in error for error in errors), errors)
+        self.assertNotIn("kindness-over-authenticity", core_ids(PROFILE, log))
 
 
 class TestDemotion(unittest.TestCase):
@@ -286,6 +453,62 @@ class TestReferences(unittest.TestCase):
         )
         for name in linked:
             self.assertTrue(os.path.exists(os.path.join(REFERENCES, name)), name)
+
+
+class TestBehaviorDocumentation(unittest.TestCase):
+    def test_comparison_outcomes_are_distinct_across_english_docs(self):
+        sources = [
+            read(SKILL),
+            read(os.path.join(REFERENCES, "elicitation.md")),
+            read(os.path.join(REFERENCES, "format.md")),
+            read(README),
+        ]
+        for body in sources:
+            lowered = body.lower()
+            for outcome in ("1", "2", "neither", "same", "skip"):
+                self.assertIn(outcome, lowered)
+            self.assertIn("reason", lowered)
+
+    def test_bilingual_readmes_describe_the_same_five_outcomes(self):
+        english = read(README).lower()
+        chinese = read(README_ZH)
+        for outcome in ("neither", "same", "skip"):
+            self.assertIn(outcome, english)
+        for outcome in ("两版都不要", "一样", "跳过"):
+            self.assertIn(outcome, chinese)
+        self.assertIn("does not claim validation in a\nnew context", english)
+        self.assertIn("也不算在新场景里验证过", chinese)
+
+    def test_confirmation_attribution_is_documented_as_one_exact_slug(self):
+        for name in ("format.md", "promotion.md"):
+            body = read(os.path.join(REFERENCES, name)).lower()
+            self.assertIn("exactly one", body)
+            self.assertIn("stable", body)
+            self.assertIn("slug", body)
+            self.assertIn("no multi-value", body)
+
+    def test_canonical_pair_and_relocation_guards_are_documented(self):
+        skill = read(SKILL).lower()
+        emitting = read(os.path.join(REFERENCES, "emitting.md")).lower()
+        for term in ("canonical profile", "canonical append-only", "current directory", "one decisive question"):
+            self.assertIn(term, skill)
+        for term in ("consumer", "replacement", "recovery", "consent"):
+            self.assertIn(term, emitting)
+        self.assertNotIn("move the profile in", emitting)
+
+    def test_emitted_skill_stops_on_incompatible_validation_without_editing(self):
+        body = read(os.path.join(TEMPLATES, "emitted-skill", "SKILL.md")).lower()
+        self.assertIn("unsupported schema", body)
+        self.assertRegex(body, r"stop\s+without editing")
+        self.assertIn("separately authorised", body)
+
+    def test_wording_approval_preserves_evidence_and_status(self):
+        for path in (SKILL, os.path.join(REFERENCES, "elicitation.md"), os.path.join(REFERENCES, "promotion.md")):
+            body = read(path).lower()
+            self.assertRegex(body, r"stable(?: principle)? id")
+            self.assertIn("boundary", body)
+            self.assertIn("failed prediction", body)
+            self.assertIn("status", body)
 
 
 class TestEmittedSkillTemplate(unittest.TestCase):

@@ -30,6 +30,11 @@ picked it out blind against a control. Recognition is the stronger of the two
 because it is a forced choice they could have got wrong, rather than a score
 they gave a guess. Both confirm.
 
+In either case, the history entry must say `about:` followed by exactly one
+stable principle slug, and it must be the same slug as the principle citing
+the event. A missing, merely related, or substring id does not confirm. There
+is no multi-value `about:` form.
+
 A recognition needs a control written *without the profile*, not a second
 version of the profile's own work. The single-axis pairs that drive
 elicitation are not recognitions: they differ on one dimension, so what the
@@ -83,6 +88,10 @@ Detection is unprompted. Mutation never is.
 Growth is never rewritten as though the earlier understanding never existed.
 A revision may represent a more accurate account of the same underlying
 person.
+
+When concise wording is offered and approved, preserve the stable id, the
+boundary as a separate field, every failed prediction, and the computed
+status. Wording approval does not establish new cross-context validation.
 
 ## Prediction
 
