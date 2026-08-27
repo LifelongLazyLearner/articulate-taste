@@ -35,7 +35,7 @@ If it fails, clone the repo and point your agent at `SKILL.md` directly.
 ## What a session looks like
 
 Run `/articulate-taste`. It shows you two versions of the same thing and asks
-which is better. 1, 2, or the same:
+which is better. You can answer 1, 2, neither, same, or skip:
 
 > **1**
 > Your file has passed the size where editing stays responsive. Saves
@@ -59,13 +59,18 @@ lays the options out flat. You will usually know which you prefer immediately,
 and be able to say why straight afterwards, which is the part that is hard to
 produce cold.
 
-Answering "the same" is a real answer. It means that difference does nothing
-for you, and it puts that lens away.
+Those last three answers stay distinct. "Neither" rejects both versions,
+possibly for separate reasons. "Same" says only that the difference does
+nothing in this condition, so this comparison pauses without erasing the axis
+everywhere. "Skip" moves on without inferring a preference. None requires a
+reason, and none firms up a principle.
 
-When the picks add up to something, it writes them up as a principle, in a few
-sentences saying what you seem to value and where that stops. You choose the
-wording, or throw the whole thing out. Nothing enters your profile, the file
-called `TASTE.md`, that you did not confirm.
+When the picks add up to something, it offers concise principle wording and a
+separate boundary saying where it stops. You choose the wording, or throw the
+whole thing out. Approving wording preserves the principle's stable id,
+boundary, failed predictions, and status; it does not claim validation in a
+new context. Nothing enters your profile, the file called `TASTE.md`, that you
+did not confirm.
 
 You can stop whenever you like. Nothing is lost, and the next session picks up
 where you left off.

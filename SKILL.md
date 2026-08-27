@@ -86,10 +86,12 @@ Observed: a control padded with "We are not going to suggest one" was rejected
 as passive aggressive, which is a reading of the padding rather than of the
 axis.
 
-**"They look the same" is an answer, not a skip.** A skip declines a question.
-Sameness is a reading: this axis does nothing for this person, and the lens
-should be retired rather than reground. Offer it every time, and never treat
-it as a failure to engage.
+**The non-winner answers are different evidence.** Offer `neither`, `same`,
+and `skip` alongside 1 and 2 every time. `Neither` rejects both candidates,
+possibly for different reasons. `Same` says only that the axis makes no
+difference in this condition, so pause this comparison; it does not retire the
+axis everywhere. `Skip` moves on without any preference inference. None needs
+a reason, and none promotes a principle.
 
 Ask nothing you can look up, and configure nothing you can default.
 
@@ -117,8 +119,14 @@ the rest reads as finished when it is barely started.
 
 ## Loop
 
-Enter anywhere, stop anywhere. Read `TASTE.md` first; `Open Tensions` says
-where to resume.
+Enter anywhere, stop anywhere. Before resuming, resolve the documented or
+explicitly designated canonical profile **and** its canonical append-only
+history. The current directory and `.taste`-style names establish no
+authority. If more than one plausible pair remains, ask one decisive question
+and wait. If either file uses an unsupported schema, stop without writing and
+call for a separately authorised review or migration. Do not create a
+replacement or treat an experimental file as canonical. Once resolved, read
+the profile's `Open Tensions` to resume.
 
 1. **seed.** Cold start only, for when there is nothing yet to compare. A
    forced choice in the present tense, price stated inside the question. Never
@@ -127,14 +135,18 @@ where to resume.
    refraction; move to pairs as soon as one can be built.
 2. **pair.** Build two candidates that differ on exactly one axis. Everything
    else holds: same facts, same length, same register, same order.
-3. **pick.** They answer 1, 2, or the same. Record which won and what they
-   said about why, in their words. Sameness retires the axis. Do not follow a
-   pick by asking them to prove it. If they volunteer that it has come up for
+3. **pick.** They answer 1, 2, neither, same, or skip. A reason is optional.
+   Record a volunteered reason in their words. `Neither` rejects both;
+   `same` pauses this comparison in this condition; `skip` moves on without a
+   preference inference. None of those three promotes anything. Do not follow
+   a pick by asking them to prove it. If they volunteer that it has come up for
    real, record that; never request it.
-4. **name.** Read the principle off the picks and offer it as a proposal, with
-   the alternative readings the same picks would support. They choose the
-   wording or reject all of it. An unconfirmed reading stays in the history
-   and out of the profile.
+4. **name.** Read the principle off the picks and offer concise,
+   evidence-supported statement wording, with its boundary offered separately
+   and with the alternative readings the same picks would support. They choose
+   the wording or reject all of it. Approval changes only the wording: preserve
+   the stable id, boundary, failed predictions, and status. An unconfirmed
+   reading stays in the history and out of the profile.
 5. **boundary.** Move the same axis into a different base condition and pair
    again. Where the pick flips is the boundary, and it arrives without anyone
    having to describe it. Falling back to asking is allowed only when no
@@ -162,10 +174,14 @@ Run the validator rather than trusting your own bookkeeping:
 python3 scripts/taste_profile.py <profile-dir>/TASTE.md <profile-dir>/log.md
 ```
 
-It fails when a principle claims a status its evidence does not support, or
-when a paid-by reference resolves to nothing. Fix what it reports and run it
-again. Repeat until it prints `profile consistent with its history`, and do
-not report the session finished on any other output.
+It fails when the profile schema is empty or unsupported, when a principle
+claims a status its evidence does not support, or when a confirmation does not
+resolve to a successful prediction or recognition explicitly about that same
+stable principle id. Fix ordinary bookkeeping only when authorised. An
+unsupported schema requires separate review or migration authority; never
+auto-migrate a real profile to make this check green. Repeat until it prints
+`profile consistent with its history`, and do not report the session finished
+on any other output.
 
 ## Gotchas
 

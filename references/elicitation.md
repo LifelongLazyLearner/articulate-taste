@@ -10,7 +10,8 @@ This is not a concession to convenience. Recognition is cheaper than recall
 giving you a decision, while a person narrating an episode is giving you a
 reconstruction.
 
-Always include a skip option. Never require a reason for skipping.
+Always offer 1, 2, neither, same, and skip. Never require a reason for any
+answer.
 
 ## Never offer a position their material did not generate
 
@@ -55,9 +56,12 @@ padding rather than the axis.
 independently — two agents, two drafts — varies rhythm, word choice and
 emphasis alongside the axis. Write one, then edit it on the single dimension.
 
-**Offer sameness every time.** Ask for 1, 2, or the same. Sameness means the
-axis does nothing here, which retires it. Treating it as a non-answer throws
-away the reading that tells you to stop grinding this lens.
+**Offer all five outcomes every time.** Ask for 1, 2, neither, same, or skip.
+They are not synonyms. `Neither` rejects both candidates, potentially for two
+different reasons. `Same` says the axis makes no difference in this condition,
+so pause this comparison without retiring the axis elsewhere. `Skip` moves on
+without a preference inference. A reason is optional for every outcome. Do not
+promote anything from neither, same, or skip.
 
 **Reveal the axis after the pick, never before.** They should be able to check
 your reading against what they felt, and they cannot do that if the axis was
@@ -67,8 +71,9 @@ in the question.
 
 A pick is evidence. The principle drawn from it is a proposal.
 
-Offer the readings the picks actually support, and let them choose the wording
-or reject all of them. Two picks on one axis usually admit more than one
+Offer concise statement wording the picks actually support, and offer the
+boundary separately. Let them choose the wording or reject all of it. Two
+picks on one axis usually admit more than one
 account: a recommendation preferred and then a recommendation rejected can be
 read as being about the reason, the condition, or the self-contradiction
 between recommending and conceding ignorance. Those are different principles.
@@ -76,7 +81,9 @@ Guessing which one it was, and writing it in, is the tool putting words in
 their mouth by a slower route.
 
 Until they confirm a wording, the picks live in the history and the profile
-says nothing.
+says nothing. Approval of revised wording preserves the stable principle id,
+its boundary, failed predictions, and current status; wording approval is not
+new cross-context evidence.
 
 ## Say once what the picks are for
 
@@ -286,7 +293,7 @@ user, a recommendation is a leak. Record it as one if you catch yourself.
 Some of these questions touch failure, refusal, and work someone is not proud
 of. Say once, at the start, that any question can be skipped without a reason.
 
-When someone declines, move on immediately. Do not rephrase it more gently,
+When someone skips, move on immediately. Do not rephrase it more gently,
 do not return to it later, and do not note that they avoided it. Record only that the
 area is unexplored, never that they were unwilling.
 

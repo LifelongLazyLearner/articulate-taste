@@ -5,8 +5,8 @@ without being asked.
 
 ## What gets built
 
-A directory containing a `SKILL.md` and the profile itself, so the two travel
-together and there is exactly one canonical copy that every agent resolves to.
+A canonical directory containing a `SKILL.md`, the profile, and its history,
+so they travel together and every agent resolves to the same files.
 
 ```
 <their-name>/
@@ -16,8 +16,16 @@ together and there is exactly one canonical copy that every agent resolves to.
 └── log.md
 ```
 
-Move the profile in. Do not copy it and leave a second copy behind, because
-two copies drift and neither is authoritative afterwards.
+Prefer adding the packaging files at the already documented or explicitly
+designated canonical profile-and-history location. Neither the current
+directory nor `.taste` naming establishes that authority. Do not create a
+second authoritative copy or treat an experiment as canonical.
+
+If packaging would require relocation, first identify every consumer of both
+the profile and history, verify each replacement reference, define a tested
+recovery path, and obtain consent scoped to the exact relocation and effects.
+Relocate only when all four checks pass. Preserve the canonical location or
+stop when consumption, replacement, recovery, or consent is unknown.
 
 ## Naming
 
@@ -104,7 +112,8 @@ Tell them two things before running it:
   the record, so a choice written through one agent becomes invisible to the
   others.
 - Removing the skill through the CLI removes the profile with it. The profile
-  should be version-controlled somewhere independent of where it is installed.
+  and history need a verified recovery path, such as version history for the
+  same canonical directory, before installation.
 
 ## Template
 

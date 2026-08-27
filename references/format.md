@@ -1,7 +1,12 @@
 # Formats
 
 Two files. `TASTE.md` is the profile and its own resume router. `log.md` is
-append-only history.
+append-only history. Resolve both from documentation or an explicit
+designation before reading or writing. Neither the current directory nor a
+`.taste`-style name makes a file canonical. If plausible canonical pairs
+remain, ask one decisive question. If the schema is unsupported, stop writes
+and request separately authorised review or migration; do not create a
+replacement or promote an experimental file.
 
 ## Decision ids
 
@@ -40,8 +45,10 @@ than a boundary, in their own words. `**Test.**` is optional too. Neither
 affects status.
 
 `**Confirmed by.**` cites predictions that used the principle and turned out
-right. It is the only field that promotes anything, and only the profile can
-earn it. Nothing the person says about themselves goes here.
+right. The referenced `predict` or `recognise` entry must be a hit whose
+`about:` value is exactly this principle's stable slug. It is the only field
+that promotes anything, and only the profile can earn it. Nothing the person
+says about themselves goes here.
 
 ## Priority between principles
 
@@ -76,12 +83,16 @@ Actions: `seed`, `choice`, `promote`, `demote`, `predict`, `recognise`,
 
 A `predict` entry needs `about:` and `result:`, because those are what a
 principle's **Confirmed by** field resolves against. A `recognise` entry needs
-the same, and confirms on the same terms.
+the same, and confirms on the same terms. `about:` contains exactly one stable
+principle slug. Missing ids, related ids, and substring matches do not confirm;
+there is no multi-value syntax.
 
-A pick from a pair is a `choice`. It records `won:` and `lost:` as any choice
-does, and its prose names the axis that varied and what they said about why. A
-pair they could not tell apart is a `choice` whose `won:` is nothing, and it
-retires the axis rather than failing.
+A pick from a pair is a `choice`. A 1 or 2 pick records `won:` and `lost:` and
+may record a volunteered reason. `Neither` records that both candidates were
+rejected and may preserve separate volunteered reasons. `Same` records only
+that the comparison paused in this condition, not that the axis is retired
+everywhere. `Skip` records no preference inference. No reason is required, and
+none of these non-winner outcomes promotes a principle.
 
 Append only. Newest last. Never edit or delete an entry. A history that can
 be rewritten cannot serve as evidence.
