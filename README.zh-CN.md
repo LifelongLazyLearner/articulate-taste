@@ -49,18 +49,27 @@ npx skills@latest add LifelongLazyLearner/articulate-taste -g
 
 ## 你会拿到什么
 
-一份 `TASTE.md`，里面的原则长这样：
+一份 `TASTE.md`，把跨领域判断和特定媒介的品味分开。一条跨领域、尚待验证的原则长这样：
 
 ```markdown
-### recommendation-lowers-entropy — provisional
+## Universal Provisional Rules
 
-**Statement.** Say which one you would pick, and carry the reason it rests on.
+### recommendation-lowers-entropy
+
+- **Directive:** Say which one you would pick, and carry the reason it rests on.
 Laying out options evenly and stopping there leaves the decision cost with the
 reader; a recommendation takes some of it back.
 
-**Boundary.** It stops where the reason cannot be given. A bare recommendation
+- **Boundary:** It stops where the reason cannot be given. A bare recommendation
 is worse than none. Where you cannot say why, lay out the options and stop.
+
+- **Operational test:** Can the evidence settle this without taking over a
+recipient-owned decision?
 ```
+
+只适用于写作、视觉设计、音乐、产品工艺或其他具体场景的偏好，会放进
+`Scoped Taste`，并明确写出 `Applies to`、置信状态、边界、检验问题和证据引用。
+技能不会从一个媒介里的选择擅自推出普遍风格。
 
 这条不是你说出来的，是两组对比撞出来的。第一组只变「给不给建议」，给建议的那版赢。第二组把同一个差别搬进写的人根本不可能知道答案的场景，给建议的那版输了。边界就落在翻转的那一处，没人需要动嘴描述它。
 

@@ -8,13 +8,18 @@ remain, ask one decisive question. If the schema is unsupported, stop writes
 and request separately authorised review or migration; do not create a
 replacement or promote an experimental file.
 
+Two schemas are supported. The legacy schema carries status in each principle
+heading. `personal-taste-contract/v1` separates universal and scoped taste while
+preserving one canonical profile. Detect the schema already in use and write
+only that schema; never convert a real profile merely for convenience.
+
 ## Decision ids
 
 A decision's id is `<date>-<slug>`, composed from its history entry. The log
 stays readable without repeating the date; the profile references the
 composed id.
 
-## Principle
+## Legacy principle
 
 ```markdown
 ### kindness-over-authenticity — core
@@ -50,12 +55,107 @@ right. The referenced `predict` or `recognise` entry must be a hit whose
 that promotes anything, and only the profile can earn it. Nothing the person
 says about themselves goes here.
 
+## Personal taste contract v1
+
+The fenced metadata contains this exact schema marker:
+
+```yaml
+schema: personal-taste-contract/v1
+stable_baseline: none
+```
+
+New profiles use `stable_baseline: none`. A migrated profile lists the exact
+comma-separated ids that were already authoritative when this schema was
+adopted. That list is frozen migration evidence, not a shortcut for promoting
+new rules. Bind a non-empty list to one append-only migration event whose
+`baseline:` value is the SHA-256 digest of the comma-joined ids exactly as the
+validator normalises them:
+
+```markdown
+## [2026-08-31] migrate | personal-taste-contract-v1
+schema: personal-taste-contract/v1
+baseline: <sha256>
+```
+
+The validator rejects unknown ids, a missing or second migration event, and a
+baseline whose digest no longer matches. Duplicate history entry ids fail
+validation rather than replacing earlier evidence in memory. The validator
+also requires exact confirming history for every stable rule outside the
+baseline. This makes migration a one-time declaration rather than a reusable
+promotion path.
+
+A baseline rule may later move to `Universal Provisional Rules` only after a
+defended demotion is logged. Re-stabilizing it requires `Evidence` that cites
+an exact confirming prediction or recognition appended after the latest
+demotion. A pre-migration demotion does not alter the imported baseline, and
+header dates never override append order. The migration baseline itself remains
+frozen.
+
+Universal confidence is carried by section placement. A universal provisional
+principle looks like this:
+
+```markdown
+## Universal Provisional Rules
+
+### recommendation-lowers-entropy
+
+- **Directive:** Recommend one option when the deciding reason is known.
+- **Boundary:** Preserve the recipient's choice when their own result or costs
+  determine the answer.
+- **Operational test:** Can the evidence settle this without taking over a
+  recipient-owned decision?
+```
+
+`Operational test` is optional for universal rules. Statement plus boundary is
+enough for provisional status; the test helps application but gates nothing.
+
+Use `Universal Stable Rules` only for the exact `stable_baseline` or after a
+qualifying prediction or recognition cited through `Evidence`. The validator
+does not pretend it can reconstruct evidence that predates the canonical log.
+
+A scoped principle uses the same stable slug but declares its reach and
+confidence explicitly:
+
+```markdown
+## Scoped Taste
+
+### editorial-restraint
+
+- **Applies to:** long-form editorial writing
+- **Confidence:** provisional
+- **Directive:** Let one image carry the emotional turn.
+- **Boundary:** Repetition may remain when comprehension requires it.
+- **Operational test:** Does another image add meaning or only emphasis?
+- **Evidence:** [2026-08-10-editorial-choice]
+```
+
+`Applies to`, `Confidence`, `Directive`, `Boundary`, `Operational test`, and an
+exact `Evidence` reference are required for every scoped rule. Confidence is
+`provisional` or `stable`. A scoped rule becomes stable only when its evidence
+includes a `predict` or `recognise` hit whose `about:` value is exactly that one
+stable slug. There is no multi-value `about:` form.
+
+For provisional scoped evidence, a referenced `choice` must name the exact
+principle slug in `won:` or `lost:`. Other referenced actions use `about:` with
+that exact slug. Merely citing an event that exists is not support.
+
+A direct statement may enter as provisional after its wording, boundary, and
+scope are approved. Universal means the evidence supports materially different
+domains; otherwise name the medium or context actually tested. Do not infer
+brand preference, behaviour, willingness to pay, or a broader medium from a
+narrow example. Keep rejected readings and failed predictions in `log.md`, not
+as active negative rules unless a recurring false inference needs a boundary.
+
+Keep the `Scoped Taste` section even when it says `There are no active scoped
+rules.` Do not pre-create one subsection per anticipated medium.
+
 ## Priority between principles
 
 Carried in prose, inside the principle that yields: "when this and
 *ship-on-time* collide, correctness wins and I take the delay as a cost."
-Order within Core Principles reflects it too. There is no ranking field: only the person may
-assert priority, and a resolved tension is where they assert it.
+Order within `Core Principles` or `Universal Stable Rules` reflects it too.
+There is no ranking field: only the person may assert priority, and a resolved
+tension is where they assert it.
 
 ## History entries
 

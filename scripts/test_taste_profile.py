@@ -64,6 +64,67 @@ about: enter-reality
 result: miss
 """
 
+CONTRACT_PROFILE = """# Personal Taste Contract
+
+```yaml
+schema: personal-taste-contract/v1
+owner: example
+authority: user-level preference guidance
+canonical_profile: TASTE.md
+evidence_history: log.md
+stable_baseline: recipient-value
+```
+
+## Scope and Authority
+
+Universal taste crosses domains. Scoped taste applies only where declared.
+
+## Universal Stable Rules
+
+### recipient-value
+
+- **Directive:** Make value reach the intended recipient.
+- **Boundary:** Effort alone does not establish arrival.
+- **Operational test:** What changes for the recipient?
+
+## Universal Provisional Rules
+
+### grounded-momentum
+
+- **Directive:** Prefer credible momentum over empty reassurance.
+- **Boundary:** Do not promise an outcome.
+- **Operational test:** Is the possibility both credible and actionable?
+
+## Scoped Taste
+
+### editorial-restraint
+
+- **Applies to:** long-form editorial writing
+- **Confidence:** provisional
+- **Directive:** Let one image carry the emotional turn.
+- **Boundary:** Repetition may remain when comprehension requires it.
+- **Operational test:** Does another image add meaning or only emphasis?
+- **Evidence:** [2026-08-10-editorial-choice]
+
+## Application Semantics
+
+Apply only matching scoped rules.
+
+## Maintenance Contract
+
+Keep one canonical profile.
+"""
+
+CONTRACT_LOG = """# History
+
+## [2026-08-09] migrate | personal-taste-contract-v1
+schema: personal-taste-contract/v1
+baseline: ff4165af4216c991b1fd45eefbc7c45a48b67af9f8062310eec4e2590edb81d6
+
+## [2026-08-10] choice | editorial-choice
+won: editorial-restraint · lost: repeated-imagery
+"""
+
 
 class TestParseProfile(unittest.TestCase):
     def test_parses_id_and_declared_status(self):
@@ -122,6 +183,339 @@ class TestParseProfile(unittest.TestCase):
 """
         self.assertEqual([p.id for p in parse_profile(profile)], ["kindness-over-authenticity", "enter-reality"])
         self.assertEqual(validate(profile, LOG), [])
+
+
+class TestPersonalTasteContract(unittest.TestCase):
+    BASELINE_RULE = """### recipient-value
+
+- **Directive:** Make value reach the intended recipient.
+- **Boundary:** Effort alone does not establish arrival.
+- **Operational test:** What changes for the recipient?
+"""
+
+    def baseline_as_provisional(self):
+        return CONTRACT_PROFILE.replace(
+            "## Universal Stable Rules\n\n" + self.BASELINE_RULE,
+            "## Universal Stable Rules\n\nNo active stable rules.\n",
+        ).replace(
+            "## Universal Provisional Rules",
+            "## Universal Provisional Rules\n\n" + self.BASELINE_RULE,
+        )
+
+    def test_unknown_explicit_schema_fails_closed(self):
+        profile = CONTRACT_PROFILE.replace(
+            "schema: personal-taste-contract/v1",
+            "schema: personal-taste-contract/v2",
+        )
+        errors = validate(profile, CONTRACT_LOG)
+        self.assertTrue(any("unsupported profile schema" in error for error in errors), errors)
+
+    def test_parses_universal_and_scoped_layers(self):
+        principles = parse_profile(CONTRACT_PROFILE)
+        self.assertEqual(
+            [(p.id, p.declared, p.scope) for p in principles],
+            [
+                ("recipient-value", "stable", "universal"),
+                ("grounded-momentum", "provisional", "universal"),
+                ("editorial-restraint", "provisional", "scoped"),
+            ],
+        )
+        self.assertEqual(principles[-1].applies_to, "long-form editorial writing")
+
+    def test_contract_profile_validates_without_recomputing_migration_baseline(self):
+        self.assertEqual(validate(CONTRACT_PROFILE, CONTRACT_LOG), [])
+        self.assertEqual(core_ids(CONTRACT_PROFILE, CONTRACT_LOG), {"recipient-value"})
+
+    def test_empty_scoped_layer_is_supported(self):
+        profile = CONTRACT_PROFILE.replace(
+            "### editorial-restraint\n\n"
+            "- **Applies to:** long-form editorial writing\n"
+            "- **Confidence:** provisional\n"
+            "- **Directive:** Let one image carry the emotional turn.\n"
+            "- **Boundary:** Repetition may remain when comprehension requires it.\n"
+            "- **Operational test:** Does another image add meaning or only emphasis?\n"
+            "- **Evidence:** [2026-08-10-editorial-choice]\n",
+            "There are no active scoped rules.\n",
+        )
+        self.assertEqual(validate(profile, CONTRACT_LOG), [])
+
+    def test_scoped_rule_requires_declared_context(self):
+        profile = CONTRACT_PROFILE.replace(
+            "- **Applies to:** long-form editorial writing\n", ""
+        )
+        errors = validate(profile, CONTRACT_LOG)
+        self.assertTrue(any("requires Applies to" in error for error in errors), errors)
+
+    def test_scoped_rule_requires_valid_confidence(self):
+        profile = CONTRACT_PROFILE.replace(
+            "- **Confidence:** provisional", "- **Confidence:** certain"
+        )
+        errors = validate(profile, CONTRACT_LOG)
+        self.assertTrue(any("Confidence must be" in error for error in errors), errors)
+
+    def test_scoped_evidence_must_resolve(self):
+        profile = CONTRACT_PROFILE.replace(
+            "2026-08-10-editorial-choice", "2026-08-10-missing"
+        )
+        errors = validate(profile, CONTRACT_LOG)
+        self.assertTrue(any("resolves to no history entry" in error for error in errors), errors)
+
+    def test_scoped_evidence_must_name_the_exact_rule(self):
+        log = CONTRACT_LOG.replace(
+            "won: editorial-restraint · lost: repeated-imagery",
+            "won: another-rule · lost: repeated-imagery",
+        )
+        errors = validate(CONTRACT_PROFILE, log)
+        self.assertTrue(any("not about this exact principle" in error for error in errors), errors)
+
+    def test_stable_scoped_rule_needs_exact_confirming_event(self):
+        profile = CONTRACT_PROFILE.replace(
+            "- **Confidence:** provisional", "- **Confidence:** stable"
+        )
+        errors = validate(profile, CONTRACT_LOG)
+        self.assertTrue(any("requires an exact confirming" in error for error in errors), errors)
+
+    def test_exact_prediction_can_stabilize_scoped_rule(self):
+        profile = (
+            CONTRACT_PROFILE.replace(
+                "- **Confidence:** provisional", "- **Confidence:** stable"
+            ).replace(
+                "2026-08-10-editorial-choice", "2026-08-11-editorial-prediction"
+            )
+        )
+        log = CONTRACT_LOG + """
+## [2026-08-11] predict | editorial-prediction
+about: editorial-restraint
+result: hit
+"""
+        self.assertEqual(validate(profile, log), [])
+        self.assertIn("editorial-restraint", core_ids(profile, log))
+
+    def test_contract_demotion_invalidates_older_confirmation(self):
+        profile = (
+            CONTRACT_PROFILE.replace(
+                "- **Confidence:** provisional", "- **Confidence:** stable"
+            ).replace(
+                "2026-08-10-editorial-choice", "2026-08-11-editorial-prediction"
+            )
+        )
+        log = CONTRACT_LOG + """
+## [2026-08-11] predict | editorial-prediction
+about: editorial-restraint
+result: hit
+
+## [2026-08-12] demote | editorial-restraint
+defended: yes
+"""
+        errors = validate(profile, log)
+        self.assertTrue(any("demoted on 2026-08-12" in error for error in errors), errors)
+
+    def test_new_universal_stable_rule_requires_confirmation(self):
+        new_rule = """### unearned-stable
+
+- **Directive:** Treat novelty as value.
+- **Boundary:** Not when it weakens the result.
+
+"""
+        profile = CONTRACT_PROFILE.replace(
+            "## Universal Provisional Rules",
+            new_rule + "## Universal Provisional Rules",
+        )
+        errors = validate(profile, CONTRACT_LOG)
+        self.assertTrue(any("new stable rule requires an Evidence" in error for error in errors), errors)
+
+    def test_new_universal_stable_rule_accepts_exact_confirmation(self):
+        new_rule = """### earned-stable
+
+- **Directive:** Treat useful surprise as value.
+- **Boundary:** Not when it weakens the result.
+- **Evidence:** [2026-08-11-earned-prediction]
+
+"""
+        profile = CONTRACT_PROFILE.replace(
+            "## Universal Provisional Rules",
+            new_rule + "## Universal Provisional Rules",
+        )
+        log = CONTRACT_LOG + """
+## [2026-08-11] predict | earned-prediction
+about: earned-stable
+result: hit
+"""
+        self.assertEqual(validate(profile, log), [])
+
+    def test_operational_test_is_optional_for_universal_rule(self):
+        profile = CONTRACT_PROFILE.replace(
+            "- **Operational test:** Is the possibility both credible and actionable?\n",
+            "",
+        )
+        self.assertEqual(validate(profile, CONTRACT_LOG), [])
+
+    def test_contract_requires_scoped_section_even_when_empty(self):
+        before, _, remainder = CONTRACT_PROFILE.partition("## Scoped Taste")
+        _, _, after = remainder.partition("## Application Semantics")
+        profile = before + "## Application Semantics" + after
+        errors = validate(profile, CONTRACT_LOG)
+        self.assertTrue(any("requires section 'Scoped Taste'" in error for error in errors), errors)
+
+    def test_baseline_may_not_name_unknown_rule(self):
+        profile = CONTRACT_PROFILE.replace(
+            "stable_baseline: recipient-value",
+            "stable_baseline: recipient-value, missing-rule",
+        )
+        errors = validate(profile, CONTRACT_LOG)
+        self.assertTrue(any("names unknown principle" in error for error in errors), errors)
+
+    def test_baseline_cannot_expand_without_rewriting_migration_evidence(self):
+        new_rule = """### unearned-stable
+
+- **Directive:** Treat novelty as value.
+- **Boundary:** Not when it weakens the result.
+
+"""
+        profile = CONTRACT_PROFILE.replace(
+            "stable_baseline: recipient-value",
+            "stable_baseline: recipient-value, unearned-stable",
+        ).replace(
+            "## Universal Provisional Rules",
+            new_rule + "## Universal Provisional Rules",
+        )
+        errors = validate(profile, CONTRACT_LOG)
+        self.assertTrue(any("does not match its append-only migrate event" in error for error in errors), errors)
+
+    def test_silent_migration_baseline_demotion_is_rejected(self):
+        errors = validate(self.baseline_as_provisional(), CONTRACT_LOG)
+        self.assertTrue(any("without a defended demotion" in error for error in errors), errors)
+
+    def test_recorded_migration_baseline_demotion_to_provisional_is_valid(self):
+        log = CONTRACT_LOG + """
+## [2026-08-12] demote | recipient-value
+defended: yes
+"""
+        self.assertEqual(validate(self.baseline_as_provisional(), log), [])
+
+    def test_unconfirmed_migration_baseline_repromotion_is_rejected(self):
+        log = CONTRACT_LOG + """
+## [2026-08-12] demote | recipient-value
+defended: yes
+"""
+        errors = validate(CONTRACT_PROFILE, log)
+        self.assertTrue(any("requires a fresh Evidence" in error for error in errors), errors)
+
+    def test_fresh_exact_hit_can_restabilize_migration_baseline(self):
+        profile = CONTRACT_PROFILE.replace(
+            "- **Operational test:** What changes for the recipient?",
+            "- **Operational test:** What changes for the recipient?\n"
+            "- **Evidence:** [2026-08-13-recipient-value-reconfirmed]",
+        )
+        log = CONTRACT_LOG + """
+## [2026-08-12] demote | recipient-value
+defended: yes
+
+## [2026-08-13] predict | recipient-value-reconfirmed
+about: recipient-value
+result: hit
+"""
+        self.assertEqual(validate(profile, log), [])
+
+    def test_dated_later_but_appended_before_demotion_cannot_restabilize(self):
+        profile = CONTRACT_PROFILE.replace(
+            "- **Operational test:** What changes for the recipient?",
+            "- **Operational test:** What changes for the recipient?\n"
+            "- **Evidence:** [2026-08-13-recipient-value-reconfirmed]",
+        )
+        log = CONTRACT_LOG + """
+## [2026-08-13] predict | recipient-value-reconfirmed
+about: recipient-value
+result: hit
+
+## [2026-08-12] demote | recipient-value
+defended: yes
+"""
+        errors = validate(profile, log)
+        self.assertTrue(any("appended after" in error for error in errors), errors)
+
+    def test_pre_migration_demotion_cannot_authorize_baseline_demotion(self):
+        log = """# History
+
+## [2026-08-08] demote | recipient-value
+defended: yes
+
+""" + CONTRACT_LOG.removeprefix("# History\n")
+        errors = validate(self.baseline_as_provisional(), log)
+        self.assertTrue(any("without a defended demotion" in error for error in errors), errors)
+
+    def test_migration_supersedes_pre_migration_demotion_and_evidence_state(self):
+        profile = CONTRACT_PROFILE.replace(
+            "- **Operational test:** What changes for the recipient?",
+            "- **Operational test:** What changes for the recipient?\n"
+            "- **Evidence:** [2026-08-07-recipient-value-old]",
+        )
+        log = """# History
+
+## [2026-08-07] predict | recipient-value-old
+about: recipient-value
+result: hit
+
+## [2026-08-08] demote | recipient-value
+defended: yes
+
+""" + CONTRACT_LOG.removeprefix("# History\n")
+        self.assertEqual(validate(profile, log), [])
+
+    def test_duplicate_migration_id_cannot_overwrite_original_binding(self):
+        new_rule = """### unearned-stable
+
+- **Directive:** Treat novelty as value.
+- **Boundary:** Not when it weakens the result.
+
+"""
+        profile = CONTRACT_PROFILE.replace(
+            "stable_baseline: recipient-value",
+            "stable_baseline: recipient-value, unearned-stable",
+        ).replace(
+            "## Universal Provisional Rules",
+            new_rule + "## Universal Provisional Rules",
+        )
+        log = CONTRACT_LOG + """
+## [2026-08-09] migrate | personal-taste-contract-v1
+schema: personal-taste-contract/v1
+baseline: d4c10636b019b070206ce07785304ff0584e6edbb600e41a7b026637570563b3
+"""
+        errors = validate(profile, log)
+        self.assertTrue(any("duplicate history entry id" in error for error in errors), errors)
+
+    def test_duplicate_history_ids_fail_validation(self):
+        log = CONTRACT_LOG + """
+## [2026-08-10] choice | editorial-choice
+won: another-rule · lost: editorial-restraint
+"""
+        errors = validate(CONTRACT_PROFILE, log)
+        self.assertTrue(any("duplicate history entry id" in error for error in errors), errors)
+
+    def test_schema_example_after_preamble_does_not_reclassify_legacy_profile(self):
+        profile = PROFILE + """
+## Evidence
+
+```yaml
+schema: made-up/example
+```
+"""
+        self.assertEqual(validate(profile, LOG), [])
+
+    def test_universal_rule_rejects_scoped_only_fields(self):
+        profile = CONTRACT_PROFILE.replace(
+            "- **Directive:** Make value reach the intended recipient.",
+            "- **Confidence:** stable\n- **Directive:** Make value reach the intended recipient.",
+        )
+        errors = validate(profile, CONTRACT_LOG)
+        self.assertTrue(any("invalid for universal taste" in error for error in errors), errors)
+
+    def test_duplicate_id_across_layers_is_rejected(self):
+        profile = CONTRACT_PROFILE.replace(
+            "### editorial-restraint", "### recipient-value"
+        )
+        errors = validate(profile, CONTRACT_LOG)
+        self.assertTrue(any("duplicate principle id" in error for error in errors), errors)
 
 
 class TestParseLog(unittest.TestCase):
@@ -566,7 +960,7 @@ class TestEmittedSkillTemplate(unittest.TestCase):
         body = read(self.PATH)
         self.assertIn(".taste-opt-in.md", body)
         opt_in = body.index(".taste-opt-in.md")
-        loads = body.index("Status means something")
+        loads = body.index("Status and scope mean something")
         self.assertLess(opt_in, loads, "opt-in check must come first")
 
 
@@ -574,16 +968,24 @@ class TestTemplates(unittest.TestCase):
     def test_template_carries_every_required_section(self):
         profile = read(os.path.join(TEMPLATES, "TASTE.template.md"))
         for section in (
-            "## Purpose",
-            "## Core Principles",
-            "## Provisional Preferences",
+            "schema: personal-taste-contract/v1",
+            "## Scope and Authority",
+            "## Universal Stable Rules",
+            "## Universal Provisional Rules",
+            "## Scoped Taste",
             "## Open Tensions",
-            "## Decision Test",
             "## Evidence",
             "## Revision Record",
-            "## Scope and Authority",
+            "## Application Semantics",
+            "## Maintenance Contract",
         ):
             self.assertIn(section, profile)
+
+    def test_docs_explain_universal_and_scoped_taste(self):
+        for path in (SKILL, README, README_ZH, os.path.join(REFERENCES, "format.md")):
+            body = read(path).lower()
+            self.assertIn("universal", body, path)
+            self.assertIn("scoped", body, path)
 
 
 if __name__ == "__main__":

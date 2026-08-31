@@ -22,7 +22,8 @@ the profile understood them.
 
 - no boundary → candidate
 - statement and boundary → provisional, immediately
-- the profile demonstrated it understood them → core
+- the profile demonstrated it understood them → `core` in the legacy schema or
+  `stable` in `personal-taste-contract/v1`
 
 Two events demonstrate that. A **prediction** the profile got right about
 their judgment. Or a **recognition**: the profile produced work, and they
@@ -79,6 +80,16 @@ promotion the person took back. The validator reports it.
 
 A principle can be confirmed again later by a fresh prediction. Nothing is
 permanently spent.
+
+For a `personal-taste-contract/v1` rule imported through `stable_baseline`, a
+move to `Universal Provisional Rules` must have a defended demotion in the
+append-only history. Returning it to `Universal Stable Rules` requires an
+`Evidence` reference to an exact prediction or recognition hit appended after
+the latest demotion. "After" means later in `log.md`; header dates do not
+override the append-only sequence. Only a defended demotion appended after the
+baseline's migration event changes migrated status. The historical baseline
+supersedes earlier lifecycle state and remains unchanged; it records the
+migration state, not a permanent exemption from later evidence.
 
 Without their confirmation, write nothing and record the contradiction as an
 open tension so it resurfaces rather than being lost.

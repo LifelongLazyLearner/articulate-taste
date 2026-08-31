@@ -8,6 +8,11 @@ description: Use when someone wants to work out what they actually value in the 
 Elicit a person's own standards of judgment and record them so they keep
 improving. Their conclusions, never yours.
 
+Keep altitude explicit. A principle is **universal** only when it can govern
+choices across materially different domains. A preference confined to a medium
+or context is **scoped** and declares where it applies. Specific evidence never
+silently becomes a broader rule.
+
 ## Neutrality rules
 
 Content neutrality is the product. These bind every state below.
@@ -125,8 +130,10 @@ history. The current directory and `.taste`-style names establish no
 authority. If more than one plausible pair remains, ask one decisive question
 and wait. If either file uses an unsupported schema, stop without writing and
 call for a separately authorised review or migration. Do not create a
-replacement or treat an experimental file as canonical. Once resolved, read
-the profile's `Open Tensions` to resume.
+replacement or treat an experimental file as canonical. Once resolved, use the
+profile's own resume surface. Read `Open Tensions` when that section exists. In
+`personal-taste-contract/v1`, also inspect rule-level open tensions and only the
+relevant entries in `log.md`; do not convert schemas just to resume.
 
 1. **seed.** Cold start only, for when there is nothing yet to compare. A
    forced choice in the present tense, price stated inside the question. Never
@@ -146,13 +153,17 @@ the profile's `Open Tensions` to resume.
    and with the alternative readings the same picks would support. They choose
    the wording or reject all of it. Approval changes only the wording: preserve
    the stable id, boundary, failed predictions, and status. An unconfirmed
-   reading stays in the history and out of the profile.
+   reading stays in the history and out of the profile. Decide its altitude
+   from the evidence: universal only across materially different domains;
+   otherwise scoped to the medium or context actually tested.
 5. **boundary.** Move the same axis into a different base condition and pair
    again. Where the pick flips is the boundary, and it arrives without anyone
    having to describe it. Falling back to asking is allowed only when no
    second condition can be built.
-6. **record status.** Statement plus boundary is provisional straight away.
-   Read [references/promotion.md](references/promotion.md) when a principle
+6. **record status.** Statement plus boundary is provisional straight away. A
+   scoped principle also records `Applies to`, confidence, and an exact evidence
+   reference. Do not pre-create empty medium taxonomies. Read
+   [references/promotion.md](references/promotion.md) when a principle
    first earns a boundary, when a status is about to change, or when a pick
    contradicts something already written.
 7. **record.** Update the principle and append the history entry in one
@@ -161,10 +172,11 @@ the profile's `Open Tensions` to resume.
 8. **confirm.** As soon as any principle has a boundary, run one of the two
    events that promote. Either predict their judgment on a held-out item and
    show them the item, or run a wide comparison and let them pick the
-   profile's work out blind against a control. A hit promotes to core: the
-   profile has shown it understood them. A miss opens a tension and re-enters
-   the loop, and is the more useful outcome. Single-axis picks from step 3
-   never promote, however many of them agree.
+   profile's work out blind against a control. A hit promotes to `core` in the
+   legacy schema or `stable` in `personal-taste-contract/v1`: the profile has
+   shown it understood them. A miss opens a tension and re-enters the loop, and
+   is the more useful outcome. Single-axis picks from step 3 never promote,
+   however many of them agree.
 
 ## Verify before finishing
 
@@ -177,7 +189,14 @@ python3 scripts/taste_profile.py <profile-dir>/TASTE.md <profile-dir>/log.md
 It fails when the profile schema is empty or unsupported, when a principle
 claims a status its evidence does not support, or when a confirmation does not
 resolve to a successful prediction or recognition explicitly about that same
-stable principle id. Fix ordinary bookkeeping only when authorised. An
+stable principle id. It supports both the legacy principle format and
+`personal-taste-contract/v1`. For the contract schema it validates universal
+versus scoped placement, required scoped fields, evidence references, and exact
+confirmation before a scoped rule becomes stable. Existing universal stable
+rules named by `stable_baseline` are an authoritative migration baseline rather
+than statuses the tool can retroactively reconstruct. A non-empty baseline must
+match the digest in its single append-only `migrate` event, so the validator
+does not let later rules enter it. Fix ordinary bookkeeping only when authorised. An
 unsupported schema requires separate review or migration authority; never
 auto-migrate a real profile to make this check green. Repeat until it prints
 `profile consistent with its history`, and do not report the session finished
