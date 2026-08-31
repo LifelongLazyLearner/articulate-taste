@@ -50,19 +50,28 @@ At the end of anything you produce, name the choices no principle covered.
 Those are the ones you made up, and they should be labelled as yours rather
 than passed off as theirs.
 
-## Status means something
+## Status and scope mean something
 
-- **core** principles have been confirmed: the profile predicted this person
-  correctly, or produced work they picked out blind. Lean on these.
+- **core** in the legacy schema and **stable** in
+  `personal-taste-contract/v1` are the strongest active principles. The
+  contract's universal stable rules may be listed in its frozen
+  `stable_baseline`; any stable rule outside it requires exact confirming
+  evidence.
 - **provisional** principles are stated with a boundary and nothing has tested
   them yet. Apply them, and say that they are untested when they decide
   something important.
-- **candidate** principles have no boundary. Do not apply them. Mention them
-  only if the work happens to bear on one.
+- **candidate** is legacy-only and has no boundary. Do not apply it. Mention it
+  only if the work happens to bear on it.
 
 Every principle has a boundary saying where it stops. Check the boundary before
 applying the principle, because most disagreements live there rather than in
 the statement.
+
+Universal principles may bear across domains. A scoped principle applies only
+when its declared `Applies to` context matches. Universal rules govern by
+default; a scoped exception must be explicit. If two matching scoped rules
+conflict and neither context is narrower, preserve the conflict rather than
+inventing a priority.
 
 ## Modes
 
@@ -95,6 +104,7 @@ Either way, they write the change, not you.
 python3 <articulate-taste>/scripts/taste_profile.py <canonical>/TASTE.md <canonical>/log.md
 ```
 
-Reports unsupported schemas and any principle claiming a status its history
-does not support. Run it after appending anything. If it does not print
-`profile consistent with its history`, stop without further edits.
+Reports unsupported schemas, malformed universal or scoped placement, missing
+scoped evidence, and unsupported promotions. Run it after appending anything.
+If it does not print `profile consistent with its history`, stop without
+further edits.

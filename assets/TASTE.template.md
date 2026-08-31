@@ -1,44 +1,66 @@
-# Taste Profile
+# Personal Taste Contract
 
-**Version:** 0.1
-**Status:** In progress
-**Last updated:** <date>
+```yaml
+schema: personal-taste-contract/v1
+owner: <owner>
+authority: user-level preference guidance
+canonical_profile: <canonical-path>/TASTE.md
+evidence_history: <canonical-path>/log.md
+stable_baseline: none
+```
 
-## Purpose
+## Scope and Authority
 
-What this profile is for, in the person's own words.
+This profile predicts how its owner judges and chooses. It is not a complete
+personal philosophy, an agent-governance document, or a catalogue of surface
+aesthetics.
 
-## Core Principles
+It has two layers:
 
-Principles the profile has predicted correctly at least once. Each carries a
-stable slug id, a statement, and a boundary.
+- **Universal taste** contains principles that can govern choices across
+  materially different domains.
+- **Scoped taste** contains preferences that apply only to declared media or
+  contexts.
 
-## Provisional Preferences
+This profile is guidance, not automatic authority. It does not override
+evidence, safety, explicit constraints, or another person's authority over
+their own choices.
 
-Stated and bounded, but the profile has not yet predicted a judgment
-correctly using them. This is where a principle sits from the moment you name
-it. An honest status, not a lesser one.
+## Universal Stable Rules
+
+No active stable rules.
+
+## Universal Provisional Rules
+
+No active provisional rules.
+
+## Scoped Taste
+
+No active scoped rules.
 
 ## Open Tensions
 
-Unresolved dilemmas, principles still missing a boundary, and principles the
-profile has not yet predicted correctly. This section is where the next
-session resumes.
-
-## Decision Test
-
-The Test line of each core principle, in order.
+Unresolved dilemmas, proposed principles not yet admitted to the profile, and
+principles whose boundary or confidence remains unsettled. Resume here.
 
 ## Evidence
 
-Choices and reactions the principles came from.
+Choice and prediction summaries that help a reader navigate `log.md` without
+replacing its append-only record.
 
 ## Revision Record
 
 Prior wording of anything demoted or narrowed, preserved intact.
 
-## Scope and Authority
+## Application Semantics
 
-This profile is guidance, not automatic authority. It applies to a project
-only when that project invokes it. It does not override evidence, safety,
-explicit constraints, or another person's authority over their own choices.
+Universal rules govern by default. A scoped rule applies only when its declared
+context matches and may depart from a universal rule only through an explicit
+boundary. Preserve unresolved conflicts rather than averaging them.
+
+## Maintenance Contract
+
+- `TASTE.md` is the sole active preference authority.
+- `log.md` is append-only evidence and revision history.
+- Do not change a principle without the owner's consent.
+- Preserve prior wording, contrary evidence, and failed predictions.

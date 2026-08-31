@@ -77,18 +77,29 @@ where you left off.
 
 ## What you end up with
 
-A `TASTE.md` of principles that look like this:
+A `TASTE.md` that separates cross-domain judgment from medium-specific taste.
+A universal provisional principle looks like this:
 
 ```markdown
-### recommendation-lowers-entropy — provisional
+## Universal Provisional Rules
 
-**Statement.** Say which one you would pick, and carry the reason it rests on.
+### recommendation-lowers-entropy
+
+- **Directive:** Say which one you would pick, and carry the reason it rests on.
 Laying out options evenly and stopping there leaves the decision cost with the
 reader; a recommendation takes some of it back.
 
-**Boundary.** It stops where the reason cannot be given. A bare recommendation
+- **Boundary:** It stops where the reason cannot be given. A bare recommendation
 is worse than none. Where you cannot say why, lay out the options and stop.
+
+- **Operational test:** Can the evidence settle this without taking over a
+recipient-owned decision?
 ```
+
+A preference confined to writing, visual design, music, product craft, or
+another context goes under `Scoped Taste` with an explicit `Applies to` field,
+confidence, boundary, test, and evidence reference. The profile does not infer
+a universal style from one medium.
 
 That one came out of two pairs. The first varied whether the writer
 recommended anything, and the recommendation won. The second moved the same
